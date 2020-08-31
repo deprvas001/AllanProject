@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="detail"
+            type="com.development.allanproject.model.signupModel.Details" />
 
+        <variable
+            name="viewmodel"
+            type="com.development.allanproject.views.activity.ui.addlicenese.AddLicenseViewModel" />
+    </data>
 
+    <RelativeLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -112,6 +125,8 @@
                     android:text="@string/select_license"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/license_id"
+                    android:entries="@array/license_id"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -129,7 +144,9 @@
                     android:text="@string/license_no"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/license_no"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:entries="@array/license_no"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:paddingBottom="10dp"
@@ -145,7 +162,9 @@
                     android:text="@string/state"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/state"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:entries="@array/state"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:paddingBottom="10dp"
@@ -161,6 +180,7 @@
                     android:text="@string/select_compact"/>
 
                 <RadioGroup
+                    android:id="@+id/compat_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -189,13 +209,13 @@
                     android:layout_marginTop="10dp">
 
                     <EditText
-                        android:id="@+id/input_email"
+                        android:text="@={viewmodel.issueDate}"
+                        android:id="@+id/input_issue_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:focusableInTouchMode="true"
                         android:hint="@string/issue_date"
                         android:textColor="#C0C0C0"
-                        android:inputType="textEmailAddress"
                         android:singleLine="true"
                         android:textSize="14sp" />
 
@@ -209,6 +229,8 @@
                     android:layout_marginTop="10dp">
 
                     <EditText
+                        android:text="@={viewmodel.expDate}"
+                        android:id="@+id/expire_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:focusableInTouchMode="true"
@@ -256,7 +278,7 @@
                     android:textColor="@android:color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_login"
+                    android:id="@+id/btn_next"
                     android:layout_width="fill_parent"
                     android:layout_height="55dp"
                     android:layout_marginTop="20dp"
@@ -276,12 +298,20 @@
                     android:text="@string/add"
                     android:textAllCaps="true"
                     android:textStyle="bold"
+                    android:layout_marginBottom="20dp"
                     android:textColor="@android:color/white" />
 
             </LinearLayout>
 
         </ScrollView>
     </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
 
+    </RelativeLayout>
 
 </layout>

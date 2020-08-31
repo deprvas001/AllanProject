@@ -9,6 +9,7 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,7 +31,7 @@
                     android:id="@+id/imageView"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/upload_document"/>
+                    android:src="@drawable/dumy_image"/>
 
                 <LinearLayout
                     android:id="@+id/name_layout"
@@ -68,6 +69,8 @@
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:textColor="#959595"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/calendar_icon"
                     android:text="14/03/2020"/>
 
                 <TextView
@@ -79,6 +82,8 @@
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
                     android:textColor="#959595"
+                    android:drawablePadding="10dp"
+                    android:drawableLeft="@drawable/marker"
                     android:text="San Francisco, CA, USA."/>
 
                 <TextView

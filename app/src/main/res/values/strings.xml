@@ -83,7 +83,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
     <string name="id">ID</string>
     <string name="update_form">Update Form i-9</string>
     <string name="employment_detail">Employment Details</string>
-    <string name="edit">Edit</string>
+    <string name="edit"><u>Edit</u></string>
     <string name="profile_heading">Upcoming Appoinment Date and Time Location</string>
     <string name="reschedule_heading">Re-Schedule Appoinment</string>
     <string name="setPreference">Set Preference</string>
@@ -112,4 +112,37 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
     <string name="add_event">Add Event</string>
     <string name="shifts">Shifts</string>
     <string name="preference">Preference</string>
+    <string name="title_activity_home_screen">HomeScreen</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="open_shift">Open Shifts</string>
+    <string name="title_myshift">My Shifts</string>
+    <string name="title_calendar">Calendar</string>
+    <string name="title_message">Message</string>
+    <string name="heading_cancel_shift">Are you sure you want to Cancel your shift ?</string>
+    <string name="email_empty">Email Field empty</string>
+    <string name="password_empty">Password Field Empty</string>
+    <string name="phone_empty">Phone FIeld Empty</string>
+    <string name="license_header">In What state are you Licensed?</string>
+    <string name="select_state">Select State</string>
+
+    <string-array name="license_id">
+        <item>License Id 1</item>
+        <item>License Id 2</item>
+        <item>License Id 3</item>
+    </string-array>
+
+    <string-array name="license_no">
+        <item>12344132EFG</item>
+        <item>13242424A3F</item>
+        <item>13365456B9F</item>
+    </string-array>
+
+    <string-array name="state">
+        <item>Delhi</item>
+        <item>Haryana</item>
+        <item>Punjab</item>
+    </string-array>
+
 </resources>

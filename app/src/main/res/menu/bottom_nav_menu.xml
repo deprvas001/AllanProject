@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_open_shift"
+        android:icon="@drawable/open_shift"
+        android:title="@string/open_shift" />
+
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/dashboard"
+        android:title="@string/title_dashboard" />
+
+    <item
+        android:id="@+id/navigation_message"
+        android:icon="@drawable/message_dashboard"
+        android:title="@string/title_message" />
+
+    <item
+        android:id="@+id/navigation_myshift"
+        android:icon="@drawable/my_shift"
+        android:title="@string/title_myshift" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/callendar_icon"
+        android:title="@string/title_calendar" />
+
+</menu>

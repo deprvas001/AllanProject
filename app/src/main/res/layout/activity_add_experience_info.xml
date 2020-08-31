@@ -514,7 +514,7 @@
                     android:textColor="@android:color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_login"
+                    android:id="@+id/btn_next"
                     android:layout_width="fill_parent"
                     android:layout_height="55dp"
                     android:layout_marginLeft="20dp"

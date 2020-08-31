@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorPrimary">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorPrimary"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/back"
+                        android:layout_width="24dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@android:color/white"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/ic_back"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text=" My Profile"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@android:color/white"
+                        android:textSize="20dp"
+                        android:gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@android:color/white"
+                        android:layout_marginRight="10dp"
+                        android:visibility="invisible"
+                        />
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+           <FrameLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <androidx.cardview.widget.CardView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:cardCornerRadius="5dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginRight="20dp"
+                   android:layout_marginBottom="20dp"
+                   android:layout_marginTop="140dp"
+                   app:cardElevation="10dp">
+
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical">
+
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:layout_marginLeft="10dp"
+                               android:src="@drawable/download_icon"
+                               android:layout_gravity="right"/>
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:layout_weight="1"/>
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:src="@drawable/edit"
+                               android:tint="@color/colorPrimary"
+                               android:layout_gravity="right"/>
+
+                       </LinearLayout>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="10dp"
+                           android:layout_marginRight="10dp"
+                           android:layout_marginTop="-5dp"
+                           android:textSize="12sp"
+                           android:text="Download"/>
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:textColor="#555555"
+                           android:padding="10dp"
+                           android:layout_marginTop="-10dp"
+                           android:textStyle="bold"
+                           android:gravity="center"
+                           android:text="Askani Indra"/>
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:textColor="#555555"
+                           android:textStyle="bold"
+                           android:gravity="center"
+                           android:text="Phone: +1-9845864736"/>
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:textColor="#555555"
+                           android:textStyle="bold"
+                           android:gravity="center"
+                           android:text="Email: yogendra,choudhary@webfuI"/>
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_weight="1"
+                           android:textColor="#555555"
+                           android:textStyle="bold"
+                           android:gravity="center"
+                           android:layout_marginTop="10dp"
+                           android:drawablePadding="10dp"
+                           android:layout_gravity="center_horizontal"
+                           android:drawableLeft="@drawable/marker"
+                           android:text="San Francisco, CA, USA."/>
+
+
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_height="1dp"
+                           android:layout_marginTop="20dp"
+                           android:layout_marginBottom="10dp"
+                           android:background="#DEDEDE"/>
+
+
+                       <LinearLayout
+                           android:id="@+id/missed_clock_layout"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:text="Missed Clock Ins"
+                               android:textColor="#818181"
+                               android:drawablePadding="10dp"
+                               android:drawableTint="#818181"
+                               android:layout_gravity="center_vertical"
+                               android:drawableLeft="@drawable/ic_access_time"
+                               android:layout_weight="1"/>
+
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:tint="#818181"
+                               android:src="@drawable/ic_right"/>
+                       </LinearLayout>
+
+
+                       <LinearLayout
+                           android:id="@+id/edit_profile_layout"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:text="Profile and Documentsre"
+                               android:textColor="#818181"
+                               android:drawablePadding="10dp"
+                               android:drawableTint="#818181"
+                               android:layout_gravity="center_vertical"
+                               android:drawableLeft="@drawable/ic_access_time"
+                               android:layout_weight="1"/>
+
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:tint="#818181"
+                               android:src="@drawable/ic_right"/>
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:id="@+id/preference_screen_layout"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:text="Preference"
+                               android:textColor="#818181"
+                               android:drawablePadding="10dp"
+                               android:drawableTint="#818181"
+                               android:layout_gravity="center_vertical"
+                               android:drawableLeft="@drawable/ic_access_time"
+                               android:layout_weight="1"/>
+
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:tint="#818181"
+                               android:src="@drawable/ic_right"/>
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:id="@+id/prefered_facility_screen"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:text="Preferred Facilities"
+                               android:textColor="#818181"
+                               android:drawablePadding="10dp"
+                               android:drawableTint="#818181"
+                               android:layout_gravity="center_vertical"
+                               android:drawableLeft="@drawable/ic_access_time"
+                               android:layout_weight="1"/>
+
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:tint="#818181"
+                               android:src="@drawable/ic_right"/>
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:id="@+id/my_payment_layout"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:text="My Payments"
+                               android:textColor="#818181"
+                               android:drawablePadding="10dp"
+                               android:drawableTint="#818181"
+                               android:layout_gravity="center_vertical"
+                               android:drawableLeft="@drawable/ic_access_time"
+                               android:layout_weight="1"/>
+
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:tint="#818181"
+                               android:src="@drawable/ic_right"/>
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:id="@+id/training_layout"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:text="Training"
+                               android:textColor="#818181"
+                               android:drawablePadding="10dp"
+                               android:drawableTint="#818181"
+                               android:layout_gravity="center_vertical"
+                               android:drawableLeft="@drawable/ic_access_time"
+                               android:layout_weight="1"/>
+
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:tint="#818181"
+                               android:src="@drawable/ic_right"/>
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:text="My Rewards (Coming Soon)"
+                               android:textColor="#818181"
+                               android:drawablePadding="10dp"
+                               android:drawableTint="#818181"
+                               android:layout_gravity="center_vertical"
+                               android:drawableLeft="@drawable/ic_access_time"
+                               android:layout_weight="1"/>
+
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:tint="#818181"
+                               android:src="@drawable/ic_right"/>
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:id="@+id/settings_layout"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:layout_margin="10dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_height="wrap_content"
+                               android:text="Settings"
+                               android:textColor="#818181"
+                               android:drawablePadding="10dp"
+                               android:drawableTint="#818181"
+                               android:layout_gravity="center_vertical"
+                               android:drawableLeft="@drawable/ic_access_time"
+                               android:layout_weight="1"/>
+
+
+                           <ImageView
+                               android:layout_width="24dp"
+                               android:layout_height="24dp"
+                               android:tint="#818181"
+                               android:src="@drawable/ic_right"/>
+                       </LinearLayout>
+
+
+                   </LinearLayout>
+
+               </androidx.cardview.widget.CardView>
+
+           </FrameLayout>
+
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    app:civ_border_width="4dp"
+                    android:src="@drawable/dumy_image"
+                    android:layout_marginTop="80dp"
+                    android:layout_gravity="center_horizontal"
+                    app:civ_border_color="#ffffff"/>
+
+    </FrameLayout>
+
+    </ScrollView>
+
+</layout>

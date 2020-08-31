@@ -94,6 +94,18 @@
                />
         </LinearLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+
 
         <ImageView
             android:layout_width="80dp"
@@ -144,7 +156,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_login_otp"
             android:layout_width="fill_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="30dp"
@@ -175,14 +187,17 @@
 
 
         <TextView
+            android:id="@+id/signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/new_user"
             android:gravity="center"
             android:textSize="16dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginTop="20dp"/>
-        
 
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 

@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.fragment.MyShiftOver">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You have no assigned shift today,
+press the Available Now Button to
+ activate Urgent Job Requests"
+        android:layout_margin="15dp"
+        android:padding="10dp"
+        android:textColor="#4D4D4D"
+        android:gravity="center"/>
+    
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/offline_circle"
+            android:gravity="center"
+            android:text="Go Off line"
+            android:padding="100dp"
+            android:textColor="#D14343"
+            android:layout_gravity="center"/>
+
+
+</LinearLayout>

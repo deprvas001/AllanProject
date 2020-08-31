@@ -6,4 +6,7 @@
     <color name="text_color_hint">#959595</color>
     <color name="edit_text_color">#1D1500</color>
     <color name="progress_bar_border">#4BB24D</color>
+    <color name="bg_row_background">#fa315b</color>
+    <color name="item_name">#535353</color>
+    <color name="description">#a9a9a9</color>
 </resources>

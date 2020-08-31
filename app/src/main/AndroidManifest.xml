@@ -2,27 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.development.allanproject">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.development.views.activity.MyPayment"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".views.activity.ui.addlicenese.AddLicenses"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
         </activity>
         <activity
-            android:name="com.development.views.activity.WeekDates"
+            android:name=".views.activity.ui.speciality.AddSpeciality"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -32,202 +30,300 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.development.views.activity.EarningWeek"
+            android:name=".views.activity.ui.addlicenese.AddLicense"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.addexperience.AddExperience"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity
-            android:name="com.development.views.activity.WeekShiftScreen"
+            android:name=".views.activity.ui.personal.PersonalDetail"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".views.activity.SignUpComplete"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.PreferenceScreen"
+            android:name=".views.activity.SetFacilityType"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.ShiftName"
+            android:name=".views.activity.ClockOutScreenSecond"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddMyEvent"
+            android:name=".views.activity.ViewMyShift"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddAvailability"
+            android:name=".views.activity.NotificationScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.ShiftRequest"
+            android:name=".views.activity.RequestedShiftSecond"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.LocationPreference"
+            android:name=".views.activity.MyShiftScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddEducation"
+            android:name=".views.activity.RequestShiftScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddExperienceInfo"
+            android:name=".views.activity.ViewOfferedShift"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.Forms"
+            android:name=".views.activity.ClockInSecondScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddSpecialty"
+            android:name=".views.activity.ClockOutScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.FacilityProfile"
-            android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.development.views.activity.SocailSecurity"
+            android:name=".views.activity.HomeScreen"
+            android:label="@string/title_activity_home_screen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.HiddenJobs"
+            android:name=".views.activity.EditProfile"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.FaqScreen"
-            android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.development.views.activity.ChangePassword"
+            android:name=".views.activity.ClockInScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.SetWorkPreference"
+            android:name=".views.activity.AllShifts"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.SetPreference"
+            android:name=".views.activity.MyProfile"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.ProfileSummary"
+            android:name=".views.activity.NotificationSettings"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.EmploymentDetail"
+            android:name=".views.activity.Settings"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.Referencecs"
+            android:name=".views.activity.ViewFutureShift"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.LicenseList"
+            android:name=".views.activity.BackgroundInformation"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.CertificatesList"
+            android:name=".views.activity.PreferredFacilityScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.EducationActivity"
+            android:name=".views.activity.ResearchScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.EditWorkExperience"
+            android:name=".views.activity.AwardsScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.EHRMScreen"
+            android:name=".views.activity.LanguageScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddCertificateSecond"
+            android:name=".views.activity.MissedClockScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddCertificate"
+            android:name=".views.activity.MyPayment"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddDocument"
+            android:name=".views.activity.WeekDates"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddLicense"
+            android:name=".views.activity.EarningWeek"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.HealthDocument"
+            android:name=".views.activity.WeekShiftScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.Training"
+            android:name=".views.activity.PreferenceScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.BankInfo"
+            android:name=".views.activity.ShiftName"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AddExperience"
+            android:name=".views.activity.AddMyEvent"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.AccessScreen"
+            android:name=".views.activity.AddAvailability"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.PersonalDetails"
+            android:name=".views.activity.ShiftRequest"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.PrivacyPolicy"
+            android:name=".views.activity.LocationPreference"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.SignUp"
+            android:name=".views.activity.AddEducation"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.TermsCondition"
+            android:name=".views.activity.AddExperienceInfo"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.OTPVerification"
+            android:name=".views.activity.Forms"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.ForgotPassword"
+            android:name=".views.activity.AddSpecialty"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.NormalLoginScreen"
+            android:name=".views.activity.FacilityProfile"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.development.views.activity.LoginScreen"
+            android:name=".views.activity.SocailSecurity"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.HiddenJobs"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.FaqScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ChangePassword"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.SetWorkPreference"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.SetPreference"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ProfileSummary"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.EmploymentDetail"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.Referencecs"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.LicenseList"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.CertificatesList"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.EducationActivity"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.EditWorkExperience"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.EHRMScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.AddCertificateSecond"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.AddCertificate"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.AddDocument"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.AddLicense"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.HealthDocument"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.Training"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.BankInfo"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.AddExperience"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.AccessScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.PrivacyPolicy"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.signup.SignUp"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".views.activity.TermsCondition"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.OTPVerification"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ForgotPassword"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.NormalLoginScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.LoginScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".MainActivity" />
     </application>
 
