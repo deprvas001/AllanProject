@@ -15,14 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.addlicenese.AddLicenses"
+        <activity android:name=".views.activity.ui.setPreference.SetPreferenceScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
+
         </activity>
         <activity
-            android:name=".views.activity.ui.speciality.AddSpeciality"
+            android:name=".views.activity.ui.setFaciliity.FacilityType"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.addcertifictate.AddCertificate"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.addlicenese.AddLicenses"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,19 +41,21 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".views.activity.ui.speciality.AddSpeciality"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".views.activity.ui.addlicenese.AddLicense"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.addexperience.AddExperience"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.personal.PersonalDetail"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.SignUpComplete"
             android:theme="@style/AppTheme1"
@@ -50,7 +63,7 @@
         <activity
             android:name=".views.activity.SetFacilityType"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".views.activity.ClockOutScreenSecond"
             android:theme="@style/AppTheme1"
@@ -303,7 +316,16 @@
         <activity
             android:name=".views.activity.ui.signup.SignUp"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
+        </activity>
         <activity
             android:name=".views.activity.TermsCondition"
             android:theme="@style/AppTheme1"

@@ -1,8 +1,7 @@
 package com.development.allanproject.data.network
 
 import com.development.allanproject.constant.ApiConstant
-import com.development.allanproject.model.signupModel.PersonalDetailPost
-import com.development.allanproject.model.signupModel.SignResponse
+import com.development.allanproject.model.signupModel.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -27,6 +26,24 @@ interface ServiceApi {
     suspend fun userLogin(
         @HeaderMap header: HashMap<String, String>,
         @Body details: PersonalDetailPost
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun documentUpload(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: DocumentDetailPost
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun addPerference(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: SetPreferencePost
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun experienceUpload(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: ExperiencePost
     ): Response<SignResponse>
 
 

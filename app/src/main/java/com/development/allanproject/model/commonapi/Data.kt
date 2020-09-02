@@ -6,5 +6,7 @@ data class Data(
     val license: List<License>,
     val shift_preference: List<ShiftPreference>,
     val shift_type: List<ShiftType>,
-    val speciality: List<Speciality>
+    val speciality: List<Speciality>,
+    val states: List<String>,
+    val certificates: List<CertificateType>
 )

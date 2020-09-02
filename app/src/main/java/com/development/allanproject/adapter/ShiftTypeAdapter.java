@@ -13,18 +13,17 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.development.allanproject.R;
-import com.development.allanproject.model.FacilityTypeModel;
-import com.development.allanproject.model.commonapi.FacilityPreference;
+import com.development.allanproject.model.commonapi.ShiftPreference;
+import com.development.allanproject.model.commonapi.ShiftType;
 import com.development.allanproject.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FacilityTypeAdapter extends RecyclerView.Adapter<FacilityTypeAdapter.MyViewHolder> {
-
-    private List<FacilityPreference> facilityList;
+public class ShiftTypeAdapter extends RecyclerView.Adapter<ShiftTypeAdapter.MyViewHolder> {
+    private List<ShiftType> facilityList;
     private Context context;
-    public static ArrayList<Integer> selectItem = new ArrayList<Integer>();
+    public static ArrayList<Integer> selectShiftType = new ArrayList<Integer>();
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
@@ -40,22 +39,22 @@ public class FacilityTypeAdapter extends RecyclerView.Adapter<FacilityTypeAdapte
     }
 
 
-    public FacilityTypeAdapter(Context context,List<FacilityPreference> facilityList) {
+    public ShiftTypeAdapter(Context context,List<ShiftType> facilityList) {
         this.context = context;
         this.facilityList = facilityList;
     }
 
     @Override
-    public FacilityTypeAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ShiftTypeAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.facility_type_row, parent, false);
+                .inflate(R.layout.set_preference_row, parent, false);
 
-        return new FacilityTypeAdapter.MyViewHolder(itemView);
+        return new ShiftTypeAdapter.MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(FacilityTypeAdapter.MyViewHolder holder, int position) {
-        FacilityPreference document = facilityList.get(position);
+    public void onBindViewHolder(ShiftTypeAdapter.MyViewHolder holder, int position) {
+        ShiftType  document = facilityList.get(position);
         holder.name.setText(document.getName());
 
         Util.loadImage(holder.icon,document.getIcon(),
@@ -64,21 +63,21 @@ public class FacilityTypeAdapter extends RecyclerView.Adapter<FacilityTypeAdapte
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-               if(b){
-                   selectItem.add(document.getId());
-                   Toast.makeText(context, "checkced", Toast.LENGTH_SHORT).show();
-               }else{
-                   Toast.makeText(context, "Uncheckced", Toast.LENGTH_SHORT).show();
-                   // selectItem.remove(document.getId());
-                    if(selectItem.contains(document.getId())){
-                       int index = selectItem.indexOf(document.getId());
-                        selectItem.remove(index);
+                if(b){
+                    selectShiftType.add(document.getId());
+                    Toast.makeText(context, "checkced", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(context, "Uncheckced", Toast.LENGTH_SHORT).show();
+                    // selectShiftType.remove(document.getId());
+                    if(selectShiftType.contains(document.getId())){
+                        int index = selectShiftType.indexOf(document.getId());
+                        selectShiftType.remove(index);
                     }
-//                   if(selectItem.contains(document.getId())){
-//                       selectItem.remove(document.getId());
+//                   if(selectShiftType.contains(document.getId())){
+//                       selectShiftType.remove(document.getId());
 //                       Toast.makeText(context, "removed", Toast.LENGTH_SHORT).show();
 //                   }
-               }
+                }
             }
         });
 

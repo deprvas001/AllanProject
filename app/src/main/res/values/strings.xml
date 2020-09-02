@@ -126,6 +126,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
     <string name="phone_empty">Phone FIeld Empty</string>
     <string name="license_header">In What state are you Licensed?</string>
     <string name="select_state">Select State</string>
+    <string name="selected_license">Selected License</string>
+    <string name="selected_compat">Selected Compat</string>
 
     <string-array name="license_id">
         <item>License Id 1</item>

@@ -39,11 +39,11 @@ public class SetFacilityType extends BaseActivity implements View.OnClickListene
             certificate.setName("Certificate");
             dataList.add(certificate);
         }
-        adapter = new FacilityTypeAdapter(this, dataList);
+      /*  adapter = new FacilityTypeAdapter(this, dataList);
         mLayoutManager = new LinearLayoutManager(this);
         typeBinding.recyclerView.setLayoutManager(mLayoutManager);
         typeBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        typeBinding.recyclerView.setAdapter(adapter);
+        typeBinding.recyclerView.setAdapter(adapter);*/
     }
 
     @Override

@@ -36,12 +36,7 @@ class AddLicense : AppCompatActivity(), AuthListener, KodeinAware {
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        viewModel.licenceCompact = "Yes"
         array.add("https://homepages.cae.wisc.edu/~ece533/images/airplane.png")
-        viewModel.licenseId = "1"
-        viewModel.licenseNo = "A932DWE3234EDFG"
-        viewModel.state = "Delhi"
-        viewModel.imgUrl = array
         viewModel.authListener = this
         binding.viewmodel = viewModel
         var hashMap:ArrayList<HashMap<String,Any>> = ArrayList<HashMap<String,Any>>()

@@ -136,15 +136,15 @@
             android:textColorHint="#555555">
 
             <EditText
-                android:text="@={viewmodel.experience}"
-                android:id="@+id/input_email"
+                android:id="@+id/input_experience"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusableInTouchMode="true"
                 android:hint="@string/year_experience"
                 android:textColor="#C0C0C0"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:singleLine="true"
+                android:maxLength="2"
                 android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -152,7 +152,6 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:onClick="@{viewmodel::onNextButtonClick}"
             android:id="@+id/btn_next"
             android:layout_width="fill_parent"
             android:layout_height="55dp"

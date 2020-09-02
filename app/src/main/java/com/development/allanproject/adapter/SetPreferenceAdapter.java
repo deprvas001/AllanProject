@@ -13,16 +13,14 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.development.allanproject.R;
-import com.development.allanproject.model.FacilityTypeModel;
-import com.development.allanproject.model.commonapi.FacilityPreference;
+import com.development.allanproject.model.commonapi.ShiftPreference ;
 import com.development.allanproject.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FacilityTypeAdapter extends RecyclerView.Adapter<FacilityTypeAdapter.MyViewHolder> {
-
-    private List<FacilityPreference> facilityList;
+public class SetPreferenceAdapter extends RecyclerView.Adapter<SetPreferenceAdapter.MyViewHolder> {
+    private List<ShiftPreference > facilityList;
     private Context context;
     public static ArrayList<Integer> selectItem = new ArrayList<Integer>();
 
@@ -40,22 +38,22 @@ public class FacilityTypeAdapter extends RecyclerView.Adapter<FacilityTypeAdapte
     }
 
 
-    public FacilityTypeAdapter(Context context,List<FacilityPreference> facilityList) {
+    public SetPreferenceAdapter(Context context,List<ShiftPreference > facilityList) {
         this.context = context;
         this.facilityList = facilityList;
     }
 
     @Override
-    public FacilityTypeAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SetPreferenceAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.facility_type_row, parent, false);
+                .inflate(R.layout.set_preference_row, parent, false);
 
-        return new FacilityTypeAdapter.MyViewHolder(itemView);
+        return new SetPreferenceAdapter.MyViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(FacilityTypeAdapter.MyViewHolder holder, int position) {
-        FacilityPreference document = facilityList.get(position);
+    public void onBindViewHolder(SetPreferenceAdapter.MyViewHolder holder, int position) {
+        ShiftPreference  document = facilityList.get(position);
         holder.name.setText(document.getName());
 
         Util.loadImage(holder.icon,document.getIcon(),
@@ -64,21 +62,21 @@ public class FacilityTypeAdapter extends RecyclerView.Adapter<FacilityTypeAdapte
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-               if(b){
-                   selectItem.add(document.getId());
-                   Toast.makeText(context, "checkced", Toast.LENGTH_SHORT).show();
-               }else{
-                   Toast.makeText(context, "Uncheckced", Toast.LENGTH_SHORT).show();
-                   // selectItem.remove(document.getId());
+                if(b){
+                    selectItem.add(document.getId());
+                    Toast.makeText(context, "checkced", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(context, "Uncheckced", Toast.LENGTH_SHORT).show();
+                    // selectItem.remove(document.getId());
                     if(selectItem.contains(document.getId())){
-                       int index = selectItem.indexOf(document.getId());
+                        int index = selectItem.indexOf(document.getId());
                         selectItem.remove(index);
                     }
 //                   if(selectItem.contains(document.getId())){
 //                       selectItem.remove(document.getId());
 //                       Toast.makeText(context, "removed", Toast.LENGTH_SHORT).show();
 //                   }
-               }
+                }
             }
         });
 
