@@ -1,10 +1,12 @@
 package com.development.allanproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,6 +25,7 @@ public class AddLicenseAdapter extends RecyclerView.Adapter<AddLicenseAdapter.My
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name,state,compat;
         public RelativeLayout viewBackground, viewForeground;
+        public LinearLayout linearLayout;
 
         public MyViewHolder(View view) {
             super(view);
@@ -31,6 +34,7 @@ public class AddLicenseAdapter extends RecyclerView.Adapter<AddLicenseAdapter.My
             compat = (TextView)view.findViewById(R.id.compat);
             viewBackground = view.findViewById(R.id.view_background);
             viewForeground = view.findViewById(R.id.view_foreground);
+            linearLayout = view.findViewById(R.id.linearLayout);
 
         }
     }
@@ -55,6 +59,7 @@ public class AddLicenseAdapter extends RecyclerView.Adapter<AddLicenseAdapter.My
         holder.name.setText(document.getLicense());
         holder.state.setText(document.getState());
         holder.compat.setText(document.getCompat());
+
     }
 
     @Override
@@ -75,4 +80,6 @@ public class AddLicenseAdapter extends RecyclerView.Adapter<AddLicenseAdapter.My
         // notify item added by position
         notifyItemInserted(position);
     }
+
+
 }

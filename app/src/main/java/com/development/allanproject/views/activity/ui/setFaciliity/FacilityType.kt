@@ -25,6 +25,7 @@ import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
 import com.development.allanproject.views.activity.AddExperience
 import com.development.allanproject.views.activity.SetPreference
+import com.development.allanproject.views.activity.ui.setPreference.SetPreferenceScreen
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModel
@@ -131,7 +132,7 @@ class FacilityType : AppCompatActivity(), AuthListener, KodeinAware,
         }else{
             root_layout.snackbar("${response.success}")
             if(response.success){
-                 startActivity(Intent(this, SetPreference::class.java))
+                 startActivity(Intent(this, SetPreferenceScreen::class.java))
                  finish()
             }else{
                 toast("Try Later")

@@ -37,6 +37,7 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:text="@string/setPreference"
+                    android:visibility="invisible"
                     android:layout_gravity="center_vertical"
                     android:textColor="@android:color/white"
                     android:textSize="20dp"

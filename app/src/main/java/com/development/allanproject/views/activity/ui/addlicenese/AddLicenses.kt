@@ -1,11 +1,13 @@
 package com.development.allanproject.views.activity.ui.addlicenese
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Movie
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,19 +20,24 @@ import com.development.allanproject.adapter.AddLicenseAdapter
 import com.development.allanproject.data.session.SessionManager
 import com.development.allanproject.databinding.ActivityAddLicensesBinding
 import com.development.allanproject.listener.LicenseRecyclerItemTouch
+import com.development.allanproject.listener.RecyclerTouchListener
+import com.development.allanproject.listener.RecyclerTouchListener.ClickListener
 import com.development.allanproject.model.commonapi.CommonApiData
 import com.development.allanproject.model.commonapi.License
 import com.development.allanproject.model.license.LicenseData
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
-import com.development.allanproject.views.activity.AddExperience
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
+import com.development.allanproject.views.activity.ui.speciality.AddSpeciality
+import kotlinx.android.synthetic.main.activity_add_license.*
 import kotlinx.android.synthetic.main.activity_personal_detail.*
+import kotlinx.android.synthetic.main.activity_personal_detail.root_layout
 import kotlinx.android.synthetic.main.activity_sign_up.progress_bar
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
+
 
 class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
     RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
@@ -48,9 +55,9 @@ class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
     var header:HashMap<String,String> = HashMap()
     var licenseList: ArrayList<License> = ArrayList()
     var stateList: ArrayList<String> = ArrayList()
+    var itemPosition:Int?=null
 
-    var imgUrl: List<String> = listOf("https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2012/11/params-300x66.png",
-        "https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2012/11/params-300x66.png")
+    var imgUrl: ArrayList<String> = ArrayList()
     override val kodein by kodein()
     private val factory: AddLicenseViewModelFactory by instance()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -147,9 +154,19 @@ class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
                     licenseRequest.put("licence_no",x.license)
                     licenseRequest.put("state",x.state)
                     licenseRequest.put("licence_compact",x.compat)
-//                    licenseRequest.set("issue_date","2018-04-21")
-//                    licenseRequest.set("expiration_date","2020-04-21")
-//                    licenseRequest.set("img_url",imgUrl)
+                    if(!x.expiryDate.isNullOrEmpty()){
+                        licenseRequest.set("expiration_date","2020-04-21")
+                    }
+                    if(!x.issuedate.isNullOrEmpty()){
+                        licenseRequest.set("issue_date",x.expiryDate)
+                    }
+                    if(!x.imageUrl.isNullOrEmpty()){
+                        imgUrl.add(x.imageUrl)
+                        licenseRequest.set("img_url",imgUrl)
+                    }
+
+
+
                     hashMap.add(licenseRequest)
                     Log.i("Testing", hashMap.toString())
                 }
@@ -158,6 +175,30 @@ class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
                 root_layout.snackbar("Add License")
             }
         }
+
+        // row click listener
+        binding.recyclerView.addOnItemTouchListener(
+            RecyclerTouchListener(
+                applicationContext,
+                binding.recyclerView,
+                object : ClickListener {
+                    override fun onClick(view: View, position: Int) {
+                        itemPosition = position
+                        val data: LicenseData = dataList.get(position)
+                         toast(data.state)
+                        val intent = Intent(this@AddLicenses,AddLicense::class.java)
+                        intent.putExtra("license_id",licenseId)
+                        intent.putExtra("license_no",licenseValue)
+                        intent.putExtra("state",stateValue)
+                        intent.putExtra("compat_value",compatValue)
+                        startActivityForResult(intent,1001)
+
+                    }
+
+                    override fun onLongClick(view: View, position: Int) {}
+                })
+        )
+
     }
 
     override fun onStarted() {
@@ -173,7 +214,7 @@ class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
         }else{
             root_layout.snackbar("${response.success}")
             if(response.success){
-                startActivity(Intent(this, AddExperience::class.java))
+                startActivity(Intent(this, AddSpeciality::class.java))
                 finish()
             }else{
                     toast("Try Later")
@@ -238,6 +279,35 @@ class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
             // remove the item from recycler view
             adapter!!.removeItem(viewHolder.adapterPosition)
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            if(requestCode == 1001){
+                var licenseRequest: HashMap<String,Any> = HashMap<String,Any>()
+                licenseRequest = data!!.getSerializableExtra("data") as HashMap<String, Any>;
+                Log.i("Testing", licenseRequest.toString())
+                 if(itemPosition != null){
+                     dataList.get(itemPosition!!).imageUrl = licenseRequest.get("img_url").toString()
+                     dataList.get(itemPosition!!).id = licenseRequest.get("licence_id").toString()
+                     dataList.get(itemPosition!!).license = licenseRequest.get("licence_no").toString()
+                     dataList.get(itemPosition!!).state = licenseRequest.get("state").toString()
+                     dataList.get(itemPosition!!).compat = licenseRequest.get("licence_compact").toString()
+                     dataList.get(itemPosition!!).issuedate = licenseRequest.get("issue_date").toString()
+                     dataList.get(itemPosition!!).expiryDate= licenseRequest.get("expiration_date").toString()
+
+                     Log.i("Testing", dataList.toString())
+                     adapter!!.notifyDataSetChanged()
+
+                 }
+
+            }
+
+        }
+
+
     }
 
 }

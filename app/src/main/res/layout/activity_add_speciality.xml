@@ -27,6 +27,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/ic_back"
+                    android:visibility="invisible"
                     android:tint="@android:color/white" />
 
                 <TextView
@@ -120,7 +121,7 @@
                                         android:layout_height="wrap_content"
                                         android:focusableInTouchMode="true"
                                         android:hint="@string/year_experience"
-                                        android:inputType="textEmailAddress"
+                                        android:inputType="number"
                                         android:singleLine="true"
                                         android:textColor="#C0C0C0"
                                         android:textColorHint="#555555"

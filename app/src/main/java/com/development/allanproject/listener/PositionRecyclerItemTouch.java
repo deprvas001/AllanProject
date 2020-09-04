@@ -1,27 +1,22 @@
 package com.development.allanproject.listener;
 
-import android.content.Context;
 import android.graphics.Canvas;
-import android.view.GestureDetector;
 import android.view.View;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.development.allanproject.adapter.AddLicenseAdapter;
-import com.development.allanproject.adapter.CertificateAdapter;
+import com.development.allanproject.adapter.AddPositionAdapter;
 import com.development.allanproject.util.RecyclerItemTouchHelper;
 
-public class LicenseRecyclerItemTouch  extends ItemTouchHelper.SimpleCallback {
+public class PositionRecyclerItemTouch extends ItemTouchHelper.SimpleCallback {
 
-    private RecyclerItemTouchHelper.RecyclerItemTouchHelperListener listener;
+    private RecyclerItemTouchHelperListener listener;
 
-    public LicenseRecyclerItemTouch(int dragDirs, int swipeDirs, RecyclerItemTouchHelper.RecyclerItemTouchHelperListener listener) {
+    public PositionRecyclerItemTouch(int dragDirs, int swipeDirs, RecyclerItemTouchHelperListener listener) {
         super(dragDirs, swipeDirs);
         this.listener = listener;
     }
-
-
 
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
@@ -31,7 +26,7 @@ public class LicenseRecyclerItemTouch  extends ItemTouchHelper.SimpleCallback {
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
         if (viewHolder != null) {
-            final View foregroundView = ((AddLicenseAdapter.MyViewHolder) viewHolder).viewForeground;
+            final View foregroundView = ((AddPositionAdapter.MyViewHolder) viewHolder).viewForeground;
 
             getDefaultUIUtil().onSelected(foregroundView);
         }
@@ -41,14 +36,14 @@ public class LicenseRecyclerItemTouch  extends ItemTouchHelper.SimpleCallback {
     public void onChildDrawOver(Canvas c, RecyclerView recyclerView,
                                 RecyclerView.ViewHolder viewHolder, float dX, float dY,
                                 int actionState, boolean isCurrentlyActive) {
-        final View foregroundView = ((AddLicenseAdapter.MyViewHolder) viewHolder).viewForeground;
+        final View foregroundView = ((AddPositionAdapter.MyViewHolder) viewHolder).viewForeground;
         getDefaultUIUtil().onDrawOver(c, recyclerView, foregroundView, dX, dY,
                 actionState, isCurrentlyActive);
     }
 
     @Override
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-        final View foregroundView = ((AddLicenseAdapter.MyViewHolder) viewHolder).viewForeground;
+        final View foregroundView = ((AddPositionAdapter.MyViewHolder) viewHolder).viewForeground;
         getDefaultUIUtil().clearView(foregroundView);
     }
 
@@ -56,7 +51,7 @@ public class LicenseRecyclerItemTouch  extends ItemTouchHelper.SimpleCallback {
     public void onChildDraw(Canvas c, RecyclerView recyclerView,
                             RecyclerView.ViewHolder viewHolder, float dX, float dY,
                             int actionState, boolean isCurrentlyActive) {
-        final View foregroundView = ((AddLicenseAdapter.MyViewHolder) viewHolder).viewForeground;
+        final View foregroundView = ((AddPositionAdapter.MyViewHolder) viewHolder).viewForeground;
 
         getDefaultUIUtil().onDraw(c, recyclerView, foregroundView, dX, dY,
                 actionState, isCurrentlyActive);
@@ -75,5 +70,4 @@ public class LicenseRecyclerItemTouch  extends ItemTouchHelper.SimpleCallback {
     public interface RecyclerItemTouchHelperListener {
         void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position);
     }
-
 }

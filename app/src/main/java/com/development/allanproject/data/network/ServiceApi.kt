@@ -1,6 +1,9 @@
 package com.development.allanproject.data.network
 
 import com.development.allanproject.constant.ApiConstant
+import com.development.allanproject.model.experience.AddExperiencePost
+import com.development.allanproject.model.locationPost.LocationPreferencePost
+import com.development.allanproject.model.login.LoginPost
 import com.development.allanproject.model.signupModel.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,6 +31,11 @@ interface ServiceApi {
         @Body details: PersonalDetailPost
     ): Response<SignResponse>
 
+    @POST("authenticate")
+    suspend fun login(
+        @Body details: LoginPost
+    ): Response<SignResponse>
+
     @POST("update-user")
     suspend fun documentUpload(
         @HeaderMap header: HashMap<String, String>,
@@ -41,9 +49,21 @@ interface ServiceApi {
     ): Response<SignResponse>
 
     @POST("update-user")
+    suspend fun locationUpload(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: LocationPreferencePost
+    ): Response<SignResponse>
+
+    @POST("update-user")
     suspend fun experienceUpload(
         @HeaderMap header: HashMap<String, String>,
         @Body details: ExperiencePost
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun workPost(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: AddExperiencePost
     ): Response<SignResponse>
 
 

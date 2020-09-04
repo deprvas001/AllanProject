@@ -125,7 +125,7 @@
                     android:text="@string/select_license"/>
 
                 <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/license_id"
+                    android:id="@+id/license_spinner"
                     android:entries="@array/license_id"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="match_parent"
@@ -136,7 +136,27 @@
                     android:singleLine="true" />
 
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#555555"
+                    android:layout_marginTop="10dp">
+
+                    <EditText
+                        android:id="@+id/input_license"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusableInTouchMode="true"
+                        android:hint="License No"
+                        android:textColor="#C0C0C0"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
                 <TextView
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#555555"
@@ -145,6 +165,7 @@
 
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/license_no"
+                    android:visibility="gone"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:entries="@array/license_no"
                     android:layout_width="match_parent"
@@ -164,7 +185,6 @@
                 <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/state"
                     style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:entries="@array/state"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:paddingBottom="10dp"
@@ -187,15 +207,19 @@
                     android:layout_marginTop="10dp">
 
                     <RadioButton
+                        android:id="@+id/yes"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:checked="true"
                         android:text="@string/yes"/>
 
                     <RadioButton
+                        android:id="@+id/no"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:checked="false"
                         android:text="@string/no"/>
 
 
@@ -216,6 +240,7 @@
                         android:hint="@string/issue_date"
                         android:textColor="#C0C0C0"
                         android:singleLine="true"
+                        android:focusable="false"
                         android:textSize="14sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -234,6 +259,7 @@
                         android:focusableInTouchMode="true"
                         android:hint="@string/expiration_date"
                         android:textColor="#C0C0C0"
+                        android:focusable="false"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
                         android:textSize="14sp" />
@@ -250,6 +276,7 @@
                     android:text="@string/add_photo"/>
 
                 <ImageView
+                    android:id="@+id/upload_image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="10dp"
@@ -270,6 +297,7 @@
                     android:layout_marginTop="20dp"
                     android:background="@drawable/button_background"
                     android:padding="12dp"
+                    android:visibility="gone"
                     android:text="@string/add_more_license"
                     android:textAllCaps="true"
                     android:textStyle="bold"
@@ -294,6 +322,7 @@
                     android:background="@drawable/button_background"
                     android:padding="12dp"
                     android:text="@string/add"
+                    android:visibility="gone"
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:layout_marginBottom="20dp"

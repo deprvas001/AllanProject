@@ -8,6 +8,8 @@ import com.development.allanproject.model.signupModel.Details
 import com.development.allanproject.model.signupModel.PersonalDetailPost
 import com.development.allanproject.views.activity.ui.addexperience.AddExperienceViewModelFactory
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenseViewModelFactory
+import com.development.allanproject.views.activity.ui.locationPreference.LocationPreferenceModelFactory
+import com.development.allanproject.views.activity.ui.login.LoginViewModelFactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
 import org.kodein.di.Kodein
@@ -30,6 +32,8 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider {AddExperienceViewModelFactory(instance())}
         bind() from provider {AddLicenseViewModelFactory(instance())}
         bind() from provider {AddSpecialityViewModelFactory(instance())}
+        bind() from provider {LocationPreferenceModelFactory(instance())}
+        bind() from provider {LoginViewModelFactory(instance())}
 
     }
 }

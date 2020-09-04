@@ -68,7 +68,7 @@ class AddExperience : AppCompatActivity() , AuthListener, KodeinAware {
         }else{
             root_layout.snackbar("${response.success}")
             if(response.success){
-                startActivity(Intent(this, AddExperience::class.java))
+                startActivity(Intent(this, AddExtraExperienceInfo::class.java))
                 finish()
             }else{
                 toast("Try Later")

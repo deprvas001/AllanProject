@@ -28,6 +28,7 @@ import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
 import com.development.allanproject.views.activity.SetFacilityType
 import com.development.allanproject.views.activity.SetPreference
+import com.development.allanproject.views.activity.ui.locationPreference.AddLocationPreference
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModel
@@ -113,7 +114,7 @@ RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
         }else{
             root_layout.snackbar("${response.success}")
             if(response.success){
-                startActivity(Intent(this, SetPreferenceScreen::class.java))
+                startActivity(Intent(this, AddLocationPreference::class.java))
                 finish()
             }else{
                 toast("Try Later")

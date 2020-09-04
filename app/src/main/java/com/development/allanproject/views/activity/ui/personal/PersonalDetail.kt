@@ -15,6 +15,7 @@ import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
 import com.development.allanproject.views.activity.AddExperience
 import com.development.allanproject.views.activity.AddLicense
+import com.development.allanproject.views.activity.ui.addexperience.AddExtraExperienceInfo
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenses
 import com.github.dhaval2404.imagepicker.ImagePicker
 import kotlinx.android.synthetic.main.activity_personal_detail.*
@@ -71,13 +72,18 @@ class PersonalDetail : AppCompatActivity(), AuthListener, KodeinAware, View.OnCl
     override fun onSuccess(response: SignResponse) {
         progress_bar.hide()
         root_layout.snackbar("${response.step_no} is Done")
-        if(response.success){
-             startActivity(Intent(this,AddLicenses::class.java))
-             finish()
-        }else{
-            toast("Try Later")
-        }
 
+        if(response.code.equals("500")){
+            root_layout.snackbar("${response.status}")
+        }else{
+            root_layout.snackbar("${response.success}")
+            if(response.success){
+                startActivity(Intent(this,AddLicenses::class.java))
+                finish()
+            }else{
+                toast("Try Later")
+            }
+        }
     }
 
     override fun onFailure(message: String) {

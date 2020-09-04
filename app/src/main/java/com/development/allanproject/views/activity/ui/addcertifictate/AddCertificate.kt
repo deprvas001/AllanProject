@@ -171,7 +171,7 @@ class AddCertificate : AppCompatActivity(), AuthListener, KodeinAware,
         }else{
             root_layout.snackbar("${response.success}")
             if(response.success){
-                startActivity(Intent(this, AddExperience::class.java))
+                startActivity(Intent(this, com.development.allanproject.views.activity.ui.addexperience.AddExperience::class.java))
                 finish()
             }else{
                 toast("Try Later")

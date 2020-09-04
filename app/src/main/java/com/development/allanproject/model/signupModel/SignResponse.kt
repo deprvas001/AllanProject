@@ -6,5 +6,7 @@ data class SignResponse(
     val success: Boolean,
     val user_id: Int,
     val code:String,
+    val msg:String,
+    val is_sign_up_completed:Boolean,
     val status: String
 )
