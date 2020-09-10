@@ -4,6 +4,7 @@ public class SignUpPostModel {
     private String email;
     private String password;
     private String phone;
+    private String std_code;
 
     public String getEmail() {
         return email;
@@ -27,5 +28,13 @@ public class SignUpPostModel {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getStd_code() {
+        return std_code;
+    }
+
+    public void setStd_code(String std_code) {
+        this.std_code = std_code;
     }
 }

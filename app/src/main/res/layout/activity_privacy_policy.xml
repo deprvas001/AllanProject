@@ -44,14 +44,19 @@
                 />
         </LinearLayout>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
         <TextView
+            android:id="@+id/privacy_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:textColor="#555555"
-            android:text="@string/dummy"/>
+            />
 
-
+        </ScrollView>
 
     </LinearLayout>
 

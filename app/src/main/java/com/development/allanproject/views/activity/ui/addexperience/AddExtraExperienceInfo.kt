@@ -46,6 +46,7 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
     var speciality:String?=null
     var facilityId:String?=null
     var currentCompany:String?= "No"
+    var empty:String?=""
     var dataList: ArrayList<PositionData> = ArrayList()
     var referenceList: ArrayList<ReferenceData> = ArrayList()
     var workPost: HashMap<String, Any> = HashMap()
@@ -100,7 +101,7 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
         header.set(
             "Authorization", token!!
         )
-        header.set("device_type_id", token!!)
+        header.set("device_type_id", "1")
         header.set("v_code", "7")
 
         binding.positionLayout.addMore.setOnClickListener{
@@ -129,11 +130,11 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
         }
 
         binding.date.setOnClickListener{
-            dateDialog()
+            dateDialog(1)
         }
 
         binding.endDate.setOnClickListener{
-            dateDialog()
+            dateDialog(2)
         }
 
         binding.radioGroup.setOnCheckedChangeListener(
@@ -141,6 +142,12 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
                 val radio: RadioButton = findViewById(checkedId)
                 toast("${radio.text}")
                 currentCompany = radio.text.toString()
+                if(currentCompany.equals("No")){
+                    binding.endDate.visibility = View.VISIBLE
+                }else{
+                    binding.endDate.visibility = View.GONE
+                    binding.endDate.text.clear()
+                }
             })
 
         binding.facilitySpinner.onItemSelectedListener = object :
@@ -296,7 +303,7 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
             })
     }
 
-    fun dateDialog(){
+    fun dateDialog(i: Int) {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
@@ -306,7 +313,12 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
             this,
             DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                 // Display Selected date in textbox
-                binding.date.setText("" + year + "-" + monthOfYear + "-" + dayOfMonth)
+                if(i==1){
+                    binding.date.setText("" + year + "-" + monthOfYear + "-" + dayOfMonth)
+                }else{
+                    binding.endDate.setText("" + year + "-" + monthOfYear + "-" + dayOfMonth)
+                }
+
             }, year, month, day
         )
           datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis() - 1000);
@@ -320,7 +332,6 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
         ){
             toast("Please fill details")
         }else{
-
             positionData.position= binding.positionLayout.position.text.toString()
             positionData.speciality = binding.positionLayout.specaility.text.toString()
             positionData.unit =  binding.positionLayout.unit.text.toString()
@@ -330,8 +341,10 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
             positionData.position_month = month
 
             if(!dataList.contains(positionData)){
-                dataList.add(positionData)
+                dataList.add(positionData!!)
             }
+
+            Log.i("referenceData",dataList.toString())
 
             for ( data in dataList){
                 if(data.position.isNullOrEmpty() || data.charting_technology.isNullOrEmpty() ||
@@ -351,8 +364,14 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
             referenceData.job_type = binding.referenceLayout.titleManager.text.toString()
             referenceData.phone = binding.referenceLayout.mobile.text.toString()
             referenceData.email = binding.referenceLayout.email.text.toString()
+            referenceData.std_code = "+91"
 
-            referenceList.add(referenceData)
+            if(!referenceList.contains(referenceData)){
+                referenceList.add(referenceData)
+            }
+
+
+            Log.i("referenceData",referenceList.toString())
 
             for (data in referenceList){
                 if(data.facility_name.isNullOrEmpty() || data.job_title.isNullOrEmpty() ||
@@ -365,12 +384,21 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
                     return;
                 }
             }
-            workPost.put("facility_id",facilityId!!)
-            workPost.put("facility_name", binding.name.text!!)
-            workPost.put("address", binding.address.text!!)
-            workPost.put("start_date",binding.date.text!!)
-            workPost.put("end_date",binding.endDate.text)
-            workPost.put("current_company",currentCompany!!)
+
+            if(currentCompany.equals("No")){
+               if(binding.endDate.text.isNullOrEmpty()){
+                   toast("Please add end date")
+                   return
+               }
+            }
+            workPost.put("facility_id",facilityId!!.toString())
+            workPost.put("facility_name", binding.name.text!!.toString())
+            workPost.put("address", binding.address.text!!.toString())
+            workPost.put("start_date",binding.date.text!!.toString())
+            workPost.put("end_date",binding.endDate.text.toString())
+/*
+            workPost.put("current_company",currentCompany!!.toString())
+*/
             workPost.put("sub_details", dataList!!)
             workPost.put("reference", referenceList!!)
 

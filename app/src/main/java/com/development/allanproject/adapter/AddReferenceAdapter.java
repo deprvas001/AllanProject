@@ -61,7 +61,7 @@ public class AddReferenceAdapter extends RecyclerView.Adapter<AddReferenceAdapte
         ReferenceData document = documentList.get(position);
         holder.addMore.setVisibility(View.GONE);
         holder.delete.setVisibility(View.VISIBLE);
-
+        documentList.get(position).setStd_code("+91");
         holder.name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

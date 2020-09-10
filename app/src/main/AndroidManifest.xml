@@ -15,14 +15,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.login.LoginActivity"
+        <activity android:name=".views.activity.ui.appointment.BookAppointment"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.login.LoginActivity"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".views.activity.ui.addexperience.AddExtraExperienceInfo"
@@ -31,7 +43,7 @@
         <activity
             android:name=".views.activity.ui.locationPreference.AddLocationPreference"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".views.activity.ui.setPreference.SetPreferenceScreen"
             android:theme="@style/AppTheme1"
@@ -47,8 +59,7 @@
         <activity
             android:name=".views.activity.ui.addlicenese.AddLicenses"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" >
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".views.activity.ui.speciality.AddSpeciality"
             android:theme="@style/AppTheme1"
@@ -56,9 +67,7 @@
         <activity
             android:name=".views.activity.ui.addlicenese.AddLicense"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" >
-
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".views.activity.ui.addexperience.AddExperience"
             android:theme="@style/AppTheme1"
@@ -215,7 +224,7 @@
         <activity
             android:name=".views.activity.AddExperienceInfo"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.Forms"
             android:theme="@style/AppTheme1"
@@ -327,14 +336,11 @@
         <activity
             android:name=".views.activity.ui.signup.SignUp"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".views.activity.TermsCondition"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".views.activity.OTPVerification"
             android:theme="@style/AppTheme1"

@@ -8,8 +8,12 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.development.allanproject.model.apiResponse.ApiResponse;
+import com.development.allanproject.model.commonapi.CityList;
 import com.development.allanproject.model.commonapi.CommonApiData;
 import com.development.allanproject.model.signupModel.SignUpPostModel;
+import com.development.allanproject.model.signupModel.TermsConditionResponse;
+
+import java.util.HashMap;
 
 public class SignUpViewModel extends AndroidViewModel{
     public SignUpViewModel(@NonNull Application application) {
@@ -21,6 +25,10 @@ public class SignUpViewModel extends AndroidViewModel{
 
     public MutableLiveData<CommonApiData> commonData() {
         return SignUpRepository.getInstance().commonData();
+    }
+
+    public MutableLiveData<TermsConditionResponse> getTermsCondition() {
+        return SignUpRepository.getInstance().getTermsCondition();
     }
 
 }

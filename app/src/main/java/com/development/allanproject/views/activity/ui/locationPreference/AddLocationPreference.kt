@@ -3,7 +3,6 @@ package com.development.allanproject.views.activity.ui.locationPreference
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -17,38 +16,37 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.development.allanproject.R
 import com.development.allanproject.adapter.CertificateAdapter
+import com.development.allanproject.adapter.CityListAdapter
 import com.development.allanproject.data.session.SessionManager
 import com.development.allanproject.databinding.ActivityAddLocationPreferenceBinding
 import com.development.allanproject.model.CertificateClass
 import com.development.allanproject.model.commonapi.CertificateType
+import com.development.allanproject.model.commonapi.CityList
 import com.development.allanproject.model.commonapi.CommonApiData
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
-import com.development.allanproject.views.activity.AddExperience
 import com.development.allanproject.views.activity.SignUpComplete
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
-import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModel
-import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
 class AddLocationPreference : AppCompatActivity(), AuthListener, KodeinAware,
-    RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
+    CityRecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
     var certificateValue:String?=null
     var certificateId: Int?=null
     private lateinit var viewModel: LocationPrefrenceViewModel
     var header: HashMap<String, String> = HashMap<String, String>()
     var hashMap: ArrayList<Any> = ArrayList<Any>()
-    var adapter: CertificateAdapter? = null
+    var adapter: CityListAdapter? = null
     var locationHashMap: HashMap<String,Any> = HashMap()
-    var certifiateList: ArrayList<CertificateType> = ArrayList<CertificateType>()
+    var cityList: ArrayList<String> = ArrayList<String>()
     var mLayoutManager: RecyclerView.LayoutManager? = null
     var speciality:String?=null
     var openAll:Boolean = false
-    var dataList: ArrayList<CertificateClass> = ArrayList<CertificateClass>()
+    var dataList: ArrayList<String> = ArrayList<String>()
     override val kodein by kodein()
     private val factory: LocationPreferenceModelFactory by instance()
     lateinit var sessionManager: SessionManager
@@ -68,16 +66,16 @@ class AddLocationPreference : AppCompatActivity(), AuthListener, KodeinAware,
 
         dataList.clear()
 
-        adapter = CertificateAdapter(this, dataList)
+        adapter = CityListAdapter(this, dataList)
         mLayoutManager = LinearLayoutManager(this)
         binding.recyclerView.setLayoutManager(mLayoutManager)
         binding.recyclerView.setItemAnimator(DefaultItemAnimator())
         binding.recyclerView.setAdapter(adapter)
 
-        getCommonApiData()
+
 
         val itemTouchHelperCallback: ItemTouchHelper.SimpleCallback =
-            RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this)
+            CityRecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this)
         ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(binding.recyclerView)
 
         header.set("user_id", user_id!!)
@@ -85,40 +83,51 @@ class AddLocationPreference : AppCompatActivity(), AuthListener, KodeinAware,
             "Authorization",token!!
         )
         header.set("device_type_id", "1")
+        header.set("device_token", "XSDJHSHHFKJJSFLH")
+        header.set("device_type", "IOS")
         header.set("v_code", "7")
+
+        getCommonApiData(header)
 
         binding.add.setOnClickListener {
             if(!certificateValue.isNullOrEmpty()){
-                val certificate = CertificateClass()
-                certificate.name = certificateValue
               //  certificate.experience = certificateId.toString()
-                dataList.add(certificate)
+                dataList.add(certificateValue!!)
 
                 adapter!!.notifyDataSetChanged()
             }else{
                 root_layout.snackbar("Add Location")
             }
-
         }
 
         binding.btnNext.setOnClickListener {
 
-            if(dataList.size>0){
-                for (x in dataList){
-                    hashMap.add(x.name)
-                }
-                locationHashMap.put("location",hashMap)
-                if(binding.openCheckbox.isChecked){
-                    locationHashMap.put("open_for_all", true)
-                }else{
-                    locationHashMap.put("open_for_all", false)
-                }
+            if(binding.openCheckbox.isChecked){
 
-                //  Log.i("Testing",locationHashMap.toString())
-                 viewModel.addDocumentDetail(header, locationHashMap,10)
+                if(cityList.size>0){
+                    locationHashMap.put("location",cityList)
+                    locationHashMap.put("open_for_all", false)
+                    viewModel.addDocumentDetail(header, locationHashMap,10)
+                }
             }else{
-                root_layout.snackbar("Add Certificate")
+                if(dataList.size>0){
+                    for (x in dataList){
+                        hashMap.add(x)
+                    }
+                    locationHashMap.put("location",hashMap)
+                    if(binding.openCheckbox.isChecked){
+                        locationHashMap.put("open_for_all", true)
+                    }else{
+                        locationHashMap.put("open_for_all", false)
+                    }
+
+                    //  Log.i("Testing",locationHashMap.toString())
+                    viewModel.addDocumentDetail(header, locationHashMap,10)
+                }else{
+                    root_layout.snackbar("Add Location")
+                }
             }
+
             //
         }
 
@@ -126,9 +135,8 @@ class AddLocationPreference : AppCompatActivity(), AuthListener, KodeinAware,
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>,
                                         view: View, position: Int, id: Long) {
-                certificateValue = certifiateList[position].name
-                certificateId = certifiateList[position].id
-                toast(certifiateList[position].name)
+                certificateValue = cityList[position]
+                             toast(cityList[position])
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -138,18 +146,19 @@ class AddLocationPreference : AppCompatActivity(), AuthListener, KodeinAware,
 
     }
 
-    private fun getCommonApiData() {
-        binding.progressBar.setVisibility(View.VISIBLE)
+    private fun getCommonApiData(header: HashMap<String, String>) {
+        viewModel.getCityList(header)
+     /*binding.progressBar.setVisibility(View.VISIBLE)
         var viewModel: SignUpViewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
         viewModel.commonData().observe(
             this,
-            Observer { apiResponse: CommonApiData ->
+            Observer { apiResponse: CityList ->
                 binding.progressBar.setVisibility(View.GONE)
                 Toast.makeText(this, apiResponse.status, Toast.LENGTH_SHORT).show()
                 if (apiResponse.code == 200) {
                     if (apiResponse.success == true) {
                         SignUp.commonApiData = apiResponse
-                        certifiateList = SignUp.commonApiData.data.certificates as ArrayList<CertificateType>
+                        cityList = SignUp.commonApiData.data.certificates as ArrayList<CertificateType>
                         val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(
                             this,
                             android.R.layout.simple_spinner_item,
@@ -162,7 +171,7 @@ class AddLocationPreference : AppCompatActivity(), AuthListener, KodeinAware,
                 }
                 //  startActivity(Intent(this@SignUp, PersonalDetail::class.java))
             }
-        )
+        )*/
     }
 
     override fun onStarted() {
@@ -173,17 +182,31 @@ class AddLocationPreference : AppCompatActivity(), AuthListener, KodeinAware,
     override fun onSuccess(response: SignResponse) {
         progress_bar.hide()
         root_layout.snackbar("${response.step_no} is Done")
-        if(response.code.equals("500")){
-            root_layout.snackbar("${response.msg}")
+        
+        if(!response.cities.isNullOrEmpty()){
+            cityList = response.cities
+            val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_item,
+                response.cities
+            )
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            binding.locationSpinner.setAdapter(adapter)    
         }else{
-            root_layout.snackbar("${response.success}")
-            if(response.success){
-                startActivity(Intent(this, SignUpComplete::class.java))
-                finish()
+            if(response.code.equals("500")){
+                root_layout.snackbar("${response.msg}")
             }else{
-                toast("Try Later")
+                root_layout.snackbar("${response.success}")
+                if(response.success){
+                    startActivity(Intent(this, SignUpComplete::class.java))
+                    finish()
+                }else{
+                    toast("Try Later")
+                }
             }
         }
+
 
     }
 
@@ -197,9 +220,9 @@ class AddLocationPreference : AppCompatActivity(), AuthListener, KodeinAware,
         direction: Int,
         position: Int
     ) {
-        if (viewHolder is CertificateAdapter.MyViewHolder) {
+        if (viewHolder is CityListAdapter.MyViewHolder) {
             // get the removed item name to display it in snack bar
-            val name: String = dataList.get(viewHolder.adapterPosition).getName()
+            val name: String = dataList.get(viewHolder.adapterPosition)
 
 //            // backup of removed item for undo purpose
 //            val deletedItem: Item = dataList.get(viewHolder.adapterPosition)

@@ -26,6 +26,7 @@
                 android:layout_gravity="center_vertical"
                 android:tint="@android:color/white"
                 android:layout_marginLeft="10dp"
+                android:visibility="invisible"
                 android:src="@drawable/ic_back"
                 />
 
@@ -37,7 +38,7 @@
                 android:layout_gravity="center_vertical"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
-                android:visibility="invisible"
+
                 android:gravity="center"/>
 
             <ImageView

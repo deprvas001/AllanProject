@@ -222,7 +222,6 @@
                                 android:id="@+id/end_date"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:visibility="gone"
                                 android:focusableInTouchMode="true"
                                 android:hint="End Date"
                                 android:textColor="#C0C0C0"

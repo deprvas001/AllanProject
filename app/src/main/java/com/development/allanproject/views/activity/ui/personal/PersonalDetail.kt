@@ -100,20 +100,24 @@ class PersonalDetail : AppCompatActivity(), AuthListener, KodeinAware, View.OnCl
                .start()
        }else if(view?.id == R.id.btn_next){
            if (binding.inputFirst.text.isNullOrEmpty() || binding.dob.text.isNullOrEmpty()) {
-               root_layout.snackbar("Fill all Deails")
+              // root_layout.snackbar("Fill all Details")
+               toast("Fill All Personal Details")
                return
            }else if (profile_pic.isNullOrEmpty()){
-               root_layout.snackbar("Upload Profile Image")
+               toast("Upload Profile Image")
                return
            }else{
-               personalDetail.clear()
-               personalDetail.set(
-                   "name", binding.inputFirst.text.append(" ")
-                       .append(binding.inputLast.text)
-               )
-               personalDetail.set("dob", binding.dob.text)
-               hashMap.add(personalDetail)
-               viewModel.addPersonalDetail(header,hashMap)
+                  hashMap.clear()
+                  personalDetail.clear()
+                  personalDetail.set(
+                      "name", binding.inputFirst.text.append(" ")
+                          .append(binding.inputLast.text).toString()
+                  )
+                  personalDetail.set("dob", binding.dob.text.toString())
+                  personalDetail.set("img_url", profile_pic!!)
+//               hashMap.add(personalDetail)
+                  viewModel.addPersonalDetail(header,personalDetail)
+
            }
        }else if(view?.id == R.id.dob){
            val c = Calendar.getInstance()
@@ -142,7 +146,7 @@ class PersonalDetail : AppCompatActivity(), AuthListener, KodeinAware, View.OnCl
             val fileUri = data?.data
             binding.profileImage.setImageURI(fileUri)
             profile_pic = "https://i.picsum.photos/id/658/200/300.jpg?hmac=K1TI0jSVU6uQZCZkkCMzBiau45UABMHNIqoaB9icB_0"
-            toast(profile_pic.toString())
+          //  toast(profile_pic.toString())
             //You can get File object from intent
             val file: File = ImagePicker.getFile(data)!!
 

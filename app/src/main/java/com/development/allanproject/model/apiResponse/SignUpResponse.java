@@ -5,6 +5,7 @@ public class SignUpResponse {
     private int user_id;
     private String auth_token;
     private int code;
+    private String msg;
     public boolean isSuccess() {
         return success;
     }
@@ -35,6 +36,14 @@ public class SignUpResponse {
 
     public void setCode(int code) {
         this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }
 

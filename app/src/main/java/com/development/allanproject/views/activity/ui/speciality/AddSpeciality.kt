@@ -94,7 +94,9 @@ class AddSpeciality : AppCompatActivity(), AuthListener, KodeinAware ,
 
                     licenseRequest.set("speciality_id",x.name)
                     licenseRequest.set("exp_years",x.experience)
-                    hashMap.add(licenseRequest)
+                    if(!hashMap.contains(licenseRequest)){
+                        hashMap.add(licenseRequest)
+                    }
                 }
                 viewModel.addDocument(header, hashMap)
             }else{
@@ -108,7 +110,12 @@ class AddSpeciality : AppCompatActivity(), AuthListener, KodeinAware ,
                 val certificate = CertificateClass()
                 certificate.name = speciality
                 certificate.experience = binding.experience.text.toString()
-                dataList.add(certificate)
+                if(!dataList.contains(certificate)){
+                    dataList.add(certificate)
+                }else{
+                    toast("Same Speciality.Already Add")
+                }
+
 
                 adapter!!.notifyDataSetChanged()
             }else{

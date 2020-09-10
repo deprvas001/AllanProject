@@ -7,6 +7,7 @@ public class ReferenceData {
     private String job_type;
     private String phone;
     private String email;
+    private String std_code;
 
     public String getFacility_name() {
         return facility_name;
@@ -54,5 +55,13 @@ public class ReferenceData {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getStd_code() {
+        return std_code;
+    }
+
+    public void setStd_code(String std_code) {
+        this.std_code = std_code;
     }
 }

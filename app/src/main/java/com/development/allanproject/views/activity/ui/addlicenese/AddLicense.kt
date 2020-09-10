@@ -104,6 +104,7 @@ class AddLicense : AppCompatActivity(), AuthListener, KodeinAware, View.OnClickL
                 licenseRequest.set("issue_date",binding.inputIssueDate.text.toString())
                 licenseRequest.set("expiration_date",binding.expireDate.text.toString())
                 licenseRequest.set("img_url",profile_pic.toString()!!)
+
                 hashMap.add(licenseRequest)
 
 
@@ -201,7 +202,7 @@ class AddLicense : AppCompatActivity(), AuthListener, KodeinAware, View.OnClickL
             this,
             Observer { apiResponse: CommonApiData ->
                 binding.progressBar.setVisibility(View.GONE)
-                Toast.makeText(this, apiResponse.status, Toast.LENGTH_SHORT).show()
+              //  Toast.makeText(this, apiResponse.status, Toast.LENGTH_SHORT).show()
                 if (apiResponse.code == 200) {
                     if (apiResponse.success == true) {
                         SignUp.commonApiData = apiResponse

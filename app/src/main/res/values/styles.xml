@@ -29,6 +29,7 @@
 
     </style>
 
+
     <style name="MyProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressBackgroundTint" tools:ignore="NewApi">@color/progress_bar_border</item>
         <item name="android:progressTint" tools:targetApi="lollipop">@color/colorPrimaryDark</item>

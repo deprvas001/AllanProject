@@ -3,6 +3,7 @@ package com.development.allanproject.views.activity.ui.personal
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.development.allanproject.data.repository.UserRepository
+import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.signupModel.Details
 import com.development.allanproject.model.signupModel.PersonalDetailPost
 import com.development.allanproject.util.ApiException
@@ -52,15 +53,15 @@ class PersonDetailViewModel(
 
     fun addPersonalDetail(
         header: HashMap<String, String>,
-        hashMap: ArrayList<HashMap<String, Any>>
+        hashMap: HashMap<String, Any>
     ){
         authListener?.onStarted()
         Coroutines.main {
             try{
 
-                val personalDetail = PersonalDetailPost(hashMap,2)
+                val personalDetail = PersonalDetailPostParam(hashMap,2)
                 //  val authResponse = repository.userLogin(firstName!!, dob!!)
-                val authResponse = repository.userLogin(header,personalDetail)
+                val authResponse = repository.userDetail(header,personalDetail)
                 authResponse?.let {
                     authListener?.onSuccess(it)
                     //repository.saveUser(it)

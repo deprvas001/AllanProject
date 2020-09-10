@@ -74,7 +74,6 @@ class AddExperience : AppCompatActivity() , AuthListener, KodeinAware {
                 toast("Try Later")
             }
         }
-
     }
 
     override fun onFailure(message: String) {

@@ -6,8 +6,10 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.development.allanproject.model.apiResponse.ApiResponse;
 import com.development.allanproject.model.apiResponse.SignUpResponse;
+import com.development.allanproject.model.commonapi.CityList;
 import com.development.allanproject.model.commonapi.CommonApiData;
 import com.development.allanproject.model.signupModel.SignUpPostModel;
+import com.development.allanproject.model.signupModel.TermsConditionResponse;
 import com.development.allanproject.networking.AllanApi;
 import com.development.allanproject.networking.RetrofitApiService;
 
@@ -113,6 +115,49 @@ public class SignUpRepository {
         });
 
         return   commonLiveData;
+    }
+
+    public MutableLiveData<TermsConditionResponse> getTermsCondition(){
+        final MutableLiveData<TermsConditionResponse> termsLiveData =new MutableLiveData<>();
+
+        allanApi.getTermsCondition().enqueue(new Callback<TermsConditionResponse>() {
+            @Override
+            public void onResponse(Call<TermsConditionResponse> call, Response<TermsConditionResponse> response) {
+
+
+                if(response.code() == 401 || response.code() == 400 || response.code() == 404 || response.code() == 500){
+                    try {
+                        //  JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        termsLiveData.setValue(response.body());
+
+                        //   String message = jObjError.getString("message");
+                        //  int status = jObjError.getInt("status");
+                        //signUpLiveData.setValue(new ApiResponse(message,status,response.code()));
+
+                        //signUpLiveData.setValue(new ApiResponse(response.code(),null));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } /*catch (IOException e) {
+                        e.printStackTrace();
+                    }*/
+
+                }
+                else {
+                    if(response.isSuccessful()){
+                        termsLiveData.setValue(response.body());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TermsConditionResponse> call, Throwable t) {
+                 //  termsLiveData.setValue(t);
+                //  signUpLiveData.setValue(new BookingDetailApiResponse(t));
+                //  signUpLiveData.setValue(new ApiResponse(t., null);
+            }
+        });
+
+        return   termsLiveData;
     }
 
 }

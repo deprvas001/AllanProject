@@ -8,5 +8,6 @@ data class SignResponse(
     val code:String,
     val msg:String,
     val is_sign_up_completed:Boolean,
+    val cities:ArrayList<String>,
     val status: String
 )

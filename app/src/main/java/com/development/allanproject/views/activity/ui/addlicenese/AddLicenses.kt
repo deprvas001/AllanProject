@@ -98,7 +98,7 @@ class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
             val radio: RadioButton = findViewById(binding.radioGroup.checkedRadioButtonId)
             compatValue = radio.text.toString()
 
-        val licenseObj = LicenseData()
+           val licenseObj = LicenseData()
             licenseObj.license = licenseValue
             licenseObj.state = stateValue
             licenseObj.compat = compatValue
@@ -164,9 +164,6 @@ class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
                         imgUrl.add(x.imageUrl)
                         licenseRequest.set("img_url",imgUrl)
                     }
-
-
-
                     hashMap.add(licenseRequest)
                     Log.i("Testing", hashMap.toString())
                 }
@@ -235,7 +232,7 @@ class AddLicenses : AppCompatActivity(), AuthListener, KodeinAware,
             this,
             Observer { apiResponse: CommonApiData ->
                 binding.progressBar.setVisibility(View.GONE)
-                Toast.makeText(this, apiResponse.status, Toast.LENGTH_SHORT).show()
+              //  Toast.makeText(this, apiResponse.status, Toast.LENGTH_SHORT).show()
                 if (apiResponse.code == 200) {
                     if (apiResponse.success == true) {
                         SignUp.commonApiData = apiResponse

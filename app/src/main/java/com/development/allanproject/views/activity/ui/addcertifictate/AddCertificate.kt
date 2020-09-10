@@ -149,7 +149,6 @@ class AddCertificate : AppCompatActivity(), AuthListener, KodeinAware,
                             SignUp.commonApiData.data.certificates
                         )
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
                         binding.spinnerCertificate.setAdapter(adapter)
                     }
                 }

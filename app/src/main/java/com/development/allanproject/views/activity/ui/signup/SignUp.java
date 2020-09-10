@@ -14,6 +14,7 @@ import com.development.allanproject.databinding.ActivitySignUpBinding;
 import com.development.allanproject.model.commonapi.CommonApiData;
 import com.development.allanproject.model.signupModel.SignUpPostModel;
 import com.development.allanproject.views.activity.BaseActivity;
+import com.development.allanproject.views.activity.PrivacyPolicy;
 import com.development.allanproject.views.activity.TermsCondition;
 import com.development.allanproject.views.activity.ui.personal.PersonalDetail;
 
@@ -28,16 +29,23 @@ public class SignUp extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         signUpBinding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up);
         session = new SessionManager(getApplicationContext());
+        postModel.setStd_code("+91");
         signUpBinding.setSignupPost(postModel);
         signUpBinding.termsCondition.setOnClickListener(this);
         signUpBinding.btnSignup.setOnClickListener(this);
+        signUpBinding.termsCondition.setOnClickListener(this);
+        signUpBinding.privacy.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.termsCondition:
-                startActivity(new Intent(SignUp.this, TermsCondition.class));
+                 getTermsConditions(1);
+                break;
+
+            case R.id.privacy:
+                getTermsConditions(2);
                 break;
 
             case R.id.btn_signup:
@@ -62,7 +70,7 @@ public class SignUp extends BaseActivity implements View.OnClickListener {
         viewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
         viewModel.signUp(this, postModel).observe(this, apiResponse -> {
             signUpBinding.progressBar.setVisibility(View.GONE);
-            Toast.makeText(this, String.valueOf(apiResponse.getStatus()), Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(this, String.valueOf(apiResponse.getStatus()), Toast.LENGTH_SHORT).show();
 
             if(apiResponse.getStatus() == 200){
                 if (apiResponse != null) {
@@ -71,11 +79,8 @@ public class SignUp extends BaseActivity implements View.OnClickListener {
                         String token = apiResponse.getSignUpResponse().getAuth_token();
                         session.createLoginSession(String.valueOf(user_id),token);
                          getCommonApiData();
-
-
                     }else{
-                        showCustomDialog(this,apiResponse.getSignUpResponse().getCode());
-
+                        Toast.makeText(this, String.valueOf(apiResponse.getSignUpResponse().getMsg()), Toast.LENGTH_SHORT).show();
                     }
                 }
             }else{
@@ -96,6 +101,32 @@ private void  getCommonApiData(){
             }
         }
         startActivity(new Intent(SignUp.this, PersonalDetail.class));
+        finish();
     });
 }
+
+    private void  getTermsConditions(int type){
+        signUpBinding.progressBar.setVisibility(View.VISIBLE);
+        viewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
+        viewModel.getTermsCondition().observe(this, apiResponse -> {
+            signUpBinding.progressBar.setVisibility(View.GONE);
+            if(apiResponse.getSuccess() == true){
+                String termsCondition = apiResponse.getTc();
+                String policy = apiResponse.getPolicy();
+                if(type == 1){
+                    Intent intent = new Intent(this, TermsCondition.class);
+                    intent.putExtra("policy", policy);
+                    intent.putExtra("tc", termsCondition);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(this, PrivacyPolicy.class);
+                    intent.putExtra("policy", policy);
+                    intent.putExtra("tc", termsCondition);
+                    startActivity(intent);
+                }
+
+            }
+           // Toast.makeText(this, String.valueOf(apiResponse.getStatus()), Toast.LENGTH_SHORT).show();
+        });
+    }
 }

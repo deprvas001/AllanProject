@@ -1,11 +1,12 @@
 package com.development.allanproject.util
 
-import com.development.allanproject.model.commonapi.CityList
+import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.signupModel.SignResponse
 
-interface AuthListener {
+interface AuthBookAppointment {
+
     fun onStarted()
-    fun onSuccess(response: SignResponse)
+    fun onSuccess(response: AppointmentGetModel)
     fun onFailure(message: String)
 
 }

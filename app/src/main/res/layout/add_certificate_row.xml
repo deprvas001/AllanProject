@@ -68,7 +68,7 @@
                         android:layout_weight="1"
                         android:textColor="#555555"
                         android:padding="10dp"
-                        android:text="@string/certificate"/>
+                        />
 
                     <TextView
                         android:id="@+id/experience"

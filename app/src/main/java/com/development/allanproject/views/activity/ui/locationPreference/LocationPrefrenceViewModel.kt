@@ -44,4 +44,27 @@ class LocationPrefrenceViewModel(private val repository: UserRepository
         }
     }
 
+    fun getCityList(
+        header: HashMap<String, String>
+    ){
+        authListener?.onStarted()
+
+        Coroutines.main {
+            try{
+
+                val authResponse = repository.getCityList(header)
+                authResponse?.let {
+                    authListener?.onSuccess(it)
+                    //repository.saveUser(it)
+                    return@main
+                }
+                authListener?.onFailure(authResponse.success.toString())
+            }catch (e: ApiException){
+                authListener?.onFailure(e.message!!)
+            }catch (e: NoInternetException){
+                authListener?.onFailure(e.message!!)
+            }
+        }
+    }
+
 }
