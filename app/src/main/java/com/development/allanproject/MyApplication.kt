@@ -4,14 +4,14 @@ import android.app.Application
 import com.development.allanproject.data.network.NetworkConnectionInterceptor
 import com.development.allanproject.data.network.ServiceApi
 import com.development.allanproject.data.repository.UserRepository
-import com.development.allanproject.model.signupModel.Details
-import com.development.allanproject.model.signupModel.PersonalDetailPost
-import com.development.allanproject.views.activity.ui.addexperience.AddExperienceViewModelFactory
+import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModelFactory
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenseViewModelFactory
 import com.development.allanproject.views.activity.ui.appointment.AppointmentModelFactory
+import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalViewModelFactory
 import com.development.allanproject.views.activity.ui.locationPreference.LocationPreferenceModelFactory
 import com.development.allanproject.views.activity.ui.login.LoginViewModelFactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
+import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumViewModelFactory
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -30,11 +30,17 @@ class MyApplication :  Application(), KodeinAware {
        // bind() from singleton { AppDatabase(instance()) }
         bind() from singleton { UserRepository(instance()) }
         bind() from provider {PersonalDetailViewModelFactory(instance())}
-        bind() from provider {AddExperienceViewModelFactory(instance())}
+        bind() from provider {
+            AddExperienceViewModelFactory(
+                instance()
+            )
+        }
         bind() from provider {AddLicenseViewModelFactory(instance())}
         bind() from provider {AddSpecialityViewModelFactory(instance())}
         bind() from provider {LocationPreferenceModelFactory(instance())}
         bind() from provider {LoginViewModelFactory(instance())}
         bind() from provider {AppointmentModelFactory(instance())}
+        bind() from provider {ProfileSumViewModelFactory(instance())}
+        bind() from provider {EditPersonalViewModelFactory(instance())}
     }
 }

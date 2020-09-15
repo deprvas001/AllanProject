@@ -9,7 +9,7 @@
 
         <variable
             name="viewmodel"
-            type="com.development.allanproject.views.activity.ui.addexperience.AddExperienceViewModel" />
+            type="com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModel" />
     </data>
 
     <RelativeLayout

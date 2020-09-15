@@ -13,9 +13,6 @@ import com.development.allanproject.data.session.SessionManager
 import com.development.allanproject.databinding.ActivityPersonalDetailBinding
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
-import com.development.allanproject.views.activity.AddExperience
-import com.development.allanproject.views.activity.AddLicense
-import com.development.allanproject.views.activity.ui.addexperience.AddExtraExperienceInfo
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenses
 import com.github.dhaval2404.imagepicker.ImagePicker
 import kotlinx.android.synthetic.main.activity_personal_detail.*

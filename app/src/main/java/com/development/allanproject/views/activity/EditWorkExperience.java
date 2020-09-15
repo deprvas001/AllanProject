@@ -42,11 +42,11 @@ ActivityEditWorkExperienceBinding workExperienceBinding;
             experience.setName("Active");
             dataList.add(experience);
         }
-        adapter = new EditWorkExpAdapter(this, dataList);
+       /* adapter = new EditWorkExpAdapter(this, dataList);
         mLayoutManager = new LinearLayoutManager(this);
         workExperienceBinding.recyclerView.setLayoutManager(mLayoutManager);
         workExperienceBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        workExperienceBinding.recyclerView.setAdapter(adapter);
+        workExperienceBinding.recyclerView.setAdapter(adapter);*/
     }
 
     @Override

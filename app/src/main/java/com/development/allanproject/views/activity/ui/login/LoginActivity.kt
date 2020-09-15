@@ -12,7 +12,8 @@ import com.development.allanproject.databinding.ActivityLoginBinding
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
 import com.development.allanproject.views.activity.SignUpComplete
-import com.development.allanproject.views.activity.ui.addexperience.AddExtraExperienceInfo
+import com.development.allanproject.views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo
+import com.development.allanproject.views.activity.ui.addexperience.addWorkExperience.AddExperience
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenses
 import com.development.allanproject.views.activity.ui.locationPreference.AddLocationPreference
 import com.development.allanproject.views.activity.ui.personal.PersonalDetail
@@ -88,7 +89,7 @@ class LoginActivity : AppCompatActivity() , AuthListener, KodeinAware, View.OnCl
                        startActivity(Intent(this, com.development.allanproject.views.activity.ui.addcertifictate.AddCertificate::class.java))
                        finish()
                    } else if(stepNo == 6){
-                       startActivity(Intent(this, com.development.allanproject.views.activity.ui.addexperience.AddExperience::class.java))
+                       startActivity(Intent(this, AddExperience::class.java))
                        finish()
                    }else if(stepNo == 7){
                        startActivity(Intent(this, AddExtraExperienceInfo::class.java))

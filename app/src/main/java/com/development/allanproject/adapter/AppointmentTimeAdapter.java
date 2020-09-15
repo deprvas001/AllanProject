@@ -62,7 +62,7 @@ public class AppointmentTimeAdapter extends RecyclerView.Adapter<AppointmentTime
         });
 
         if(row_index == position){
-            holder.date.setTextColor(context.getResources().getColor(R.color.bg_row_background));
+            holder.date.setTextColor(context.getResources().getColor(android.R.color.holo_blue_dark));
         }else{
             holder.date.setTextColor(context.getResources().getColor(R.color.time_color));
         }

@@ -1,4 +1,4 @@
-package com.development.allanproject.views.activity.ui.addexperience
+package com.development.allanproject.views.activity.ui.addexperience.addWorkExperience
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +10,8 @@ import com.development.allanproject.data.session.SessionManager
 import com.development.allanproject.databinding.ActivityAddExperienceBinding
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
-import com.development.allanproject.views.activity.AddExperience
+import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModel
+import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModelFactory
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import kotlinx.android.synthetic.main.activity_sign_up.progress_bar
 import org.kodein.di.KodeinAware

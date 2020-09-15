@@ -3,7 +3,6 @@ package com.development.allanproject.views.activity.ui.addcertifictate
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -22,18 +21,14 @@ import com.development.allanproject.databinding.ActivityAddCertificate2Binding
 import com.development.allanproject.model.CertificateClass
 import com.development.allanproject.model.commonapi.CertificateType
 import com.development.allanproject.model.commonapi.CommonApiData
-import com.development.allanproject.model.commonapi.Speciality
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
-import com.development.allanproject.views.activity.AddCertificateSecond
-import com.development.allanproject.views.activity.AddExperience
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModel
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import kotlinx.android.synthetic.main.activity_personal_detail.progress_bar
-import kotlinx.android.synthetic.main.activity_sign_up.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
@@ -170,7 +165,7 @@ class AddCertificate : AppCompatActivity(), AuthListener, KodeinAware,
         }else{
             root_layout.snackbar("${response.success}")
             if(response.success){
-                startActivity(Intent(this, com.development.allanproject.views.activity.ui.addexperience.AddExperience::class.java))
+                startActivity(Intent(this, com.development.allanproject.views.activity.ui.addexperience.addWorkExperience.AddExperience::class.java))
                 finish()
             }else{
                 toast("Try Later")

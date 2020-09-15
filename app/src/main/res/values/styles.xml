@@ -34,6 +34,7 @@
         <item name="android:progressBackgroundTint" tools:ignore="NewApi">@color/progress_bar_border</item>
         <item name="android:progressTint" tools:targetApi="lollipop">@color/colorPrimaryDark</item>
         <item name="android:minWidth">200dp</item>
+        <item name="android:height">25dp</item>
 
     </style>
 

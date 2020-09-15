@@ -1,4 +1,4 @@
-package com.development.allanproject.views.activity.ui.addexperience
+package com.development.allanproject.views.activity.ui.addexperience.addWorkExperience
 
 import android.app.DatePickerDialog
 import android.content.Intent
@@ -24,6 +24,8 @@ import com.development.allanproject.model.experience.PositionData
 import com.development.allanproject.model.experience.ReferenceData
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
+import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModel
+import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModelFactory
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_personal_detail.*

@@ -5,9 +5,14 @@ import com.development.allanproject.data.network.ServiceApi
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
 import com.development.allanproject.model.experience.AddExperiencePost
+import com.development.allanproject.model.experience.DeleteExperience
+import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
+import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
+import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
+import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.signupModel.*
 
 class UserRepository (
@@ -32,6 +37,30 @@ class UserRepository (
         }
     }
 
+    suspend fun  getPersonalDetail( header: HashMap<String, String>,step: String) : GetPersonalDetail {
+        return apiRequest {
+           api.getPersonalDetail(header,step)
+        }
+    }
+
+    suspend fun  getWorkExperienceList( header: HashMap<String, String>,step: String) : GetExperience {
+        return apiRequest {
+            api.getWorkExperienceList(header,step)
+        }
+    }
+
+    suspend fun  deleteWorkExperienceList( header: HashMap<String, String>,workDetail:DeleteExperience) : SignResponse {
+        return apiRequest {
+            api.deleteWorkExperienceList(header,workDetail)
+        }
+    }
+
+    suspend fun  updatePersonalDetail( header: HashMap<String, String>,updatePersonalInfo: PersonalInfromationUpdate) : SignResponse {
+        return apiRequest {
+            api.updatePersonalInfo(header,updatePersonalInfo)
+        }
+    }
+
     suspend fun  login(loginPost: LoginPost) : SignResponse {
         return apiRequest {
             api.login(loginPost)
@@ -47,6 +76,12 @@ class UserRepository (
     suspend fun  locationPost( header: HashMap<String, String>,locationPost: LocationPreferencePost) : SignResponse {
         return apiRequest {
             api.locationUpload(header,locationPost)
+        }
+    }
+
+    suspend fun  getProfileSummary( header: HashMap<String, String>,type:String) : ProfileSummaryGet {
+        return apiRequest {
+            api.getProfileSummary(header,type)
         }
     }
 

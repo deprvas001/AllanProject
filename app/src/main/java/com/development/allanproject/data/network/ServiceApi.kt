@@ -5,9 +5,14 @@ import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
 import com.development.allanproject.model.commonapi.CityList
 import com.development.allanproject.model.experience.AddExperiencePost
+import com.development.allanproject.model.experience.DeleteExperience
+import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
+import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
+import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
+import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.signupModel.*
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -70,6 +75,36 @@ interface ServiceApi {
     suspend fun getAppointmentList(
         @HeaderMap header: HashMap<String, String>
     ): Response<AppointmentGetModel>
+
+    @GET("profile_summary")
+    suspend fun getProfileSummary(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("profile_type")type:String
+    ): Response<ProfileSummaryGet>
+
+    @GET("nurse_details")
+    suspend fun getPersonalDetail(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetPersonalDetail>
+
+    @GET("nurse_details")
+    suspend fun getWorkExperienceList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetExperience>
+
+    @POST("update-user")
+    suspend fun deleteWorkExperienceList(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: DeleteExperience
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun updatePersonalInfo(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: PersonalInfromationUpdate
+    ): Response<SignResponse>
 
     @POST("update-user")
     suspend fun postAppointment(

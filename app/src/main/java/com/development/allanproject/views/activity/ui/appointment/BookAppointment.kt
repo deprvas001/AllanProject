@@ -31,6 +31,7 @@ import com.development.allanproject.model.license.LicenseData
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicense
+import com.development.allanproject.views.activity.ui.profileSummary.ProfileSummaryScreen
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModel
@@ -159,8 +160,13 @@ class BookAppointment : AppCompatActivity(), AuthBookAppointment,
     override fun onSuccess(response: SignResponse) {
         progress_bar.hide()
         if(response.success){
-            if(response.status == "ok"){
-                toast("Success")
+            if(response.code.toInt() == 200){
+                if(response.status == "ok"){
+                    startActivity(Intent(this,ProfileSummaryScreen::class.java))
+                    finish()
+                }
+            }else{
+                toast(response.msg)
             }
         }else{
             toast(response.msg)

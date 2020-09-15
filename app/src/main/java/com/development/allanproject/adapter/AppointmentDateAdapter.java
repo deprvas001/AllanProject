@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.development.allanproject.R;
@@ -19,16 +20,19 @@ import java.util.List;
 public class AppointmentDateAdapter extends RecyclerView.Adapter<AppointmentDateAdapter.MyViewHolder> {
     private ArrayList<AppointmentDetail> dateList;
     private Context context;
+
+    private int row_index=-1;
     public ImageView thumbnail;
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView date,month,year;
+        public TextView date,month,day;
         public RelativeLayout viewBackground, viewForeground;
-
+        public CardView cardView;
         public MyViewHolder(View view) {
             super(view);
             date = (TextView)view.findViewById(R.id.date);
             month = (TextView)view.findViewById(R.id.month);
-            year = (TextView)view.findViewById(R.id.year);
+            day = (TextView)view.findViewById(R.id.week_day);
+            cardView = (CardView)view.findViewById(R.id.cardView);
 
         }
     }
@@ -50,7 +54,33 @@ public class AppointmentDateAdapter extends RecyclerView.Adapter<AppointmentDate
     @Override
     public void onBindViewHolder(AppointmentDateAdapter.MyViewHolder holder, int position) {
        AppointmentDetail  appointmentDetail = dateList.get(position);
-        holder.date.setText(appointmentDetail.getDate());
+       String appoint_date = appointmentDetail.getDate();
+       try {
+           String[] parts = appoint_date.split("-");
+           holder.date.setText(parts[0]);
+           holder.month.setText(parts[1]);
+           holder.day.setText(parts[2]);
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                row_index=position;
+                notifyDataSetChanged();
+            }
+        });
+
+
+        if(row_index == position){
+            holder.date.setTextColor(context.getResources().getColor(R.color.colorPrimaryDark));
+        }else{
+            holder.date.setTextColor(context.getResources().getColor(R.color.time_color));
+        }
+
+
     }
 
     @Override
