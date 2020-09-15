@@ -22,6 +22,7 @@ import com.development.allanproject.model.appointmentModel.AppointmentDetail
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
+import com.development.allanproject.views.activity.ui.addexperience.workExperienceList.WorkExperienceList
 import com.development.allanproject.views.activity.ui.appointment.AppointmentModelFactory
 import com.development.allanproject.views.activity.ui.appointment.BoookAppointmentViewModel
 import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalInfo
@@ -68,6 +69,8 @@ class ProfileSummaryScreen() : AppCompatActivity(),
 
         viewModel.getProfileSummary(header,"summary")
         binding.editPersonalInfo.setOnClickListener(this)
+        binding.editWork.setOnClickListener(this)
+        binding.editEmployment.setOnClickListener(this)
     }
 
 
@@ -123,6 +126,10 @@ class ProfileSummaryScreen() : AppCompatActivity(),
     override fun onClick(view: View?) {
         if(view!!.id==R.id.edit_personal_info){
             startActivity(Intent(this, EditPersonalInfo::class.java))
+        }else if(view!!.id==R.id.edit_work){
+            startActivity(Intent(this, WorkExperienceList::class.java))
+        }else if(view!!.id==R.id.edit_employment){
+            startActivity(Intent(this, WorkExperienceList::class.java))
         }
     }
 }

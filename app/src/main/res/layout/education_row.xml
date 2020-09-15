@@ -34,12 +34,14 @@
                     android:text="Institution"/>
 
                 <ImageView
+                    android:id="@+id/edit"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/edit"/>
 
                 <ImageView
+                    android:id="@+id/delete"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
@@ -49,6 +51,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/program"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -81,13 +84,13 @@
 
 
                 <TextView
+                    android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#4BB24D"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
-                    android:textStyle="bold"
-                    android:text="Verified"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

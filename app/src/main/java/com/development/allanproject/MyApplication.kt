@@ -8,6 +8,7 @@ import com.development.allanproject.views.activity.ui.addexperience.viewmodel.Ad
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenseViewModelFactory
 import com.development.allanproject.views.activity.ui.appointment.AppointmentModelFactory
 import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalViewModelFactory
+import com.development.allanproject.views.activity.ui.education.viewmodel.EducationViewModelFactory
 import com.development.allanproject.views.activity.ui.locationPreference.LocationPreferenceModelFactory
 import com.development.allanproject.views.activity.ui.login.LoginViewModelFactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
@@ -42,5 +43,6 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider {AppointmentModelFactory(instance())}
         bind() from provider {ProfileSumViewModelFactory(instance())}
         bind() from provider {EditPersonalViewModelFactory(instance())}
+        bind() from provider {EducationViewModelFactory(instance())}
     }
 }

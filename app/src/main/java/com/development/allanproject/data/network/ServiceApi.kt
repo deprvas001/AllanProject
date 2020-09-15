@@ -4,6 +4,8 @@ import com.development.allanproject.constant.ApiConstant
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
 import com.development.allanproject.model.commonapi.CityList
+import com.development.allanproject.model.education.AddEductionModel
+import com.development.allanproject.model.education.EducationListApiResonse
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
@@ -94,10 +96,23 @@ interface ServiceApi {
         @Query("step_no")type:String
     ): Response<GetExperience>
 
+    @GET("nurse_details")
+    suspend fun getEducation(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<EducationListApiResonse>
+
     @POST("update-user")
     suspend fun deleteWorkExperienceList(
         @HeaderMap header: HashMap<String, String>,
         @Body details: DeleteExperience
+    ): Response<SignResponse>
+
+
+    @POST("update-user")
+    suspend fun addEducation(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: AddEductionModel
     ): Response<SignResponse>
 
     @POST("update-user")

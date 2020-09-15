@@ -42,11 +42,11 @@ ActivityEducationBinding educationBinding;
             educationClass.setName("Institute");
             dataList.add(educationClass);
         }
-        adapter = new EducationAdapter(this, dataList);
+       /* adapter = new EducationAdapter(this, dataList);
         mLayoutManager = new LinearLayoutManager(this);
         educationBinding.recyclerView.setLayoutManager(mLayoutManager);
         educationBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        educationBinding.recyclerView.setAdapter(adapter);
+        educationBinding.recyclerView.setAdapter(adapter);*/
     }
 
     @Override

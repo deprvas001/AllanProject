@@ -4,6 +4,8 @@ import com.development.allanproject.data.network.SafeApiRequest
 import com.development.allanproject.data.network.ServiceApi
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
+import com.development.allanproject.model.education.AddEductionModel
+import com.development.allanproject.model.education.EducationListApiResonse
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
@@ -18,13 +20,6 @@ import com.development.allanproject.model.signupModel.*
 class UserRepository (
     private val api: ServiceApi
 ): SafeApiRequest(){
-   /* suspend fun  userLogin(email: String, password: String) : SignResponse{
-        return apiRequest {
-            api.userLogin(email, password)
-        }
-
-    }
-*/
    suspend fun  userDetail( header: HashMap<String, String>,personalDetail: PersonalDetailPostParam) : SignResponse {
        return apiRequest {
            api.userDetail(header,personalDetail)
@@ -48,12 +43,25 @@ class UserRepository (
             api.getWorkExperienceList(header,step)
         }
     }
+    suspend fun  getEducationList( header: HashMap<String, String>,step: String) : EducationListApiResonse {
+        return apiRequest {
+            api.getEducation(header,step)
+        }
+    }
 
     suspend fun  deleteWorkExperienceList( header: HashMap<String, String>,workDetail:DeleteExperience) : SignResponse {
         return apiRequest {
             api.deleteWorkExperienceList(header,workDetail)
         }
     }
+
+    suspend fun  addEducation( header: HashMap<String, String>, addEducation: AddEductionModel) : SignResponse {
+        return apiRequest {
+            api.addEducation(header,addEducation)
+        }
+    }
+
+
 
     suspend fun  updatePersonalDetail( header: HashMap<String, String>,updatePersonalInfo: PersonalInfromationUpdate) : SignResponse {
         return apiRequest {

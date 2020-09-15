@@ -8,5 +8,6 @@ data class Data(
     val shift_type: List<ShiftType>,
     val speciality: List<Speciality>,
     val states: List<String>,
-    val certificates: List<CertificateType>
+    val certificates: List<CertificateType>,
+    var degrees:List<String>
 )

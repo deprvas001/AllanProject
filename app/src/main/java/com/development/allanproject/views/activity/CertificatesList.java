@@ -42,11 +42,11 @@ public class CertificatesList extends  BaseActivity implements View.OnClickListe
             educationClass.setName("Institute");
             dataList.add(educationClass);
         }
-        adapter = new EducationAdapter(this, dataList);
+       /* adapter = new EducationAdapter(this, dataList);
         mLayoutManager = new LinearLayoutManager(this);
         listBinding.recyclerView.setLayoutManager(mLayoutManager);
         listBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        listBinding.recyclerView.setAdapter(adapter);
+        listBinding.recyclerView.setAdapter(adapter);*/
     }
 
     @Override
