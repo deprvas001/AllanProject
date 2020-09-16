@@ -18,6 +18,7 @@ import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.signupModel.*
+import com.development.allanproject.model.speciality.GetSpeciality
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -97,6 +98,12 @@ interface ServiceApi {
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<GetPersonalDetail>
+
+    @GET("nurse_details")
+    suspend fun getSpecaility(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetSpeciality>
 
     @GET("nurse_details")
     suspend fun getLicenseList(

@@ -15,9 +15,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.addlicenese.licenseList.AddMoreLicense"
+        <activity android:name=".views.activity.ui.speciality.EditSpeciality"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.addlicenese.licenseList.AddMoreLicense"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.addlicenese.licenseList.EditLicenseScreen"
             android:theme="@style/AppTheme1"
@@ -26,11 +37,7 @@
             android:name=".views.activity.ui.addlicenese.licenseList.ShowAllLicense"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".views.activity.ui.professionalDetails.ProfessionalDetails"

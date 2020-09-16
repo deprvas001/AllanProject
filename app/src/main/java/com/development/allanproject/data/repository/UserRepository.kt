@@ -18,6 +18,7 @@ import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.signupModel.*
+import com.development.allanproject.model.speciality.GetSpeciality
 
 class UserRepository (
     private val api: ServiceApi
@@ -33,6 +34,7 @@ class UserRepository (
             api.userLogin(header,personalDetail)
         }
     }
+
 
     suspend fun  licenseUpdate( header: HashMap<String, String>,detail: LicenseUpdate) : SignResponse {
         return apiRequest {
@@ -127,6 +129,12 @@ class UserRepository (
     suspend fun  addPerference( header: HashMap<String, String>,documentPost: SetPreferencePost) : SignResponse {
         return apiRequest {
             api.addPerference(header,documentPost)
+        }
+    }
+
+    suspend fun  getSpeciality( header: HashMap<String, String>,step: String) : GetSpeciality {
+        return apiRequest {
+            api.getSpecaility(header,step)
         }
     }
 
