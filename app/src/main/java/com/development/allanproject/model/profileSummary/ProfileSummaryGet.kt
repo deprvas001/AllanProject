@@ -5,7 +5,7 @@ class ProfileSummaryGet(
     var data: ArrayList<ProfileSummaryData>,
     var status: String,
     var code: Int,
-    var msg: String
-
+    var msg: String,
+    var optional: ArrayList<ProfileSummaryData>
 ) {
 }

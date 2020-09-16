@@ -9,6 +9,8 @@ import com.development.allanproject.model.education.EducationListApiResonse
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
+import com.development.allanproject.model.license.LicenseUpdate
+import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
@@ -42,6 +44,12 @@ interface ServiceApi {
     suspend fun userLogin(
         @HeaderMap header: HashMap<String, String>,
         @Body details: PersonalDetailPost
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun updateLicense(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: LicenseUpdate
     ): Response<SignResponse>
 
     @POST("update-user")
@@ -89,6 +97,12 @@ interface ServiceApi {
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<GetPersonalDetail>
+
+    @GET("nurse_details")
+    suspend fun getLicenseList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<ShowLicensesList>
 
     @GET("nurse_details")
     suspend fun getWorkExperienceList(

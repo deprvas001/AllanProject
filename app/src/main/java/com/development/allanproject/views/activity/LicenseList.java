@@ -42,11 +42,11 @@ public class LicenseList extends BaseActivity implements View.OnClickListener {
             license.setName("License");
             dataList.add(license);
         }
-        adapter = new LicenseListAdapter(this, dataList);
+       /* adapter = new LicenseListAdapter(this, dataList);
         mLayoutManager = new LinearLayoutManager(this);
         licenseListBinding.recyclerView.setLayoutManager(mLayoutManager);
         licenseListBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        licenseListBinding.recyclerView.setAdapter(adapter);
+        licenseListBinding.recyclerView.setAdapter(adapter);*/
     }
 
     @Override

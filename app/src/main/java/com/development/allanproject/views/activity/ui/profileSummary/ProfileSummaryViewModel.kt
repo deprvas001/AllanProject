@@ -21,7 +21,7 @@ class ProfileSummaryViewModel (private val repository: UserRepository
         Coroutines.main {
             try{
 
-                val authResponse = repository.getProfileSummary(header,"summary")
+                val authResponse = repository.getProfileSummary(header,type)
                 authResponse?.let {
 
                     authListener?.onSuccess(it)

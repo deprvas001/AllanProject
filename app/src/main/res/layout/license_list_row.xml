@@ -24,7 +24,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -35,12 +34,14 @@
                     android:text="Institution"/>
 
                 <ImageView
+                    android:id="@+id/edit"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/edit"/>
 
                 <ImageView
+                    android:id="@+id/delete"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center_vertical"
@@ -55,6 +56,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -63,10 +65,10 @@
                     android:text="License"/>
 
                 <TextView
+                    android:id="@+id/license"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="RN"
                     android:textColor="#626262"
                     android:textStyle="bold"/>
 
@@ -79,6 +81,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -87,10 +90,10 @@
                     android:text="State"/>
 
                 <TextView
+                    android:id="@+id/state"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="New York"
                     android:textColor="#626262"
                     android:textStyle="bold"/>
 
@@ -103,6 +106,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -111,6 +115,7 @@
                     android:text="License No."/>
 
                 <TextView
+                    android:id="@+id/license_no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -126,6 +131,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -134,6 +140,7 @@
                     android:text="Expiry Date"/>
 
                 <TextView
+                    android:id="@+id/expiry_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -157,10 +164,10 @@
                     android:text="Compact"/>
 
                 <TextView
+                    android:id="@+id/compat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Yes"
                     android:textColor="#626262"
                     android:textStyle="bold"/>
 
@@ -168,14 +175,6 @@
             </LinearLayout>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#626262"
-                android:paddingTop="5dp"
-                android:paddingLeft="10dp"
-                android:text="Major"/>
 
             <View
                 android:layout_width="wrap_content"
@@ -201,13 +200,13 @@
 
 
                 <TextView
+                    android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#4BB24D"
                     android:paddingTop="10dp"
                     android:paddingLeft="10dp"
-                    android:textStyle="bold"
-                    android:text="Verified"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

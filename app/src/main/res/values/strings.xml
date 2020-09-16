@@ -145,6 +145,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
     <string name="edit_education">Edit Education</string>
     <string name="add_more">Add More</string>
     <string name="add_education">Add Education</string>
+    <string name="professiona_detail">Personal Detail</string>
+    <string name="professional_detail">Professional Details</string>
 
     <string-array name="license_id">
         <item>License Id 1</item>

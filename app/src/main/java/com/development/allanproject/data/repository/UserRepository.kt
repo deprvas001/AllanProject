@@ -9,6 +9,8 @@ import com.development.allanproject.model.education.EducationListApiResonse
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
+import com.development.allanproject.model.license.LicenseUpdate
+import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
@@ -29,6 +31,18 @@ class UserRepository (
     suspend fun  userLogin( header: HashMap<String, String>,personalDetail: PersonalDetailPost) : SignResponse {
         return apiRequest {
             api.userLogin(header,personalDetail)
+        }
+    }
+
+    suspend fun  licenseUpdate( header: HashMap<String, String>,detail: LicenseUpdate) : SignResponse {
+        return apiRequest {
+            api.updateLicense(header,detail)
+        }
+    }
+
+    suspend fun  getLicenseList( header: HashMap<String, String>,step: String) : ShowLicensesList {
+        return apiRequest {
+            api.getLicenseList(header,step)
         }
     }
 
