@@ -10,8 +10,6 @@ class ProfileSummaryViewModel (private val repository: UserRepository
 
     var authListener: ProfileSummaryAuthListener? = null
     /*var postListener: AuthListener? = null*/
-
-
     fun getProfileSummary(
         header: HashMap<String, String>,
         type:String
@@ -20,10 +18,8 @@ class ProfileSummaryViewModel (private val repository: UserRepository
 
         Coroutines.main {
             try{
-
                 val authResponse = repository.getProfileSummary(header,type)
                 authResponse?.let {
-
                     authListener?.onSuccess(it)
                     //repository.saveUser(it)
                     return@main
@@ -36,31 +32,4 @@ class ProfileSummaryViewModel (private val repository: UserRepository
             }
         }
     }
-
-  /*  fun postAppointmentList(
-        header: HashMap<String, String>,
-        hashMap:HashMap<String,Int>
-    ){
-        postListener?.onStarted()
-
-        Coroutines.main {
-            try{
-
-                val postAppointment = PostAppointment(11,hashMap)
-                val authResponse = repository.postAppointment(header, postAppointment)
-                authResponse?.let {
-
-                    postListener?.onSuccess(it)
-                    //repository.saveUser(it)
-                    return@main
-                }
-                postListener?.onFailure(authResponse.success.toString())
-            }catch (e: ApiException){
-                postListener?.onFailure(e.message!!)
-            }catch (e: NoInternetException){
-                postListener?.onFailure(e.message!!)
-            }
-        }
-    }*/
-
 }

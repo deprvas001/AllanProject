@@ -4,11 +4,15 @@ import com.development.allanproject.data.network.SafeApiRequest
 import com.development.allanproject.data.network.ServiceApi
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
+import com.development.allanproject.model.certificate.CertificateList
 import com.development.allanproject.model.education.AddEductionModel
 import com.development.allanproject.model.education.EducationListApiResonse
+import com.development.allanproject.model.ehrs.EHRSList
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
+import com.development.allanproject.model.healthDocument.HealthDocPost
+import com.development.allanproject.model.healthDocument.HealthDocumentList
 import com.development.allanproject.model.license.LicenseUpdate
 import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
@@ -45,6 +49,24 @@ class UserRepository (
     suspend fun  getLicenseList( header: HashMap<String, String>,step: String) : ShowLicensesList {
         return apiRequest {
             api.getLicenseList(header,step)
+        }
+    }
+
+    suspend fun  getCertificateList( header: HashMap<String, String>,step: String) : CertificateList {
+        return apiRequest {
+            api.getCertificateList(header,step)
+        }
+    }
+
+    suspend fun  getHealthDocList( header: HashMap<String, String>,step: String) : HealthDocumentList{
+        return apiRequest {
+            api.getDocumentList(header,step)
+        }
+    }
+
+    suspend fun  postHealthDoc( header: HashMap<String, String>,detail: HealthDocPost) : SignResponse{
+        return apiRequest {
+            api.postHealthDoc(header,detail)
         }
     }
 
@@ -135,6 +157,12 @@ class UserRepository (
     suspend fun  getSpeciality( header: HashMap<String, String>,step: String) : GetSpeciality {
         return apiRequest {
             api.getSpecaility(header,step)
+        }
+    }
+
+    suspend fun  getEHRS( header: HashMap<String, String>,step: String) : EHRSList {
+        return apiRequest {
+            api.getEHRS(header,step)
         }
     }
 

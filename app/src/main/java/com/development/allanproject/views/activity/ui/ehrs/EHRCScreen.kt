@@ -1,6 +1,5 @@
-package com.development.allanproject.views.activity.ui.speciality
+package com.development.allanproject.views.activity.ui.ehrs
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,65 +10,68 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.development.allanproject.R
-import com.development.allanproject.adapter.CertificateAdapter
+import com.development.allanproject.adapter.EHRSAdapter
 import com.development.allanproject.adapter.EditSpecialityAdapter
 import com.development.allanproject.data.session.SessionManager
-import com.development.allanproject.databinding.ActivityEditSpecialityBinding
-import com.development.allanproject.model.CertificateClass
+import com.development.allanproject.databinding.ActivityEHRMScreenBinding
 import com.development.allanproject.model.commonapi.CommonApiData
+import com.development.allanproject.model.commonapi.EHRSDataType
 import com.development.allanproject.model.commonapi.Speciality
+import com.development.allanproject.model.ehrs.EHRSData
+import com.development.allanproject.model.ehrs.EHRSList
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.model.speciality.Data
 import com.development.allanproject.model.speciality.GetSpeciality
 import com.development.allanproject.util.*
+import com.development.allanproject.util.ehrsListener.EHRSAuthListener
 import com.development.allanproject.util.specialityListener.SpecialityAuthListener
-import com.development.allanproject.views.activity.ui.addcertifictate.AddCertificate
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
+import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModel
+import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
 import kotlinx.android.synthetic.main.activity_personal_detail.*
-import kotlinx.android.synthetic.main.activity_personal_detail.progress_bar
-import kotlinx.android.synthetic.main.activity_sign_up.*
-import kotlinx.android.synthetic.main.position_layout_item.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class EditSpeciality : AppCompatActivity(), SpecialityAuthListener, AuthListener, KodeinAware,
+class EHRCScreen : AppCompatActivity(), EHRSAuthListener, AuthListener, KodeinAware,
     RecyclerItemTouchHelper.RecyclerItemTouchHelperListener,
-    EditSpecialityAdapter.SpecialityCallBack {
-    private lateinit var binding: ActivityEditSpecialityBinding
-    private lateinit var viewModel: AddSpecialityViewModel
+    EHRSAdapter.EHRSCallBack {
+    private lateinit var binding: ActivityEHRMScreenBinding
+
+    private lateinit var viewModel: EHRSViewModel
     var header: HashMap<String, String> = HashMap<String, String>()
     var hashMap: ArrayList<HashMap<String, Any>> = ArrayList<HashMap<String, Any>>()
-    var adapter: EditSpecialityAdapter? = null
-    var specialityList: ArrayList<Speciality> = ArrayList<Speciality>()
+    var adapter: EHRSAdapter? = null
+    var ehrsList: ArrayList<EHRSDataType> = ArrayList()
     var mLayoutManager: RecyclerView.LayoutManager? = null
-    var speciality: String? = null
-    var dataList: ArrayList<Data> = ArrayList()
+    var ehrsId: Int? = null
+    var dataList: ArrayList<EHRSData> = ArrayList()
     override val kodein by kodein()
-    var dataItem: Data? = null
-    var isAdd:Boolean = false
+    var dataItem: EHRSData? = null
+    var isAdd: Boolean = false
 
-    private val factory: AddSpecialityViewModelFactory by instance()
+    private val factory: EHRSViewModelFactory by instance()
     lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_speciality)
-        viewModel = ViewModelProvider(this, factory).get(AddSpecialityViewModel::class.java)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_e_h_r_m_screen)
+
+        viewModel = ViewModelProvider(this, factory).get(EHRSViewModel::class.java)
         viewModel.authListener = this
-        viewModel.specialityAuthListener = this
+        viewModel.ehrsAuthListener = this
+
         sessionManager = SessionManager(this)
         val user: java.util.HashMap<String, String> = sessionManager.getUserDetails()
         toast(user.toString())
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        adapter = EditSpecialityAdapter(this, dataList, this)
+        adapter = EHRSAdapter(this, dataList, this)
         mLayoutManager = LinearLayoutManager(this)
         binding.recyclerView.setLayoutManager(mLayoutManager)
         binding.recyclerView.setItemAnimator(DefaultItemAnimator())
@@ -77,39 +79,15 @@ class EditSpeciality : AppCompatActivity(), SpecialityAuthListener, AuthListener
 
         dataList.clear()
 
-        /* val itemTouchHelperCallback: ItemTouchHelper.SimpleCallback =
-             RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this)
-         ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(binding.recyclerView)
- */
         header.set("user_id", "22")
         header.set(
             "Authorization",
-            "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwMzI2Nzg2fQ.vaiRJiTisqb89tiQJqg3t0rubigehfUnXIPtOife52k"
+            "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwNDM2ODA5fQ.DQA4asRolVJGDMtEV2ZxIBx6pm-nR3iWiMGBVokSI8k"
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")
 
         getCommonApiData()
-        // viewModel.licenseDetail(viewModel)
-        binding.btnNext.setOnClickListener {
-
-
-            //
-        }
-
-        binding.add.setOnClickListener {
-            isAdd = true
-            if(binding.experience.text.isNullOrEmpty()){
-                toast("Please Add Experience")
-            }else{
-                var licenseRequest: HashMap<String, Any> = HashMap<String, Any>()
-                licenseRequest.put("speciality_id",speciality!!)
-                licenseRequest.put("exp_years", binding.experience.text.toString())
-                viewModel.addSpeciality(header,licenseRequest)
-            }
-
-
-        }
 
         binding.facilitySpinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
@@ -117,13 +95,23 @@ class EditSpeciality : AppCompatActivity(), SpecialityAuthListener, AuthListener
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-                speciality = specialityList[position].id.toString()
-                toast(specialityList[position].name)
+                var speciality = parent.selectedItem as EHRSDataType
+                ehrsId = speciality.id
+                toast(speciality.name)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // write code to perform some action
             }
+        }
+
+        binding.add.setOnClickListener {
+            isAdd = true
+
+            var licenseRequest: HashMap<String, Any> = HashMap<String, Any>()
+            licenseRequest.put("health_doc_id", ehrsId!!)
+            viewModel.addSpeciality(header, licenseRequest)
+
         }
     }
 
@@ -132,26 +120,16 @@ class EditSpeciality : AppCompatActivity(), SpecialityAuthListener, AuthListener
         toast("Login Started")
     }
 
-    override fun onSuccess(response: GetSpeciality) {
+    override fun onSuccess(response: EHRSList) {
         progress_bar.hide()
         if (response.success && response.status.equals("ok") && response.code == 200) {
             dataList.clear()
             if (response.data.size > 0) {
                 for (data in response.data) {
-                    for (speciality in specialityList) {
-
-                        if (data.speciality_id == speciality.id) {
-                            val specailityData = Data(
-                                data.created_at,
-                                data.exp_years,
-                                data.id,
-                                data.nurse_id,
-                                data.speciality_id,
-                                data.status,
-                                data.updated_at,
-                                speciality.name
-                            )
-                            dataList.add(specailityData)
+                    for (ehrsData in ehrsList) {
+                        if (data.health_doc_id == ehrsData.id) {
+                            data.name = ehrsData.name
+                            dataList.add(data)
                         }
                     }
                 }
@@ -165,17 +143,17 @@ class EditSpeciality : AppCompatActivity(), SpecialityAuthListener, AuthListener
     override fun onSuccess(response: SignResponse) {
         progress_bar.hide()
         if (response.success && response.code.equals("200") && response.status.equals("ok")) {
-           if(isAdd){
-             /*  startActivity(Intent(this, EditSpeciality::class.java))
-               finish()*/
-               getCommonApiData()
-           }else{
-               toast("Deleted Successfully")
-               if (dataList.contains(dataItem)) {
-                   dataList.removeAt(dataList.indexOf(dataItem))
-                   adapter!!.notifyDataSetChanged()
-               }
-           }
+            if (isAdd) {
+                /*  startActivity(Intent(this, EditSpeciality::class.java))
+                  finish()*/
+                getCommonApiData()
+            } else {
+                toast("Deleted Successfully")
+                if (dataList.contains(dataItem)) {
+                    dataList.removeAt(dataList.indexOf(dataItem))
+                    adapter!!.notifyDataSetChanged()
+                }
+            }
 
         } else {
             toast(response.msg)
@@ -188,9 +166,8 @@ class EditSpeciality : AppCompatActivity(), SpecialityAuthListener, AuthListener
         root_layout.snackbar(message)
     }
 
-
     private fun getCommonApiData() {
-        binding.experience.text.clear()
+        //  binding.experience.text.clear()
         binding.progressBar.setVisibility(View.VISIBLE)
         var signUpViewModel: SignUpViewModel =
             ViewModelProvider(this).get(SignUpViewModel::class.java)
@@ -201,20 +178,20 @@ class EditSpeciality : AppCompatActivity(), SpecialityAuthListener, AuthListener
                 Toast.makeText(this, apiResponse.status, Toast.LENGTH_SHORT).show()
                 if (apiResponse.code == 200) {
                     if (apiResponse.success == true) {
-                        specialityList.clear()
+                        ehrsList.clear()
                         dataList.clear()
                         SignUp.commonApiData = apiResponse
-                        specialityList =
-                            SignUp.commonApiData.data.speciality as ArrayList<Speciality>
-                        val adapter: ArrayAdapter<*> = ArrayAdapter<Any?>(
+                        ehrsList =
+                            SignUp.commonApiData.data.electronic_health_record
+                        val adapter: ArrayAdapter<EHRSDataType> = ArrayAdapter<EHRSDataType>(
                             this,
                             android.R.layout.simple_spinner_item,
-                            SignUp.commonApiData.data.speciality
+                            SignUp.commonApiData.data.electronic_health_record
                         )
                         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         isAdd = false
                         binding.facilitySpinner.setAdapter(adapter)
-                        viewModel.getSpeciality(header, "4")
+                        viewModel.getEHRS(header, "21")
                     }
                 }
                 //  startActivity(Intent(this@SignUp, PersonalDetail::class.java))
@@ -222,15 +199,15 @@ class EditSpeciality : AppCompatActivity(), SpecialityAuthListener, AuthListener
         )
     }
 
-    override fun onSwiped(viewHolder: RecyclerView.ViewHolder?, direction: Int, position: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun listenerMethod(data: Data?) {
+    override fun listenerMethod(data: EHRSData?) {
         if (data != null) {
             isAdd = false
             dataItem = data
             viewModel.deleteWorkExperience(header, data.id)
         }
+    }
+
+    override fun onSwiped(viewHolder: RecyclerView.ViewHolder?, direction: Int, position: Int) {
+        TODO("Not yet implemented")
     }
 }

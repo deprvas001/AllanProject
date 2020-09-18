@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.speciality.EditSpeciality"
+        <activity android:name=".views.activity.ui.ehrs.EHRCScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -23,8 +23,25 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.activity.ui.healthdocument.HealthDocumentList"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden">
 
         </activity>
+        <activity
+            android:name=".views.activity.ui.addcertifictate.certificateList.UpadateCertificate"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".views.activity.ui.addcertifictate.certificateList.ShowCertificateList"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.speciality.EditSpeciality"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.addlicenese.licenseList.AddMoreLicense"
             android:theme="@style/AppTheme1"
@@ -36,9 +53,7 @@
         <activity
             android:name=".views.activity.ui.addlicenese.licenseList.ShowAllLicense"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.professionalDetails.ProfessionalDetails"
             android:theme="@style/AppTheme1"

@@ -2,6 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <RelativeLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,50 +72,42 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="40dp"
                         android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
                         app:cardCornerRadius="5dp"
                         app:cardElevation="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="20dp"
                             android:orientation="vertical">
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColorHint="#555555"
-                                android:layout_marginTop="10dp">
-
-                                <EditText
-                                    android:id="@+id/input_email"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:focusableInTouchMode="true"
-                                    android:textColor="#C0C0C0"
-                                    android:inputType="textEmailAddress"
-                                    android:singleLine="true"
-                                    android:textSize="14sp" />
-
-                            </com.google.android.material.textfield.TextInputLayout>
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:gravity="center"
-                                android:textStyle="bold"
-                                android:text="@string/add_ehrs"
-                                android:textColor="#4D4D4D" />
+                                android:layout_marginTop="20dp"
+                                android:text="EHRS"
+                                android:textColor="#555555" />
 
+                            <androidx.appcompat.widget.AppCompatSpinner
+                                android:id="@+id/facility_spinner"
+                                style="@style/Widget.AppCompat.Spinner.Underlined"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:paddingLeft="-5dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:singleLine="true" />
 
                         </LinearLayout>
 
@@ -119,6 +115,19 @@
 
                 </FrameLayout>
 
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-40dp">
+
+                    <ImageView
+                        android:id="@+id/add"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/add" />
+                </FrameLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view"
@@ -132,6 +141,14 @@
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
 
 
 </layout>

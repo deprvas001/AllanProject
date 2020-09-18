@@ -3,12 +3,16 @@ package com.development.allanproject.data.network
 import com.development.allanproject.constant.ApiConstant
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
+import com.development.allanproject.model.certificate.CertificateList
 import com.development.allanproject.model.commonapi.CityList
 import com.development.allanproject.model.education.AddEductionModel
 import com.development.allanproject.model.education.EducationListApiResonse
+import com.development.allanproject.model.ehrs.EHRSList
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
+import com.development.allanproject.model.healthDocument.HealthDocPost
+import com.development.allanproject.model.healthDocument.HealthDocumentList
 import com.development.allanproject.model.license.LicenseUpdate
 import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
@@ -19,6 +23,7 @@ import com.development.allanproject.model.personalDetail.PersonalInfromationUpda
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.signupModel.*
 import com.development.allanproject.model.speciality.GetSpeciality
+import com.development.allanproject.views.activity.HealthDocument
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -106,10 +111,28 @@ interface ServiceApi {
     ): Response<GetSpeciality>
 
     @GET("nurse_details")
+    suspend fun getEHRS(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<EHRSList>
+
+    @GET("nurse_details")
     suspend fun getLicenseList(
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<ShowLicensesList>
+
+    @GET("nurse_details")
+    suspend fun getCertificateList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<CertificateList>
+
+    @GET("nurse_details")
+    suspend fun getDocumentList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<HealthDocumentList>
 
     @GET("nurse_details")
     suspend fun getWorkExperienceList(
@@ -127,6 +150,12 @@ interface ServiceApi {
     suspend fun deleteWorkExperienceList(
         @HeaderMap header: HashMap<String, String>,
         @Body details: DeleteExperience
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun postHealthDoc(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: HealthDocPost
     ): Response<SignResponse>
 
 

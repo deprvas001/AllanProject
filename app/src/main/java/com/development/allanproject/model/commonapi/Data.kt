@@ -9,5 +9,6 @@ data class Data(
     val speciality: List<Speciality>,
     val states: List<String>,
     val certificates: List<CertificateType>,
-    var degrees:List<String>
+    var degrees:List<String>,
+    var electronic_health_record:ArrayList<EHRSDataType>
 )

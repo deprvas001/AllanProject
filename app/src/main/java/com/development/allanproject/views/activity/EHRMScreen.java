@@ -42,11 +42,11 @@ ActivityEHRMScreenBinding screenBinding;
             ehrsClass.setName("Certificate");
             dataList.add(ehrsClass);
         }
-        adapter = new EHRSAdapter(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
-        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        screenBinding.recyclerView.setAdapter(adapter);
+//        adapter = new EHRSAdapter(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        screenBinding.recyclerView.setAdapter(adapter);
     }
 
     @Override

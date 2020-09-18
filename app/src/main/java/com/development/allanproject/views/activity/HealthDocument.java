@@ -50,10 +50,10 @@ public class HealthDocument extends  BaseActivity implements View.OnClickListene
             document.setName("Health Document");
             dataList.add(document);
         }
-        adapter = new HealthDocumentAdpater(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-        documentBinding.recyclerView.setLayoutManager(mLayoutManager);
-        documentBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        documentBinding.recyclerView.setAdapter(adapter);
+//        adapter = new HealthDocumentAdpater(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        documentBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        documentBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        documentBinding.recyclerView.setAdapter(adapter);
     }
 }

@@ -110,7 +110,6 @@ class AddSpecialityViewModel(
 
         Coroutines.main {
             try{
-
                 val authResponse = repository.getSpeciality(header,stepNo)
                 authResponse?.let {
                     specialityAuthListener?.onSuccess(it)

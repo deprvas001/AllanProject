@@ -51,7 +51,6 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/imageView"
                     android:layout_below="@id/name"
-                    android:text="Created Date"
                     android:paddingLeft="15dp"
                     android:paddingTop="10dp"
                     android:textColor="#555555"/>

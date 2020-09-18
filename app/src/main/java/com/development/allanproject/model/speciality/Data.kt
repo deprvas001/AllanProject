@@ -10,3 +10,4 @@ data class Data(
     val updated_at: String,
     val name: String
 )
+
