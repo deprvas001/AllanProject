@@ -15,25 +15,52 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.ehrs.EHRCScreen"
+        <activity android:name=".views.activity.ui.socialsecurity.SocialSecurityList"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity
+            android:name=".views.activity.ui.socialsecurity.SocialSecurityScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.uploadid.UploadIDs"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".views.activity.ui.adddoucment.AddDocumentDetail"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.bankinfo.BankInformation"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.addexperience.editExperience.EditExperience"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.training.TrainingScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.reference.ReferenceScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.ehrs.EHRCScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.healthdocument.HealthDocumentList"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.addcertifictate.certificateList.UpadateCertificate"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.addcertifictate.certificateList.ShowCertificateList"
             android:theme="@style/AppTheme1"
@@ -85,14 +112,12 @@
         <activity
             android:name=".views.activity.ui.login.LoginActivity"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo"
@@ -410,11 +435,14 @@
         <activity
             android:name=".views.activity.NormalLoginScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden" >
+
+        </activity>
         <activity
             android:name=".views.activity.LoginScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
         <activity android:name=".MainActivity" />
     </application>
 

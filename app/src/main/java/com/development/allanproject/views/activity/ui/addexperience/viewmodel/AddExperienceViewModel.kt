@@ -5,6 +5,7 @@ import com.development.allanproject.data.repository.UserRepository
 import com.development.allanproject.data.session.SessionManager
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
+import com.development.allanproject.model.experience.UpdateExperiencePost
 import com.development.allanproject.model.signupModel.ExperiencePost
 import com.development.allanproject.util.*
 import com.development.allanproject.util.workExperienceListener.AuthWorkExperienceListener
@@ -60,6 +61,34 @@ class AddExperienceViewModel (
                 val workDetail = AddExperiencePost(details!!,7)
                 //  val authResponse = repository.userLogin(firstName!!, dob!!)
                 val authResponse = repository.workPost(header,workDetail)
+                authResponse?.let {
+                    authListener?.onSuccess(it)
+                    //repository.saveUser(it)
+                    return@main
+                }
+                authListener?.onFailure(authResponse.success.toString())
+            }catch (e: ApiException){
+                authListener?.onFailure(e.message!!)
+            }catch (e: NoInternetException){
+                authListener?.onFailure(e.message!!)
+            }
+        }
+    }
+
+    fun upateWorkDetail(
+        header: HashMap<String, String>,
+        details:HashMap<String,Any>
+
+
+    ){
+        authListener?.onStarted()
+
+        Coroutines.main {
+            try{
+
+                val workDetail = UpdateExperiencePost(details!!,7,"update")
+                //  val authResponse = repository.userLogin(firstName!!, dob!!)
+                val authResponse = repository.updateWorkPost(header,workDetail)
                 authResponse?.let {
                     authListener?.onSuccess(it)
                     //repository.saveUser(it)

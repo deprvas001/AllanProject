@@ -1,5 +1,9 @@
 package com.development.allanproject.model.experience
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class SubDetail(
     val charge_experience: Boolean,
     val charting_technology: String,
@@ -13,4 +17,4 @@ data class SubDetail(
     val status: Boolean,
     val unit: String,
     val updated_at: String
-)
+):Parcelable

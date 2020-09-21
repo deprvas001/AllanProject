@@ -47,11 +47,11 @@ public class MyDocument extends Fragment {
             document.setName("Document Name");
             dataList.add(document);
         }
-        adapter = new MyDocumentAdapter(getActivity(), dataList);
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        documentBinding.recyclerView.setLayoutManager(mLayoutManager);
-        documentBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        documentBinding.recyclerView.setAdapter(adapter);
+//        adapter = new MyDocumentAdapter(getActivity(), dataList);
+//        mLayoutManager = new LinearLayoutManager(getActivity());
+//        documentBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        documentBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        documentBinding.recyclerView.setAdapter(adapter);
     }
 }
 

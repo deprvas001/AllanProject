@@ -1,6 +1,7 @@
 package com.development.allanproject.model.experience;
 
 public class ReferenceData {
+    private int id;
     private String facility_name;
     private String name;
     private String job_title;
@@ -63,5 +64,13 @@ public class ReferenceData {
 
     public void setStd_code(String std_code) {
         this.std_code = std_code;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

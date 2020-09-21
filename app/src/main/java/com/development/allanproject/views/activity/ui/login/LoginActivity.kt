@@ -103,8 +103,8 @@ class LoginActivity : AppCompatActivity() , AuthListener, KodeinAware, View.OnCl
                    }else if(stepNo == 10){
                        startActivity(Intent(this, AddLocationPreference::class.java))
                        finish()
-                   }else if(stepNo == 10){
-                       startActivity(Intent(this, PersonalDetail::class.java))
+                   }else{
+                       startActivity(Intent(this, SignUpComplete::class.java))
                        finish()
                    }
                 }

@@ -22,10 +22,13 @@ import com.development.allanproject.model.appointmentModel.AppointmentDetail
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
+import com.development.allanproject.views.activity.EmploymentDetail
 import com.development.allanproject.views.activity.ui.addexperience.workExperienceList.WorkExperienceList
 import com.development.allanproject.views.activity.ui.appointment.AppointmentModelFactory
 import com.development.allanproject.views.activity.ui.appointment.BoookAppointmentViewModel
 import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalInfo
+import com.development.allanproject.views.activity.ui.education.EducationList
+import com.development.allanproject.views.activity.ui.professionalDetails.ProfessionalDetails
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -60,7 +63,7 @@ class ProfileSummaryScreen() : AppCompatActivity(),
 
         header.set("user_id", user_id!!)
         header.set(
-            "Authorization","eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwMTcwNjI2fQ.LTgeY18K4hAt4J7yKwUBYOJoJ6Azny2K1cM2N8JUdTI"
+            "Authorization",token!!
         )
         header.set("device_type_id", "1")
         header.set("device_type", "Android")
@@ -71,6 +74,8 @@ class ProfileSummaryScreen() : AppCompatActivity(),
         binding.editPersonalInfo.setOnClickListener(this)
         binding.editWork.setOnClickListener(this)
         binding.editEmployment.setOnClickListener(this)
+        binding.editEducation.setOnClickListener(this)
+        binding.editProfessional.setOnClickListener(this)
     }
 
 
@@ -128,8 +133,12 @@ class ProfileSummaryScreen() : AppCompatActivity(),
             startActivity(Intent(this, EditPersonalInfo::class.java))
         }else if(view!!.id==R.id.edit_work){
             startActivity(Intent(this, WorkExperienceList::class.java))
+        }else if(view!!.id==R.id.edit_education){
+            startActivity(Intent(this,EducationList::class.java))
+        }else if(view!!.id==R.id.edit_professional){
+            startActivity(Intent(this,ProfessionalDetails::class.java))
         }else if(view!!.id==R.id.edit_employment){
-            startActivity(Intent(this, WorkExperienceList::class.java))
+            startActivity(Intent(this,EmploymentDetail::class.java))
         }
     }
 }

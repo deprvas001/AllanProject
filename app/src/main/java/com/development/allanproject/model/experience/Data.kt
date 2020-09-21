@@ -1,9 +1,13 @@
 package com.development.allanproject.model.experience
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Data(
     val address: String,
     val created_at: String,
-    val end_date: String,
+    val end_date: String?,
     val facility_id: Int,
     val facility_name: String,
     val id: Int,
@@ -14,4 +18,4 @@ data class Data(
     val status: Boolean,
     val sub_details: List<SubDetail>,
     val updated_at: String
-)
+): Parcelable

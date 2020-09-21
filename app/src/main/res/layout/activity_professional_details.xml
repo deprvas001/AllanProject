@@ -160,7 +160,7 @@
                                 </RelativeLayout>
 
                                 <TextView
-                                    android:id="@+id/edit_work"
+                                    android:id="@+id/edit_specaility"
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
@@ -212,7 +212,7 @@
                                 </RelativeLayout>
 
                                 <TextView
-                                    android:id="@+id/edit_employment"
+                                    android:id="@+id/edit_certificate"
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
@@ -264,6 +264,7 @@
                                 </RelativeLayout>
 
                                 <TextView
+                                    android:id="@+id/edit_reference"
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
@@ -314,6 +315,7 @@
                                 </RelativeLayout>
 
                                 <TextView
+                                    android:id="@+id/edit_health"
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
@@ -472,6 +474,7 @@
                                 </RelativeLayout>
 
                                 <TextView
+                                    android:id="@+id/edit_training"
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"
@@ -521,6 +524,7 @@
                                 </RelativeLayout>
 
                                 <TextView
+                                    android:id="@+id/edit_hrm"
                                     android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:gravity="right"

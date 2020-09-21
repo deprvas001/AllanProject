@@ -1,6 +1,7 @@
 package com.development.allanproject.model.experience;
 
 public class PositionData {
+    private int id;
     private String position;
     private String speciality;
     private String unit;
@@ -63,5 +64,13 @@ public class PositionData {
 
     public void setPosition_year(String position_year) {
         this.position_year = position_year;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -305,9 +305,9 @@ class AddMoreLicense : AppCompatActivity() , AuthListener, KodeinAware, View.OnC
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        header.set("user_id", "22")
+        header.set("user_id", user_id!!)
         header.set(
-            "Authorization","eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwMzI2Nzg2fQ.vaiRJiTisqb89tiQJqg3t0rubigehfUnXIPtOife52k"
+            "Authorization", token!!
         )
         header.set("device_type_id","1")
 

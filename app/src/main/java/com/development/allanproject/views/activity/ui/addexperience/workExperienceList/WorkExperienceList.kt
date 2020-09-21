@@ -1,5 +1,6 @@
 package com.development.allanproject.views.activity.ui.addexperience.workExperienceList
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -21,6 +22,7 @@ import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
 import com.development.allanproject.util.workExperienceListener.AuthWorkExperienceListener
+import com.development.allanproject.views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo
 import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModel
 import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModelFactory
 import com.development.allanproject.views.activity.ui.signup.SignUp
@@ -64,12 +66,18 @@ class WorkExperienceList : AppCompatActivity(),
 
         header.set("user_id", user_id!!)
         header.set(
-            "Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwMTcwNjI2fQ.LTgeY18K4hAt4J7yKwUBYOJoJ6Azny2K1cM2N8JUdTI"
+            "Authorization", token!!
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")
 
        getCommonApiData()
+
+        binding.btnNextStep.setOnClickListener {
+            val intent = Intent(this, AddExtraExperienceInfo::class.java)
+            intent.putExtra("isEdit", true)
+            startActivity(intent)
+        }
 
     }
 

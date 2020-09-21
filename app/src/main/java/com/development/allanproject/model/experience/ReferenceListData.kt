@@ -1,5 +1,9 @@
 package com.development.allanproject.model.experience
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 class ReferenceListData(
     var id:Int,
     var experience_id: Int,
@@ -15,5 +19,5 @@ class ReferenceListData(
     var std_code: String,
     var nurse_id: String
 
-) {
+):Parcelable {
 }

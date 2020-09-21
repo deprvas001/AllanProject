@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.development.allanproject.R;
 import com.development.allanproject.databinding.ActivitySignUpCompleteBinding;
+import com.development.allanproject.views.activity.ui.appointment.BookAppointment;
 import com.development.allanproject.views.activity.ui.login.LoginActivity;
 
 public class SignUpComplete extends BaseActivity implements View.OnClickListener {
@@ -23,7 +24,7 @@ ActivitySignUpCompleteBinding completeBinding;
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.btn_next:
-                Intent intent = new Intent(this, LoginActivity.class);
+                Intent intent = new Intent(this, BookAppointment.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

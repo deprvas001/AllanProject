@@ -1,6 +1,7 @@
 package com.development.allanproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.development.allanproject.R;
 import com.development.allanproject.model.EditWorkExpClass;
 import com.development.allanproject.model.commonapi.FacilityType;
 import com.development.allanproject.model.experience.Data;
+import com.development.allanproject.views.activity.ui.addexperience.editExperience.EditExperience;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -36,7 +38,7 @@ public class EditWorkExpAdapter extends RecyclerView.Adapter<EditWorkExpAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView status, facility_type,facility_name,exp;
-        public ImageView delete;
+        public ImageView delete,edit;
         public MyViewHolder(View view) {
             super(view);
             status = (TextView)view.findViewById(R.id.status);
@@ -44,6 +46,8 @@ public class EditWorkExpAdapter extends RecyclerView.Adapter<EditWorkExpAdapter.
             facility_name = (TextView)view.findViewById(R.id.facility_name);
             exp = (TextView)view.findViewById(R.id.total_exp);
             delete = (ImageView) view.findViewById(R.id.delete);
+            edit = (ImageView)view.findViewById(R.id.edit);
+
         }
     }
 
@@ -95,7 +99,14 @@ public class EditWorkExpAdapter extends RecyclerView.Adapter<EditWorkExpAdapter.
             }
         });
 
-        // holder.exp.setText(listData.getEnd_date());
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EditExperience.class);
+                intent.putExtra("work_exp", listData);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

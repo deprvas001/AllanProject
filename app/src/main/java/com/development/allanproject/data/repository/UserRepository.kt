@@ -2,8 +2,12 @@ package com.development.allanproject.data.repository
 
 import com.development.allanproject.data.network.SafeApiRequest
 import com.development.allanproject.data.network.ServiceApi
+import com.development.allanproject.model.adddocumentModel.GetDocumentSpinner
+import com.development.allanproject.model.adddocumentModel.PostDocument
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
+import com.development.allanproject.model.bankinfo.BankInfoResponse
+import com.development.allanproject.model.bankinfo.PostBankInfo
 import com.development.allanproject.model.certificate.CertificateList
 import com.development.allanproject.model.education.AddEductionModel
 import com.development.allanproject.model.education.EducationListApiResonse
@@ -11,6 +15,8 @@ import com.development.allanproject.model.ehrs.EHRSList
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
+import com.development.allanproject.model.experience.UpdateExperiencePost
+import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
 import com.development.allanproject.model.license.LicenseUpdate
@@ -21,8 +27,13 @@ import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
+import com.development.allanproject.model.reference.ReferenceList
+import com.development.allanproject.model.reference.ReferencePost
 import com.development.allanproject.model.signupModel.*
+import com.development.allanproject.model.socialsecurity.GetSocialSecurity
+import com.development.allanproject.model.socialsecurity.PostSocialSecurity
 import com.development.allanproject.model.speciality.GetSpeciality
+import com.development.allanproject.model.training.GetTrainingPdf
 
 class UserRepository (
     private val api: ServiceApi
@@ -36,6 +47,18 @@ class UserRepository (
     suspend fun  userLogin( header: HashMap<String, String>,personalDetail: PersonalDetailPost) : SignResponse {
         return apiRequest {
             api.userLogin(header,personalDetail)
+        }
+    }
+
+    suspend fun  bankInfo( header: HashMap<String, String>,step: String) : BankInfoResponse {
+        return apiRequest {
+            api.getBankInfo(header,step)
+        }
+    }
+
+    suspend fun   updatebankInfo( header: HashMap<String, String>,info: PostBankInfo) :SignResponse {
+        return apiRequest {
+            api.updateBankInfo(header,info)
         }
     }
 
@@ -58,6 +81,25 @@ class UserRepository (
         }
     }
 
+
+    suspend fun  getDocumentList( header: HashMap<String, String>,step: String) : GetDocumentSpinner {
+        return apiRequest {
+            api.getDocumentSpinnerList(header,step)
+        }
+    }
+
+    suspend fun  getSecurityList( header: HashMap<String, String>,step: String) : GetSocialSecurity {
+        return apiRequest {
+            api.getSocialList(header,step)
+        }
+    }
+
+    suspend fun  getFormList( header: HashMap<String, String>,step: String) : GetFormList {
+        return apiRequest {
+            api.getFormList(header,step)
+        }
+    }
+
     suspend fun  getHealthDocList( header: HashMap<String, String>,step: String) : HealthDocumentList{
         return apiRequest {
             api.getDocumentList(header,step)
@@ -67,6 +109,18 @@ class UserRepository (
     suspend fun  postHealthDoc( header: HashMap<String, String>,detail: HealthDocPost) : SignResponse{
         return apiRequest {
             api.postHealthDoc(header,detail)
+        }
+    }
+
+    suspend fun  addDocument( header: HashMap<String, String>,detail: PostDocument) : SignResponse{
+        return apiRequest {
+            api.addDocument(header,detail)
+        }
+    }
+
+    suspend fun postSecurity( header: HashMap<String, String>,detail: PostSocialSecurity) : SignResponse{
+        return apiRequest {
+            api.postSecurity(header,detail)
         }
     }
 
@@ -166,13 +220,37 @@ class UserRepository (
         }
     }
 
+    suspend fun  getPdf( header: HashMap<String, String>,step: String) : GetTrainingPdf {
+        return apiRequest {
+            api.getPdf(header,step)
+        }
+    }
+
+    suspend fun  getReferenceList( header: HashMap<String, String>,step: String) : ReferenceList {
+        return apiRequest {
+            api.getReferenceList(header,step)
+        }
+    }
+
     suspend fun  experiencePost( header: HashMap<String, String>,documentPost: ExperiencePost) : SignResponse {
         return apiRequest {
             api.experienceUpload(header,documentPost)
         }
     }
 
+    suspend fun  referencePost( header: HashMap<String, String>,post: ReferencePost) : SignResponse {
+        return apiRequest {
+            api.referencePost(header,post)
+        }
+    }
+
     suspend fun  workPost(header: HashMap<String, String>,workExPost: AddExperiencePost) : SignResponse {
+        return apiRequest {
+            api.workPost(header,workExPost)
+        }
+    }
+
+    suspend fun  updateWorkPost(header: HashMap<String, String>,workExPost: UpdateExperiencePost) : SignResponse {
         return apiRequest {
             api.workPost(header,workExPost)
         }

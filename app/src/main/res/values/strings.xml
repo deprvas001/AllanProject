@@ -147,6 +147,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
     <string name="add_education">Add Education</string>
     <string name="professiona_detail">Personal Detail</string>
     <string name="professional_detail">Professional Details</string>
+    <string name="update">Update</string>
+    <string name="upload_ids">Upload IDs</string>
+    <string name="my_document">My Documents</string>
+    <string name="forms">Forms</string>
+    <string name="social_security">Social Security</string>
 
     <string-array name="license_id">
         <item>License Id 1</item>

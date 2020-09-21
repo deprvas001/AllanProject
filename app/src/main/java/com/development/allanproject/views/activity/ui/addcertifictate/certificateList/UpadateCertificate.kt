@@ -234,10 +234,9 @@ class UpadateCertificate : AppCompatActivity(), AuthListener, KodeinAware, View.
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        header.set("user_id", "22")
+        header.set("user_id", user_id!!)
         header.set(
-            "Authorization",
-            "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwNDE3NTYyfQ.WeS9KAVGZQQRMn8Yj1xSVoVsY84DH2SQ8AS3NBemeKI"
+            "Authorization",token!!
         )
         header.set("device_type_id", "1")
 

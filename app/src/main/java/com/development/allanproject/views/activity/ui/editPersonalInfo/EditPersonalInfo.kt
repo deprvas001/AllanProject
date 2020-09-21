@@ -192,7 +192,7 @@ class EditPersonalInfo : AppCompatActivity(), AuthPersonalDetail, AuthListener
 
         header.set("user_id", user_id!!)
         header.set(
-            "Authorization","eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwMTcwNjI2fQ.LTgeY18K4hAt4J7yKwUBYOJoJ6Azny2K1cM2N8JUdTI"
+            "Authorization",token!!
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")

@@ -58,10 +58,10 @@ class AddEducationScreen : AppCompatActivity() , AuthListener,  KodeinAware,
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        header.set("user_id","22")
+        header.set("user_id",user_id!!)
 
         header.set(
-            "Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MDAxOTMxNTJ9.Vt9PZL9kXGUtlIKsfdSckpsFx8QLu9IW2Z1KcMnw_fY"
+            "Authorization", token!!
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")

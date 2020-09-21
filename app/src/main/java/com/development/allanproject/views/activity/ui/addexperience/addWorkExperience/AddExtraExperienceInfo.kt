@@ -26,6 +26,7 @@ import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
 import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModel
 import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModelFactory
+import com.development.allanproject.views.activity.ui.addexperience.workExperienceList.WorkExperienceList
 import com.development.allanproject.views.activity.ui.signup.SignUp
 import com.development.allanproject.views.activity.ui.signup.SignUpViewModel
 import kotlinx.android.synthetic.main.activity_personal_detail.*
@@ -105,6 +106,13 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")
+
+        if(intent.extras!=null){
+            if(intent.extras!!.getBoolean("isEdit")){
+               binding.skip.visibility = View.GONE
+                binding.addMoreLicense.visibility = View.GONE
+            }
+        }
 
         binding.positionLayout.addMore.setOnClickListener{
             if(binding.positionLayout.position.text.isNullOrEmpty() ){
@@ -242,12 +250,20 @@ class AddExtraExperienceInfo : AppCompatActivity() , AuthListener, KodeinAware,
         }else{
             root_layout.snackbar("${response.success}")
             if(response.success){
-                if(addMoreButton == 0){
-                    startActivity(Intent(this, AddExtraExperienceInfo::class.java))
-                    finish()
+                if(intent.extras!=null){
+                     if(intent.extras!!.getBoolean("isEdit")){
+                        startActivity(Intent(this, WorkExperienceList::class.java))
+                        finish()
+                     }
                 }else{
-                    startActivity(Intent(this, com.development.allanproject.views.activity.ui.setFaciliity.FacilityType::class.java))
-                    finish()
+                    if(addMoreButton == 0){
+                        startActivity(Intent(this, AddExtraExperienceInfo::class.java))
+                        finish()
+                    }else{
+                        startActivity(Intent(this, com.development.allanproject.views.activity.ui.setFaciliity.FacilityType::class.java))
+                        finish()
+                    }
+
                 }
 
             }else{

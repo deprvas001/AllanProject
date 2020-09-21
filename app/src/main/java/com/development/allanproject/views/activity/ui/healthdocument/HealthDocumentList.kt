@@ -67,9 +67,9 @@ class HealthDocumentList : AppCompatActivity() ,  HealthDocumentAdpater.HealthDo
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        header.set("user_id", "22")
+        header.set("user_id", user_id!!)
         header.set(
-            "Authorization","eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwNDM2ODA5fQ.DQA4asRolVJGDMtEV2ZxIBx6pm-nR3iWiMGBVokSI8k"
+            "Authorization",token!!
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")

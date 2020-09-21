@@ -1,5 +1,6 @@
 package com.development.allanproject.views.activity.ui.professionalDetails
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -18,8 +19,15 @@ import com.development.allanproject.util.ProfileSummaryAuthListener
 import com.development.allanproject.util.hide
 import com.development.allanproject.util.show
 import com.development.allanproject.util.toast
+import com.development.allanproject.views.activity.ui.addcertifictate.certificateList.ShowCertificateList
+import com.development.allanproject.views.activity.ui.addlicenese.licenseList.ShowAllLicense
+import com.development.allanproject.views.activity.ui.ehrs.EHRCScreen
+import com.development.allanproject.views.activity.ui.healthdocument.HealthDocumentList
 import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumViewModelFactory
 import com.development.allanproject.views.activity.ui.profileSummary.ProfileSummaryViewModel
+import com.development.allanproject.views.activity.ui.reference.ReferenceScreen
+import com.development.allanproject.views.activity.ui.speciality.EditSpeciality
+import com.development.allanproject.views.activity.ui.training.TrainingScreen
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -51,9 +59,9 @@ class ProfessionalDetails : AppCompatActivity(),
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        header.set("user_id", "22")
+        header.set("user_id", user_id!!)
         header.set(
-            "Authorization","eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwMzI2Nzg2fQ.vaiRJiTisqb89tiQJqg3t0rubigehfUnXIPtOife52k"
+            "Authorization", token!!
         )
         header.set("device_type_id", "1")
         header.set("device_type", "Android")
@@ -63,6 +71,12 @@ class ProfessionalDetails : AppCompatActivity(),
         viewModel.getProfileSummary(header,"professional")
         binding.back.setOnClickListener(this)
         binding.editLicense.setOnClickListener(this)
+        binding.editSpecaility.setOnClickListener(this)
+        binding.editCertificate.setOnClickListener(this)
+        binding.editReference.setOnClickListener(this)
+        binding.editHealth.setOnClickListener(this)
+        binding.editTraining.setOnClickListener(this)
+        binding.editHrm.setOnClickListener(this)
 
     }
 
@@ -141,7 +155,23 @@ class ProfessionalDetails : AppCompatActivity(),
       if(view!!.id == R.id.back){
           finish()
       }else if(view!!.id == R.id.edit_license){
-
+         startActivity(Intent(this, ShowAllLicense::class.java))
       }
+      else if(view!!.id == R.id.edit_specaility){
+          startActivity(Intent(this, EditSpeciality::class.java))
+      }
+      else if(view!!.id == R.id.edit_certificate){
+          startActivity(Intent(this, ShowCertificateList::class.java))
+      }
+      else if(view!!.id == R.id.edit_reference){
+          startActivity(Intent(this, ReferenceScreen::class.java))
+      }else if(view!!.id == R.id.edit_health){
+          startActivity(Intent(this, HealthDocumentList::class.java))
+      }else if(view!!.id == R.id.edit_training){
+          startActivity(Intent(this, TrainingScreen::class.java))
+      }else if(view!!.id == R.id.edit_hrm){
+          startActivity(Intent(this, EHRCScreen::class.java))
+      }
+
     }
 }

@@ -5,9 +5,11 @@ import com.development.allanproject.data.network.NetworkConnectionInterceptor
 import com.development.allanproject.data.network.ServiceApi
 import com.development.allanproject.data.repository.UserRepository
 import com.development.allanproject.views.activity.ui.addcertifictate.CertificateViewModelFactory
+import com.development.allanproject.views.activity.ui.adddoucment.AddDocumentViewModelFactory
 import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModelFactory
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenseViewModelFactory
 import com.development.allanproject.views.activity.ui.appointment.AppointmentModelFactory
+import com.development.allanproject.views.activity.ui.bankinfo.BankViewModelFactory
 import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalViewModelFactory
 import com.development.allanproject.views.activity.ui.education.viewmodel.EducationViewModelFactory
 import com.development.allanproject.views.activity.ui.ehrs.EHRSViewModelFactory
@@ -16,7 +18,10 @@ import com.development.allanproject.views.activity.ui.locationPreference.Locatio
 import com.development.allanproject.views.activity.ui.login.LoginViewModelFactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
 import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumViewModelFactory
+import com.development.allanproject.views.activity.ui.reference.ReferenceViewModelFactory
+import com.development.allanproject.views.activity.ui.socialsecurity.SocialSecurityFactory
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
+import com.development.allanproject.views.activity.ui.training.TrainingViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -50,5 +55,10 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider {CertificateViewModelFactory(instance())}
         bind() from provider {HealthDocViewModelFactory(instance())}
         bind() from provider {EHRSViewModelFactory(instance())}
+        bind() from provider {ReferenceViewModelFactory(instance())}
+        bind() from provider {TrainingViewModelFactory(instance())}
+        bind() from provider {BankViewModelFactory(instance())}
+        bind() from provider {AddDocumentViewModelFactory(instance())}
+        bind() from provider {SocialSecurityFactory(instance())}
     }
 }

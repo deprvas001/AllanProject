@@ -1,8 +1,12 @@
 package com.development.allanproject.data.network
 
 import com.development.allanproject.constant.ApiConstant
+import com.development.allanproject.model.adddocumentModel.GetDocumentSpinner
+import com.development.allanproject.model.adddocumentModel.PostDocument
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
+import com.development.allanproject.model.bankinfo.BankInfoResponse
+import com.development.allanproject.model.bankinfo.PostBankInfo
 import com.development.allanproject.model.certificate.CertificateList
 import com.development.allanproject.model.commonapi.CityList
 import com.development.allanproject.model.education.AddEductionModel
@@ -11,6 +15,8 @@ import com.development.allanproject.model.ehrs.EHRSList
 import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
+import com.development.allanproject.model.experience.UpdateExperiencePost
+import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
 import com.development.allanproject.model.license.LicenseUpdate
@@ -21,8 +27,13 @@ import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
+import com.development.allanproject.model.reference.ReferenceList
+import com.development.allanproject.model.reference.ReferencePost
 import com.development.allanproject.model.signupModel.*
+import com.development.allanproject.model.socialsecurity.GetSocialSecurity
+import com.development.allanproject.model.socialsecurity.PostSocialSecurity
 import com.development.allanproject.model.speciality.GetSpeciality
+import com.development.allanproject.model.training.GetTrainingPdf
 import com.development.allanproject.views.activity.HealthDocument
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -87,6 +98,12 @@ interface ServiceApi {
         @Body details: LocationPreferencePost
     ): Response<SignResponse>
 
+    @POST("update-user")
+    suspend fun updateBankInfo(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: PostBankInfo
+    ): Response<SignResponse>
+
     @GET("appointment_list")
     suspend fun getAppointmentList(
         @HeaderMap header: HashMap<String, String>
@@ -105,6 +122,12 @@ interface ServiceApi {
     ): Response<GetPersonalDetail>
 
     @GET("nurse_details")
+    suspend fun getBankInfo(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<BankInfoResponse>
+
+    @GET("nurse_details")
     suspend fun getSpecaility(
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
@@ -115,6 +138,18 @@ interface ServiceApi {
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<EHRSList>
+
+    @GET("nurse_details")
+    suspend fun getPdf(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetTrainingPdf>
+
+    @GET("nurse_details")
+    suspend fun getReferenceList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<ReferenceList>
 
     @GET("nurse_details")
     suspend fun getLicenseList(
@@ -133,6 +168,24 @@ interface ServiceApi {
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<HealthDocumentList>
+
+    @GET("nurse_details")
+    suspend fun getDocumentSpinnerList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetDocumentSpinner>
+
+    @GET("nurse_details")
+    suspend fun getSocialList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetSocialSecurity>
+
+    @GET("nurse_details")
+    suspend fun getFormList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetFormList>
 
     @GET("nurse_details")
     suspend fun getWorkExperienceList(
@@ -158,6 +211,18 @@ interface ServiceApi {
         @Body details: HealthDocPost
     ): Response<SignResponse>
 
+    @POST("update-user")
+    suspend fun addDocument(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: PostDocument
+    ): Response<SignResponse>
+
+
+    @POST("update-user")
+    suspend fun postSecurity(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: PostSocialSecurity
+    ): Response<SignResponse>
 
     @POST("update-user")
     suspend fun addEducation(
@@ -184,9 +249,21 @@ interface ServiceApi {
     ): Response<SignResponse>
 
     @POST("update-user")
+    suspend fun referencePost(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: ReferencePost
+    ): Response<SignResponse>
+
+    @POST("update-user")
     suspend fun workPost(
         @HeaderMap header: HashMap<String, String>,
         @Body details: AddExperiencePost
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun workPost(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: UpdateExperiencePost
     ): Response<SignResponse>
 
 

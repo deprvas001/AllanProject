@@ -49,11 +49,11 @@ public class Referencecs extends BaseActivity implements View.OnClickListener {
             reference.setName("Facility Name");
             dataList.add(reference);
         }
-        adapter = new ReferenceListAdapter(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-        referencecsBinding.recyclerView.setLayoutManager(mLayoutManager);
-        referencecsBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        referencecsBinding.recyclerView.setAdapter(adapter);
+//        adapter = new ReferenceListAdapter(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        referencecsBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        referencecsBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        referencecsBinding.recyclerView.setAdapter(adapter);
     }
 
 }
