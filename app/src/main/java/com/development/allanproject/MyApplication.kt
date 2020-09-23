@@ -21,6 +21,7 @@ import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumV
 import com.development.allanproject.views.activity.ui.reference.ReferenceViewModelFactory
 import com.development.allanproject.views.activity.ui.socialsecurity.SocialSecurityFactory
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
+import com.development.allanproject.views.activity.ui.taxholding.TaxHoldingViewModelFactory
 import com.development.allanproject.views.activity.ui.training.TrainingViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -60,5 +61,6 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider {BankViewModelFactory(instance())}
         bind() from provider {AddDocumentViewModelFactory(instance())}
         bind() from provider {SocialSecurityFactory(instance())}
+        bind() from provider {TaxHoldingViewModelFactory(instance())}
     }
 }

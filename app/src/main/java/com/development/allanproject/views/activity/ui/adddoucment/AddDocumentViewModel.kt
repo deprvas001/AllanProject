@@ -3,6 +3,8 @@ package com.development.allanproject.views.activity.ui.adddoucment
 import androidx.lifecycle.ViewModel
 import com.development.allanproject.data.repository.UserRepository
 import com.development.allanproject.model.adddocumentModel.PostDocument
+import com.development.allanproject.model.form.Details
+import com.development.allanproject.model.form.UploadForm
 import com.development.allanproject.util.ApiException
 import com.development.allanproject.util.AuthListener
 import com.development.allanproject.util.Coroutines
@@ -78,5 +80,25 @@ class AddDocumentViewModel (
                 formAuthListener?.onFailure(e.message!!)
             }catch (e: NoInternetException){
                 formAuthListener?.onFailure(e.message!!)
+            } } }
+
+    fun uploadDocument(
+        header: HashMap<String, String>,
+        details: Details
+    ){
+        authListener?.onStarted()
+        Coroutines.main {
+            try{
+                val detail = UploadForm(details,24)
+                val authResponse = repository.uploadDoc(header,detail)
+                authResponse?.let {
+                    authListener?.onSuccess(it)
+                    return@main
+                }
+                authListener?.onFailure(authResponse.success.toString())
+            }catch (e: ApiException){
+                authListener?.onFailure(e.message!!)
+            }catch (e: NoInternetException){
+                authListener?.onFailure(e.message!!)
             } } }
 }

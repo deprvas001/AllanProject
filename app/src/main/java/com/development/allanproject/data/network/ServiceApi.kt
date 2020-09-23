@@ -8,7 +8,6 @@ import com.development.allanproject.model.appointmentModel.PostAppointment
 import com.development.allanproject.model.bankinfo.BankInfoResponse
 import com.development.allanproject.model.bankinfo.PostBankInfo
 import com.development.allanproject.model.certificate.CertificateList
-import com.development.allanproject.model.commonapi.CityList
 import com.development.allanproject.model.education.AddEductionModel
 import com.development.allanproject.model.education.EducationListApiResonse
 import com.development.allanproject.model.ehrs.EHRSList
@@ -17,6 +16,7 @@ import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.experience.UpdateExperiencePost
 import com.development.allanproject.model.form.GetFormList
+import com.development.allanproject.model.form.UploadForm
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
 import com.development.allanproject.model.license.LicenseUpdate
@@ -33,8 +33,8 @@ import com.development.allanproject.model.signupModel.*
 import com.development.allanproject.model.socialsecurity.GetSocialSecurity
 import com.development.allanproject.model.socialsecurity.PostSocialSecurity
 import com.development.allanproject.model.speciality.GetSpeciality
+import com.development.allanproject.model.taxholding.GetTaxHolding
 import com.development.allanproject.model.training.GetTrainingPdf
-import com.development.allanproject.views.activity.HealthDocument
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -146,6 +146,12 @@ interface ServiceApi {
     ): Response<GetTrainingPdf>
 
     @GET("nurse_details")
+    suspend fun getTaxHolding(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetTaxHolding>
+
+    @GET("nurse_details")
     suspend fun getReferenceList(
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
@@ -209,6 +215,12 @@ interface ServiceApi {
     suspend fun postHealthDoc(
         @HeaderMap header: HashMap<String, String>,
         @Body details: HealthDocPost
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun uploadDocument(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: UploadForm
     ): Response<SignResponse>
 
     @POST("update-user")

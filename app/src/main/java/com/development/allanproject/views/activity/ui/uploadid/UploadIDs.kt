@@ -1,5 +1,6 @@
 package com.development.allanproject.views.activity.ui.uploadid
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,7 @@ import com.development.allanproject.databinding.ActivityUploadIDsBinding
 import com.development.allanproject.model.CertificateClass
 import com.development.allanproject.model.adddocumentModel.GetDocumentSpinner
 import com.development.allanproject.model.adddocumentModel.MyDocumentData
+import com.development.allanproject.model.form.Details
 import com.development.allanproject.model.form.FormData
 import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.signupModel.SignResponse
@@ -28,13 +30,15 @@ import com.development.allanproject.util.formListener.FormListener
 import com.development.allanproject.views.activity.ui.adddoucment.AddDocumentDetail
 import com.development.allanproject.views.activity.ui.adddoucment.AddDocumentViewModel
 import com.development.allanproject.views.activity.ui.adddoucment.AddDocumentViewModelFactory
+import com.github.dhaval2404.imagepicker.ImagePicker
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
+import java.io.File
 
 class UploadIDs : AppCompatActivity(), AuthListener, FormListener,DocumentListener, KodeinAware, View.OnClickListener,
- MyDocumentAdapter.DocumentCallBack{
+ MyDocumentAdapter.DocumentCallBack,FormAdapter.DocumentCallBack{
     private lateinit var binding: ActivityUploadIDsBinding
     var header: HashMap<String, String> = HashMap<String, String>()
     private lateinit var viewModel: AddDocumentViewModel
@@ -50,6 +54,10 @@ class UploadIDs : AppCompatActivity(), AuthListener, FormListener,DocumentListen
     var uploadFront: String?=null
     var uploadBack: String?= null
     var doc_type:Int?=null
+    var profile_pic:String?=null
+    var uploadFormdata:FormData?=null
+    var is_upload: Int?=0
+
     var selected_doc_type:String?=null
     private val factory: AddDocumentViewModelFactory by instance()
     lateinit var sessionManager: SessionManager
@@ -71,9 +79,9 @@ class UploadIDs : AppCompatActivity(), AuthListener, FormListener,DocumentListen
 
         dataList.clear()
 
-        header.set("user_id", user_id!!)
+        header.set("user_id", "12")
         header.set(
-            "Authorization", token!!
+            "Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwODYxMjEwfQ.9IusvCRNXxt5AD6510JyJSZyGUpzG-KKZN2YEbiif7E"
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")
@@ -93,13 +101,18 @@ class UploadIDs : AppCompatActivity(), AuthListener, FormListener,DocumentListen
     override fun onSuccess(response: GetFormList) {
         progress_bar.hide()
         if(response.success && response.status.equals("ok") && response.code.toInt() == 200){
-            if(response.data.size>0){
-                formList.clear()
-                for( data in response.data){
-                    formList.add(data)
-                    formAdapter.notifyDataSetChanged()
-                }
-            }
+           if(is_upload ==1){
+                toast("Upload Successfully")
+           }else{
+               if(response.data.size>0){
+                   formList.clear()
+                   for( data in response.data){
+                       formList.add(data)
+                       formAdapter.notifyDataSetChanged()
+                   }
+               }
+           }
+
         }else{
             toast("Try Later")
         }
@@ -138,6 +151,7 @@ class UploadIDs : AppCompatActivity(), AuthListener, FormListener,DocumentListen
     }
 
     private fun setAdapter() {
+        is_upload = 0
         adapter = MyDocumentAdapter(this, dataList,this)
         mLayoutManager = LinearLayoutManager(this)
         binding.recyclerView.setLayoutManager(mLayoutManager)
@@ -150,7 +164,7 @@ class UploadIDs : AppCompatActivity(), AuthListener, FormListener,DocumentListen
 
 
     private fun setFormAdapter() {
-        formAdapter = FormAdapter(this, formList)
+        formAdapter = FormAdapter(this, formList,this)
         mLayoutManager = LinearLayoutManager(this)
         binding.recyclerViewForm.setLayoutManager(mLayoutManager)
         binding.recyclerViewForm.setItemAnimator(DefaultItemAnimator())
@@ -183,5 +197,47 @@ class UploadIDs : AppCompatActivity(), AuthListener, FormListener,DocumentListen
             hashMap.put("id", data.id!!)
             viewModel.addDocument(header,hashMap,"delete")
         }
+    }
+
+    override fun listenerMethod(data: FormData?) {
+        if(data !=null){
+            uploadFormdata = data
+            uploadDoc()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            val fileUri = data?.data
+          //  binding.uploadImage.setImageURI(fileUri)
+            profile_pic = "https://i.picsum.photos/id/658/200/300.jpg?hmac=K1TI0jSVU6uQZCZkkCMzBiau45UABMHNIqoaB9icB_0"
+            toast(profile_pic.toString())
+            //You can get File object from intent
+            val file: File = ImagePicker.getFile(data)!!
+
+            //You can also get File Path from intent
+            val filePath:String = ImagePicker.getFilePath(data)!!
+            uploadImage()
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            toast( ImagePicker.getError(data))
+        } else {
+            toast("Task Cancelled")
+        }
+    }
+
+    private fun uploadDoc(){
+        ImagePicker.with(this)
+            .crop()	    			//Crop image(Optional), Check Customization for more option
+            .compress(1024)			//Final image size will be less than 1 MB(Optional)
+            .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+            .start()
+    }
+
+    private fun uploadImage(){
+        is_upload = 1
+        var detail = Details(uploadFormdata!!.form_id, profile_pic!!, uploadFormdata!!.id)
+        viewModel.uploadDocument(header,detail)
     }
 }

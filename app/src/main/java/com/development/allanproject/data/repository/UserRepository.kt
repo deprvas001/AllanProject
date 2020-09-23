@@ -17,6 +17,7 @@ import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.experience.UpdateExperiencePost
 import com.development.allanproject.model.form.GetFormList
+import com.development.allanproject.model.form.UploadForm
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
 import com.development.allanproject.model.license.LicenseUpdate
@@ -33,6 +34,7 @@ import com.development.allanproject.model.signupModel.*
 import com.development.allanproject.model.socialsecurity.GetSocialSecurity
 import com.development.allanproject.model.socialsecurity.PostSocialSecurity
 import com.development.allanproject.model.speciality.GetSpeciality
+import com.development.allanproject.model.taxholding.GetTaxHolding
 import com.development.allanproject.model.training.GetTrainingPdf
 
 class UserRepository (
@@ -97,6 +99,12 @@ class UserRepository (
     suspend fun  getFormList( header: HashMap<String, String>,step: String) : GetFormList {
         return apiRequest {
             api.getFormList(header,step)
+        }
+    }
+
+    suspend fun  uploadDoc( header: HashMap<String, String>,detail: UploadForm) :SignResponse {
+        return apiRequest {
+            api.uploadDocument(header,detail)
         }
     }
 
@@ -223,6 +231,12 @@ class UserRepository (
     suspend fun  getPdf( header: HashMap<String, String>,step: String) : GetTrainingPdf {
         return apiRequest {
             api.getPdf(header,step)
+        }
+    }
+
+    suspend fun  getTaxHolding( header: HashMap<String, String>,step: String) : GetTaxHolding {
+        return apiRequest {
+            api.getTaxHolding(header,step)
         }
     }
 
