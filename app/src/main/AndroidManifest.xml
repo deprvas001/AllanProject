@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.taxholding.TaxHoldingScreen"
+        <activity android:name=".views.activity.ui.language.LanguageScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -24,6 +24,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".views.activity.ui.awards.AwardScreen" />
+        <activity
+            android:name=".views.activity.ui.backgroundinformation.BackgroundInformationScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.i9form.I9FormScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.changepassword.ChangePasswordScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.taxholding.TaxHoldingScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -38,17 +57,15 @@
         <activity
             android:name=".views.activity.ui.socialsecurity.SocialSecurityList"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.socialsecurity.SocialSecurityScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.uploadid.UploadIDs"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.adddoucment.AddDocumentDetail"
             android:theme="@style/AppTheme1"
@@ -132,7 +149,7 @@
         <activity
             android:name=".views.activity.ui.login.LoginActivity"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo"
             android:theme="@style/AppTheme1"
@@ -449,11 +466,11 @@
         <activity
             android:name=".views.activity.NormalLoginScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.LoginScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".MainActivity" />
     </application>
 

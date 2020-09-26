@@ -1,5 +1,7 @@
 package com.development.allanproject.model.taxholding;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 
 public class TaxData {
@@ -39,4 +41,5 @@ public class TaxData {
     public void setText(ArrayList<InputTextField> text) {
         this.text = text;
     }
+
 }

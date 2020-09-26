@@ -5,6 +5,8 @@ import com.development.allanproject.model.adddocumentModel.GetDocumentSpinner
 import com.development.allanproject.model.adddocumentModel.PostDocument
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
+import com.development.allanproject.model.backinformation.GetBackgroundData
+import com.development.allanproject.model.backinformation.PostBackgroundInformation
 import com.development.allanproject.model.bankinfo.BankInfoResponse
 import com.development.allanproject.model.bankinfo.PostBankInfo
 import com.development.allanproject.model.certificate.CertificateList
@@ -19,6 +21,7 @@ import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.form.UploadForm
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
+import com.development.allanproject.model.lanugage.GetLanugage
 import com.development.allanproject.model.license.LicenseUpdate
 import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
@@ -34,6 +37,7 @@ import com.development.allanproject.model.socialsecurity.GetSocialSecurity
 import com.development.allanproject.model.socialsecurity.PostSocialSecurity
 import com.development.allanproject.model.speciality.GetSpeciality
 import com.development.allanproject.model.taxholding.GetTaxHolding
+import com.development.allanproject.model.taxholding.PostTaxData
 import com.development.allanproject.model.training.GetTrainingPdf
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -104,6 +108,26 @@ interface ServiceApi {
         @Body details: PostBankInfo
     ): Response<SignResponse>
 
+    @POST("update-user")
+    suspend fun updateBankroundInfo(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: PostBackgroundInformation
+    ): Response<SignResponse>
+
+    @POST("change_password")
+    suspend fun changePassword(
+        @HeaderMap header: HashMap<String, String>,
+        @Body hashMap: HashMap<String, String>
+    ): Response<SignResponse>
+
+
+    @POST("update-user")
+    suspend fun updateTaxInfo(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: PostTaxData
+    ): Response<SignResponse>
+
+
     @GET("appointment_list")
     suspend fun getAppointmentList(
         @HeaderMap header: HashMap<String, String>
@@ -126,6 +150,18 @@ interface ServiceApi {
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<BankInfoResponse>
+
+    @GET("nurse_details")
+    suspend fun getBackInfo(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetBackgroundData>
+
+    @GET("nurse_details")
+    suspend fun getLang(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetLanugage>
 
     @GET("nurse_details")
     suspend fun getSpecaility(

@@ -9,11 +9,14 @@ import com.development.allanproject.views.activity.ui.adddoucment.AddDocumentVie
 import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModelFactory
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenseViewModelFactory
 import com.development.allanproject.views.activity.ui.appointment.AppointmentModelFactory
+import com.development.allanproject.views.activity.ui.backgroundinformation.BackInformationViewModelFactory
 import com.development.allanproject.views.activity.ui.bankinfo.BankViewModelFactory
+import com.development.allanproject.views.activity.ui.changepassword.ChangePassViewModelFactory
 import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalViewModelFactory
 import com.development.allanproject.views.activity.ui.education.viewmodel.EducationViewModelFactory
 import com.development.allanproject.views.activity.ui.ehrs.EHRSViewModelFactory
 import com.development.allanproject.views.activity.ui.healthdocument.HealthDocViewModelFactory
+import com.development.allanproject.views.activity.ui.language.LanguageViewModelFactory
 import com.development.allanproject.views.activity.ui.locationPreference.LocationPreferenceModelFactory
 import com.development.allanproject.views.activity.ui.login.LoginViewModelFactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
@@ -62,5 +65,9 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider {AddDocumentViewModelFactory(instance())}
         bind() from provider {SocialSecurityFactory(instance())}
         bind() from provider {TaxHoldingViewModelFactory(instance())}
+        bind() from provider {ChangePassViewModelFactory(instance())}
+        bind() from provider { BackInformationViewModelFactory(instance()) }
+        bind() from provider { LanguageViewModelFactory(instance()) }
+
     }
 }

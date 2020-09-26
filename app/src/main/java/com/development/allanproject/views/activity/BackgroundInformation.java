@@ -42,11 +42,11 @@ ActivityBackgroundInformationBinding informationBinding;
                     "from a position or assignment?");
             dataList.add(award);
         }
-        adapter = new BackgroundInfoAdapter(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-        informationBinding.recyclerView.setLayoutManager(mLayoutManager);
-        informationBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        informationBinding.recyclerView.setAdapter(adapter);
+//        adapter = new BackgroundInfoAdapter(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        informationBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        informationBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        informationBinding.recyclerView.setAdapter(adapter);
     }
 
     @Override

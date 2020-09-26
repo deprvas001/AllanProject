@@ -42,11 +42,11 @@ public class LanguageScreen extends BaseActivity implements View.OnClickListener
             language.setName("language");
             dataList.add(language);
         }
-        adapter = new LanguageAdapter(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
-        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        screenBinding.recyclerView.setAdapter(adapter);
+//        adapter = new LanguageAdapter(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        screenBinding.recyclerView.setAdapter(adapter);
     }
 
     @Override

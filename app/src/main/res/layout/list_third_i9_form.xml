@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="5dp"
+            app:cardElevation="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Heading : One from the list"
+                    android:textColor="#4D4D4D"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+
+                    android:id="@+id/radio_group_list_third"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radio3_1"
+                        android:layout_width="wrap_content"
+                        android:gravity="top"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list_third_text1"
+                        android:textColor="@color/text_color_hint" />
+
+                    <RadioButton
+                        android:id="@+id/radio3_2"
+                        android:layout_width="wrap_content"
+                        android:gravity="top"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list_third_text2"
+                        android:textColor="@color/text_color_hint" />
+
+                    <RadioButton
+                        android:id="@+id/radio3_3"
+                        android:layout_width="wrap_content"
+                        android:gravity="top"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list_third_text3"
+                        android:textColor="@color/text_color_hint" />
+
+                    <RadioButton
+                        android:id="@+id/radio3_4"
+                        android:layout_width="wrap_content"
+                        android:gravity="top"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list_third_text4"
+                        android:textColor="@color/text_color_hint" />
+
+                    <RadioButton
+                        android:id="@+id/radio3_5"
+                        android:layout_width="wrap_content"
+                        android:gravity="top"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list_third_text5"
+                        android:textColor="@color/text_color_hint" />
+
+                    <RadioButton
+                        android:id="@+id/radio3_6"
+                        android:layout_width="wrap_content"
+                        android:gravity="top"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list_third_text6"
+                        android:textColor="@color/text_color_hint" />
+
+                    <RadioButton
+                        android:id="@+id/radio3_7"
+                        android:layout_width="wrap_content"
+                        android:gravity="top"
+                        android:padding="5dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/list_third_text7"
+                        android:textColor="@color/text_color_hint" />
+
+                </RadioGroup
+>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColorHint="#555555">
+
+                            <EditText
+                                android:id="@+id/doc_no"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusableInTouchMode="true"
+                                android:hint="@string/doc_num"
+                                android:textColor="#C0C0C0"
+                                android:singleLine="true"
+                                android:textSize="14sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColorHint="#555555">
+
+                            <EditText
+                                android:id="@+id/authority"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusableInTouchMode="true"
+                                android:hint="@string/authority"
+                                android:textColor="#C0C0C0"
+                                android:singleLine="true"
+                                android:textSize="14sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColorHint="#555555">
+
+                            <EditText
+                                android:id="@+id/third_expiry_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusableInTouchMode="true"
+                                android:hint="@string/expiry_date"
+                                android:textColor="#C0C0C0"
+                                android:focusable="false"
+                                android:singleLine="true"
+                                android:textSize="14sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/third_upload_front"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginTop="10dp"
+                                    android:src="@drawable/upload_document" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/front"
+                                    android:layout_gravity="center"
+                                    android:textColor="#555555" />
+                            </LinearLayout>
+
+
+
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/third_upload_back"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginTop="10dp"
+                                    android:src="@drawable/upload_document" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/back"
+                                    android:layout_gravity="center"
+                                    android:textColor="#555555" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

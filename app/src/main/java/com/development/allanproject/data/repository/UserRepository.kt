@@ -6,6 +6,8 @@ import com.development.allanproject.model.adddocumentModel.GetDocumentSpinner
 import com.development.allanproject.model.adddocumentModel.PostDocument
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
+import com.development.allanproject.model.backinformation.GetBackgroundData
+import com.development.allanproject.model.backinformation.PostBackgroundInformation
 import com.development.allanproject.model.bankinfo.BankInfoResponse
 import com.development.allanproject.model.bankinfo.PostBankInfo
 import com.development.allanproject.model.certificate.CertificateList
@@ -20,6 +22,7 @@ import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.form.UploadForm
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
+import com.development.allanproject.model.lanugage.GetLanugage
 import com.development.allanproject.model.license.LicenseUpdate
 import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
@@ -35,6 +38,7 @@ import com.development.allanproject.model.socialsecurity.GetSocialSecurity
 import com.development.allanproject.model.socialsecurity.PostSocialSecurity
 import com.development.allanproject.model.speciality.GetSpeciality
 import com.development.allanproject.model.taxholding.GetTaxHolding
+import com.development.allanproject.model.taxholding.PostTaxData
 import com.development.allanproject.model.training.GetTrainingPdf
 
 class UserRepository (
@@ -58,9 +62,33 @@ class UserRepository (
         }
     }
 
+    suspend fun  backgroundInfo( header: HashMap<String, String>,step: String) : GetBackgroundData {
+        return apiRequest {
+            api.getBackInfo(header,step)
+        }
+    }
+
+    suspend fun  languageInfo( header: HashMap<String, String>,step: String) : GetLanugage {
+        return apiRequest {
+            api.getLang(header,step)
+        }
+    }
+
     suspend fun   updatebankInfo( header: HashMap<String, String>,info: PostBankInfo) :SignResponse {
         return apiRequest {
             api.updateBankInfo(header,info)
+        }
+    }
+
+    suspend fun   updatebackgroundInfo( header: HashMap<String, String>,info: PostBackgroundInformation) :SignResponse {
+        return apiRequest {
+            api.updateBankroundInfo(header,info)
+        }
+    }
+
+    suspend fun   changePassword( header: HashMap<String, String>, detail: HashMap<String, String>) :SignResponse {
+        return apiRequest {
+            api.changePassword(header,detail)
         }
     }
 
@@ -237,6 +265,12 @@ class UserRepository (
     suspend fun  getTaxHolding( header: HashMap<String, String>,step: String) : GetTaxHolding {
         return apiRequest {
             api.getTaxHolding(header,step)
+        }
+    }
+
+    suspend fun  postTaxHolding( header: HashMap<String, String>,post: PostTaxData) : SignResponse {
+        return apiRequest {
+            api.updateTaxInfo(header,post)
         }
     }
 
