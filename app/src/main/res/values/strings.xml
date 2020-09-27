@@ -188,6 +188,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
     <string name="add_laungage">Add Language</string>
     <string name="add_proficency">Add Proficency</string>
     <string name="language">Languages</string>
+    <string name="awards">Awards</string>
+    <string name="award_honor">Award/Honor</string>
+    <string name="organization">Organization</string>
+    <string name="date">Date</string>
 
     <string-array name="license_id">
         <item>License Id 1</item>

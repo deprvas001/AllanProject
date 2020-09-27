@@ -4,33 +4,47 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.development.allanproject.R;
 import com.development.allanproject.model.AwardClass;
+import com.development.allanproject.model.award.AwardData;
+import com.development.allanproject.model.lanugage.LanguageData;
 
 import java.util.List;
 
 public class AwardAdapter  extends RecyclerView.Adapter<AwardAdapter.MyViewHolder> {
-    private List<AwardClass> awardList;
+    private List<AwardData> awardList;
     private Context context;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name;
+   AwardCallBack callBack;
 
+    public interface   AwardCallBack{
+        void listenerMethod(AwardData data);
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView name,org, date;
+        public ImageView delete;
         public MyViewHolder(View view) {
             super(view);
             name = (TextView)view.findViewById(R.id.name);
+            org = (TextView)view.findViewById(R.id.organization);
+            date = (TextView)view.findViewById(R.id.date);
+            delete = (ImageView) view.findViewById(R.id.delete);
+
 
         }
     }
 
 
-    public AwardAdapter(Context context,List<AwardClass> awardList) {
+    public AwardAdapter(Context context,List<AwardData> awardList, AwardCallBack callBack) {
         this.context = context;
         this.awardList = awardList;
+        this.callBack = callBack;
     }
 
     @Override
@@ -43,8 +57,18 @@ public class AwardAdapter  extends RecyclerView.Adapter<AwardAdapter.MyViewHolde
 
     @Override
     public void onBindViewHolder(AwardAdapter.MyViewHolder holder, int position) {
-        AwardClass document = awardList.get(position);
-        holder.name.setText(document.getName());
+        AwardData award = awardList.get(position);
+        holder.name.setText(award.getAward());
+        holder.org.setText(award.getOrganization());
+        holder.date.setText(award.getAward_date());
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                callBack.listenerMethod(award);
+            }
+        });
+
 
     }
 

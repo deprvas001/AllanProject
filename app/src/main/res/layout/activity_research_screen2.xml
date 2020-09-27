@@ -2,11 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <RelativeLayout
         android:id="@+id/root_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/awards"
+                    android:text="Research"
                     android:textColor="@android:color/white"
                     android:textSize="20dp" />
 
@@ -75,48 +75,42 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp"
-                                android:layout_marginBottom="20dp"
+                                android:layout_margin="20dp"
                                 android:orientation="vertical">
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="10dp"
                                     android:layout_marginTop="10dp"
-                                    android:textColorHint="#555555">
-
-                                    <EditText
-                                        android:id="@+id/honor"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:focusableInTouchMode="true"
-                                        android:hint="@string/award_honor"
-                                        android:singleLine="true"
-                                        android:textColor="#C0C0C0"
-                                        android:textColorHint="#555555"
-                                        android:textSize="14sp" />
-
-                                </com.google.android.material.textfield.TextInputLayout>
-
-
-                                <com.google.android.material.textfield.TextInputLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="10dp"
-                                    android:layout_marginTop="10dp"
-                                    android:textColorHint="#555555">
+                                    android:textColorHint="#2C3135">
 
                                     <EditText
                                         android:id="@+id/organization"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:focusableInTouchMode="true"
-                                        android:hint="@string/organization"
+                                        android:hint="Organization"
+                                        android:inputType="textEmailAddress"
                                         android:singleLine="true"
                                         android:textColor="#C0C0C0"
-                                        android:textColorHint="#555555"
+                                        android:textSize="14sp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:textColorHint="#2C3135">
+
+                                    <EditText
+                                        android:id="@+id/address"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:focusableInTouchMode="true"
+                                        android:hint="Address"
+                                        android:singleLine="true"
+                                        android:textColor="#C0C0C0"
                                         android:textSize="14sp" />
 
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -125,20 +119,38 @@
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginBottom="10dp"
                                     android:layout_marginTop="10dp"
-                                    android:textColorHint="#555555">
+                                    android:textColorHint="#2C3135">
 
                                     <EditText
-                                        android:id="@+id/date"
+                                        android:id="@+id/start_date"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:focusableInTouchMode="true"
-                                        android:hint="@string/date"
+                                        android:hint="Start Date"
                                         android:focusable="false"
                                         android:singleLine="true"
                                         android:textColor="#C0C0C0"
-                                        android:textColorHint="#555555"
+                                        android:textSize="14sp" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:textColorHint="#2C3135">
+
+                                    <EditText
+                                        android:id="@+id/end_date"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:focusableInTouchMode="true"
+                                        android:hint="End Date"
+                                        android:focusable="false"
+                                        android:singleLine="true"
+                                        android:textColor="#C0C0C0"
                                         android:textSize="14sp" />
 
                                 </com.google.android.material.textfield.TextInputLayout>
@@ -171,19 +183,6 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp" />
 
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_next"
-                        android:layout_width="fill_parent"
-                        android:layout_height="55dp"
-                        android:layout_margin="20dp"
-                        android:background="@drawable/button_background"
-                        android:padding="12dp"
-                        android:text="@string/next"
-                        android:textAllCaps="true"
-                        android:visibility="gone"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>

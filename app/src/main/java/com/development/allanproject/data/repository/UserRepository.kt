@@ -6,11 +6,14 @@ import com.development.allanproject.model.adddocumentModel.GetDocumentSpinner
 import com.development.allanproject.model.adddocumentModel.PostDocument
 import com.development.allanproject.model.appointmentModel.AppointmentGetModel
 import com.development.allanproject.model.appointmentModel.PostAppointment
+import com.development.allanproject.model.award.GetAward
+import com.development.allanproject.model.award.PostAward
 import com.development.allanproject.model.backinformation.GetBackgroundData
 import com.development.allanproject.model.backinformation.PostBackgroundInformation
 import com.development.allanproject.model.bankinfo.BankInfoResponse
 import com.development.allanproject.model.bankinfo.PostBankInfo
 import com.development.allanproject.model.certificate.CertificateList
+import com.development.allanproject.model.editProfile.GetEditProfile
 import com.development.allanproject.model.education.AddEductionModel
 import com.development.allanproject.model.education.EducationListApiResonse
 import com.development.allanproject.model.ehrs.EHRSList
@@ -33,6 +36,8 @@ import com.development.allanproject.model.personalDetail.PersonalInfromationUpda
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.reference.ReferenceList
 import com.development.allanproject.model.reference.ReferencePost
+import com.development.allanproject.model.research.GetResearch
+import com.development.allanproject.model.research.PostResearch
 import com.development.allanproject.model.signupModel.*
 import com.development.allanproject.model.socialsecurity.GetSocialSecurity
 import com.development.allanproject.model.socialsecurity.PostSocialSecurity
@@ -74,6 +79,24 @@ class UserRepository (
         }
     }
 
+    suspend fun getAward( header: HashMap<String, String>,step: String) : GetAward {
+        return apiRequest {
+            api.getAward(header,step)
+        }
+    }
+
+    suspend fun getResearch( header: HashMap<String, String>,step: String) : GetResearch {
+        return apiRequest {
+            api.getResearch(header,step)
+        }
+    }
+
+    suspend fun getProfile( header: HashMap<String, String>,step: String) : GetEditProfile {
+        return apiRequest {
+            api.getEditProfile(header,step)
+        }
+    }
+
     suspend fun   updatebankInfo( header: HashMap<String, String>,info: PostBankInfo) :SignResponse {
         return apiRequest {
             api.updateBankInfo(header,info)
@@ -83,6 +106,18 @@ class UserRepository (
     suspend fun   updatebackgroundInfo( header: HashMap<String, String>,info: PostBackgroundInformation) :SignResponse {
         return apiRequest {
             api.updateBankroundInfo(header,info)
+        }
+    }
+
+    suspend fun   updateAward( header: HashMap<String, String>,info: PostAward) :SignResponse {
+        return apiRequest {
+            api.updateAward(header,info)
+        }
+    }
+
+    suspend fun   postResearch( header: HashMap<String, String>,info: PostResearch) :SignResponse {
+        return apiRequest {
+            api.updateResearch(header,info)
         }
     }
 

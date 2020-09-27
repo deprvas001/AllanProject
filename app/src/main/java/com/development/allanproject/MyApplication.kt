@@ -9,10 +9,12 @@ import com.development.allanproject.views.activity.ui.adddoucment.AddDocumentVie
 import com.development.allanproject.views.activity.ui.addexperience.viewmodel.AddExperienceViewModelFactory
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenseViewModelFactory
 import com.development.allanproject.views.activity.ui.appointment.AppointmentModelFactory
+import com.development.allanproject.views.activity.ui.awards.AwardViewModelFactory
 import com.development.allanproject.views.activity.ui.backgroundinformation.BackInformationViewModelFactory
 import com.development.allanproject.views.activity.ui.bankinfo.BankViewModelFactory
 import com.development.allanproject.views.activity.ui.changepassword.ChangePassViewModelFactory
 import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalViewModelFactory
+import com.development.allanproject.views.activity.ui.editProfile.EditProfileViewModelFactory
 import com.development.allanproject.views.activity.ui.education.viewmodel.EducationViewModelFactory
 import com.development.allanproject.views.activity.ui.ehrs.EHRSViewModelFactory
 import com.development.allanproject.views.activity.ui.healthdocument.HealthDocViewModelFactory
@@ -22,6 +24,8 @@ import com.development.allanproject.views.activity.ui.login.LoginViewModelFactor
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
 import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumViewModelFactory
 import com.development.allanproject.views.activity.ui.reference.ReferenceViewModelFactory
+import com.development.allanproject.views.activity.ui.research.ResearchViewModel
+import com.development.allanproject.views.activity.ui.research.ResearchViewModelFactory
 import com.development.allanproject.views.activity.ui.socialsecurity.SocialSecurityFactory
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
 import com.development.allanproject.views.activity.ui.taxholding.TaxHoldingViewModelFactory
@@ -68,6 +72,10 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider {ChangePassViewModelFactory(instance())}
         bind() from provider { BackInformationViewModelFactory(instance()) }
         bind() from provider { LanguageViewModelFactory(instance()) }
+
+        bind() from provider { AwardViewModelFactory(instance()) }
+        bind() from provider { ResearchViewModelFactory(instance()) }
+        bind() from provider { EditProfileViewModelFactory(instance()) }
 
     }
 }

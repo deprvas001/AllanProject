@@ -41,11 +41,11 @@ ActivityResearchScreenBinding screenBinding;
             award.setName("Award/Honor");
             dataList.add(award);
         }
-        adapter = new AwardAdapter(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
-        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        screenBinding.recyclerView.setAdapter(adapter);
+//        adapter = new AwardAdapter(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        screenBinding.recyclerView.setAdapter(adapter);
     }
 
     @Override

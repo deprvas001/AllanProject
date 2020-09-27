@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.language.LanguageScreen"
+        <activity android:name=".views.activity.ui.editProfile.EditProfileScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
@@ -24,13 +24,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.activity.ui.awards.AwardScreen" />
         <activity
-            android:name=".views.activity.ui.backgroundinformation.BackgroundInformationScreen"
+            android:name=".views.activity.ui.research.ResearchScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
 
         </activity>
+        <activity
+            android:name=".views.activity.ui.language.LanguageScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.awards.AwardScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".views.activity.ui.backgroundinformation.BackgroundInformationScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.i9form.I9FormScreen"
             android:theme="@style/AppTheme1"
