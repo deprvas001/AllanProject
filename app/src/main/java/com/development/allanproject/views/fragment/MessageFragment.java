@@ -57,10 +57,10 @@ public class MessageFragment extends Fragment {
             reference.setName("Job “Apollo” you applied for the job ");
             dataList.add(reference);
         }
-        adapter = new NotificationAdapter(getContext(), dataList);
-        mLayoutManager = new LinearLayoutManager(getContext());
-        messageBinding.recyclerView.setLayoutManager(mLayoutManager);
-        messageBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        messageBinding.recyclerView.setAdapter(adapter);
+//        adapter = new NotificationAdapter(getContext(), dataList);
+//        mLayoutManager = new LinearLayoutManager(getContext());
+//        messageBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        messageBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        messageBinding.recyclerView.setAdapter(adapter);
     }
 }

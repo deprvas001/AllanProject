@@ -17,12 +17,18 @@ import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPerso
 import com.development.allanproject.views.activity.ui.editProfile.EditProfileViewModelFactory
 import com.development.allanproject.views.activity.ui.education.viewmodel.EducationViewModelFactory
 import com.development.allanproject.views.activity.ui.ehrs.EHRSViewModelFactory
+import com.development.allanproject.views.activity.ui.faq.FaqViewModelFactory
 import com.development.allanproject.views.activity.ui.healthdocument.HealthDocViewModelFactory
+import com.development.allanproject.views.activity.ui.i9form.I9FormViewModelFactory
 import com.development.allanproject.views.activity.ui.language.LanguageViewModelFactory
 import com.development.allanproject.views.activity.ui.locationPreference.LocationPreferenceModelFactory
 import com.development.allanproject.views.activity.ui.login.LoginViewModelFactory
+import com.development.allanproject.views.activity.ui.myprofile.MyProfileViewModelFactory
+import com.development.allanproject.views.activity.ui.notificationscreen.NotificationViewModelFactory
+import com.development.allanproject.views.activity.ui.notificationsettings.NotificationSettingsViewModelfactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
 import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumViewModelFactory
+import com.development.allanproject.views.activity.ui.profilesetting.ProfileSettingViewModelFactory
 import com.development.allanproject.views.activity.ui.reference.ReferenceViewModelFactory
 import com.development.allanproject.views.activity.ui.research.ResearchViewModel
 import com.development.allanproject.views.activity.ui.research.ResearchViewModelFactory
@@ -76,6 +82,15 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider { AwardViewModelFactory(instance()) }
         bind() from provider { ResearchViewModelFactory(instance()) }
         bind() from provider { EditProfileViewModelFactory(instance()) }
+        bind() from provider { FaqViewModelFactory(instance()) }
+
+        bind() from provider { MyProfileViewModelFactory(instance()) }
+
+        bind() from provider { NotificationViewModelFactory(instance()) }
+        bind() from provider { ProfileSettingViewModelFactory(instance()) }
+
+        bind() from provider { NotificationSettingsViewModelfactory(instance()) }
+        bind() from provider { I9FormViewModelFactory(instance()) }
 
     }
 }

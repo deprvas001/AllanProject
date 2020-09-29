@@ -192,6 +192,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
     <string name="award_honor">Award/Honor</string>
     <string name="organization">Organization</string>
     <string name="date">Date</string>
+    <string name="signature">Signature</string>
+    <string name="clear_pad">Clear</string>
+    <string name="save_signature">Save</string>
 
     <string-array name="license_id">
         <item>License Id 1</item>

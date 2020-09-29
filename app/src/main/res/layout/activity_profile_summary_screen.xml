@@ -347,6 +347,7 @@
 
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/home"
                         android:layout_width="fill_parent"
                         android:layout_height="55dp"
                         android:layout_marginTop="20dp"

@@ -50,9 +50,9 @@ class BackgroundInformationScreen : AppCompatActivity() ,BackgroundAuthListener,
         var token = user[SessionManager.KEY_TOKEN]
 
 
-        header.set("user_id", "22")
+        header.set("user_id", user_id!!)
         header.set(
-            "Authorization","eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAxMjE2NTg4fQ.Z-6fanu-unfVNECm5acIiUGxmwP4j4Ww7kixoNp6d5k"
+            "Authorization", token!!
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")

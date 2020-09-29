@@ -20,19 +20,27 @@ import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.experience.UpdateExperiencePost
+import com.development.allanproject.model.faq.GetFaqList
 import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.form.UploadForm
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
+import com.development.allanproject.model.i9form.GetI9Form
+import com.development.allanproject.model.i9form.PostI9Form
 import com.development.allanproject.model.lanugage.GetLanugage
 import com.development.allanproject.model.license.LicenseUpdate
 import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
+import com.development.allanproject.model.myprofile.GetMyProfile
+import com.development.allanproject.model.notificationModel.GetNotificationList
+import com.development.allanproject.model.notificationModel.GetNotificationSettings
+import com.development.allanproject.model.notificationModel.PostNotificationSettings
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
+import com.development.allanproject.model.profilesettings.GetMyProfileNotification
 import com.development.allanproject.model.reference.ReferenceList
 import com.development.allanproject.model.reference.ReferencePost
 import com.development.allanproject.model.research.GetResearch
@@ -131,6 +139,18 @@ interface ServiceApi {
         @Body details: PostResearch
     ): Response<SignResponse>
 
+    @POST("update-user")
+    suspend fun postNotification(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: PostNotificationSettings
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun updateMyProfileNotification(
+        @HeaderMap header: HashMap<String, String>,
+        @Body hashMap: HashMap<String, Any>
+    ): Response<SignResponse>
+
     @POST("change_password")
     suspend fun changePassword(
         @HeaderMap header: HashMap<String, String>,
@@ -142,6 +162,12 @@ interface ServiceApi {
     suspend fun updateTaxInfo(
         @HeaderMap header: HashMap<String, String>,
         @Body details: PostTaxData
+    ): Response<SignResponse>
+
+    @POST("update-user")
+    suspend fun postI9Form(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: PostI9Form
     ): Response<SignResponse>
 
 
@@ -187,6 +213,40 @@ interface ServiceApi {
     ): Response<GetAward>
 
     @GET("nurse_details")
+    suspend fun getMyProife(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetMyProfile>
+
+    @GET("nurse_details")
+    suspend fun getNotificationProfile(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetMyProfileNotification>
+
+    @GET("nurse_details")
+    suspend fun getNotificationSettings(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetNotificationSettings>
+
+
+    @GET("logout")
+    suspend fun userLogout(
+        @HeaderMap header: HashMap<String, String>
+    ): Response<SignResponse>
+
+    @GET("faqs")
+    suspend fun getFaq(
+        @HeaderMap header: HashMap<String, String>
+    ): Response<GetFaqList>
+
+    @GET("notifications")
+    suspend fun getNotification(
+        @HeaderMap header: HashMap<String, String>
+    ): Response<GetNotificationList>
+
+    @GET("nurse_details")
     suspend fun getResearch(
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
@@ -221,6 +281,12 @@ interface ServiceApi {
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<GetTaxHolding>
+
+    @GET("nurse_details")
+    suspend fun getI9Form(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetI9Form>
 
     @GET("nurse_details")
     suspend fun getReferenceList(

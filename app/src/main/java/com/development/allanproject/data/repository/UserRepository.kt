@@ -21,19 +21,27 @@ import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.experience.UpdateExperiencePost
+import com.development.allanproject.model.faq.GetFaqList
 import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.form.UploadForm
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
+import com.development.allanproject.model.i9form.GetI9Form
+import com.development.allanproject.model.i9form.PostI9Form
 import com.development.allanproject.model.lanugage.GetLanugage
 import com.development.allanproject.model.license.LicenseUpdate
 import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
+import com.development.allanproject.model.myprofile.GetMyProfile
+import com.development.allanproject.model.notificationModel.GetNotificationList
+import com.development.allanproject.model.notificationModel.GetNotificationSettings
+import com.development.allanproject.model.notificationModel.PostNotificationSettings
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
+import com.development.allanproject.model.profilesettings.GetMyProfileNotification
 import com.development.allanproject.model.reference.ReferenceList
 import com.development.allanproject.model.reference.ReferencePost
 import com.development.allanproject.model.research.GetResearch
@@ -85,6 +93,48 @@ class UserRepository (
         }
     }
 
+    suspend fun getFaq( header: HashMap<String, String>) : GetFaqList {
+        return apiRequest {
+            api.getFaq(header)
+        }
+    }
+
+    suspend fun getMyProfile( header: HashMap<String, String>,step: String) : GetMyProfile{
+        return apiRequest {
+            api.getMyProife(header,step)
+        }
+    }
+
+    suspend fun getNotificationProfile( header: HashMap<String, String>,step: String) : GetMyProfileNotification{
+        return apiRequest {
+            api.getNotificationProfile(header,step)
+        }
+    }
+
+    suspend fun getNotificationSettings( header: HashMap<String, String>,step: String) : GetNotificationSettings{
+        return apiRequest {
+            api.getNotificationSettings(header,step)
+        }
+    }
+
+    suspend fun userLogout( header: HashMap<String, String>) : SignResponse{
+        return apiRequest {
+            api.userLogout(header)
+        }
+    }
+
+    suspend fun updateNotificationProfile( header: HashMap<String, String>,detail: HashMap<String, Any>) : SignResponse{
+        return apiRequest {
+            api.updateMyProfileNotification(header,detail)
+        }
+    }
+
+    suspend fun getNotification( header: HashMap<String, String>) : GetNotificationList{
+        return apiRequest {
+            api.getNotification(header)
+        }
+    }
+
     suspend fun getResearch( header: HashMap<String, String>,step: String) : GetResearch {
         return apiRequest {
             api.getResearch(header,step)
@@ -118,6 +168,12 @@ class UserRepository (
     suspend fun   postResearch( header: HashMap<String, String>,info: PostResearch) :SignResponse {
         return apiRequest {
             api.updateResearch(header,info)
+        }
+    }
+
+    suspend fun   postNotification( header: HashMap<String, String>,info: PostNotificationSettings) :SignResponse {
+        return apiRequest {
+            api.postNotification(header,info)
         }
     }
 
@@ -303,9 +359,22 @@ class UserRepository (
         }
     }
 
+    suspend fun  getI9Form( header: HashMap<String, String>,step: String) : GetI9Form {
+        return apiRequest {
+            api.getI9Form(header,step)
+        }
+    }
+
+
     suspend fun  postTaxHolding( header: HashMap<String, String>,post: PostTaxData) : SignResponse {
         return apiRequest {
             api.updateTaxInfo(header,post)
+        }
+    }
+
+    suspend fun  postI9Form( header: HashMap<String, String>,post: PostI9Form) : SignResponse {
+        return apiRequest {
+            api.postI9Form(header,post)
         }
     }
 

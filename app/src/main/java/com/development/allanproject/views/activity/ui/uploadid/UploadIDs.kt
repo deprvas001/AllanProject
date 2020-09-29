@@ -79,9 +79,9 @@ class UploadIDs : AppCompatActivity(), AuthListener, FormListener,DocumentListen
 
         dataList.clear()
 
-        header.set("user_id", "12")
+        header.set("user_id", user_id!!)
         header.set(
-            "Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAwODYxMjEwfQ.9IusvCRNXxt5AD6510JyJSZyGUpzG-KKZN2YEbiif7E"
+            "Authorization", token!!
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")

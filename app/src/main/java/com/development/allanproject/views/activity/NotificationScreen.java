@@ -50,11 +50,11 @@ ActivityNotificationScreenBinding screenBinding;
             reference.setName("Notification Name");
             dataList.add(reference);
         }
-        adapter = new NotificationAdapter(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-         screenBinding.recyclerView.setLayoutManager(mLayoutManager);
-         screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-         screenBinding.recyclerView.setAdapter(adapter);
+//        adapter = new NotificationAdapter(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//         screenBinding.recyclerView.setLayoutManager(mLayoutManager);
+//         screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//         screenBinding.recyclerView.setAdapter(adapter);
     }
 
 }

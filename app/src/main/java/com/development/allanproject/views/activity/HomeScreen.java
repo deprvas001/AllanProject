@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.development.allanproject.R;
 import com.development.allanproject.databinding.ActivityHomeScreenBinding;
+import com.development.allanproject.views.activity.ui.myprofile.MyProfileScreen;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.navigation.NavController;
@@ -44,7 +45,7 @@ ActivityHomeScreenBinding screenBinding;
                 break;
 
             case R.id.profile_image:
-                startActivity(new Intent(HomeScreen.this, MyProfile.class));
+                startActivity(new Intent(HomeScreen.this, MyProfileScreen.class));
                 break;
         }
     }

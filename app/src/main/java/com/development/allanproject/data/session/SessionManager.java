@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.development.allanproject.views.activity.ui.login.LoginActivity;
 import com.development.allanproject.views.activity.ui.signup.SignUp;
 
 import java.util.HashMap;
@@ -92,7 +93,7 @@ public class SessionManager {
 
 
         // After logout redirect user to Loing Activity
-        Intent i = new Intent(_context, SignUp.class);
+        Intent i = new Intent(_context, LoginActivity.class);
         // Closing all the Activities
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_CLEAR_TASK |

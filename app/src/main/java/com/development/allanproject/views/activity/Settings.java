@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.development.allanproject.R;
 import com.development.allanproject.databinding.ActivitySettingsBinding;
+import com.development.allanproject.views.activity.ui.faq.FaqActivity;
 
 public class Settings extends BaseActivity implements View.OnClickListener {
 ActivitySettingsBinding settingsBinding;
@@ -28,7 +29,7 @@ ActivitySettingsBinding settingsBinding;
                 break;
 
             case R.id.faq:
-                startActivity(new Intent(this,FaqScreen.class));
+                startActivity(new Intent(this, FaqActivity.class));
                 break;
 
             case R.id.help:

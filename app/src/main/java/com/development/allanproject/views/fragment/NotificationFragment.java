@@ -57,11 +57,11 @@ public class NotificationFragment extends Fragment {
             reference.setName("Notification Name");
             dataList.add(reference);
         }
-        adapter = new NotificationAdapter(getContext(), dataList);
-        mLayoutManager = new LinearLayoutManager(getContext());
-        notificationBinding.recyclerView.setLayoutManager(mLayoutManager);
-        notificationBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        notificationBinding.recyclerView.setAdapter(adapter);
+//        adapter = new NotificationAdapter(getContext(), dataList);
+//        mLayoutManager = new LinearLayoutManager(getContext());
+//        notificationBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        notificationBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        notificationBinding.recyclerView.setAdapter(adapter);
     }
 
 }

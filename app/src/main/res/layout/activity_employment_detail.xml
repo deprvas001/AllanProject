@@ -45,6 +45,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tax_holding"
             android:layout_width="fill_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="30dp"
@@ -75,6 +76,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/i_9"
             android:layout_width="fill_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="30dp"

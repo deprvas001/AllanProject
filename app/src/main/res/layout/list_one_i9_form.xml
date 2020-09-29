@@ -45,10 +45,11 @@
                         android:id="@+id/radio1_1"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="U.S. Passport"
+                        android:text="U.S. Passport Or U.S. Passport Card"
                         android:textColor="@color/text_color_hint" />
 
                     <RadioButton
+                        android:visibility="gone"
                         android:id="@+id/radio1_2"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"

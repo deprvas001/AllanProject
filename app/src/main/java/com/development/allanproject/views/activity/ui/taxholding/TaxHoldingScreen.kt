@@ -1,5 +1,6 @@
 package com.development.allanproject.views.activity.ui.taxholding
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +23,7 @@ import com.development.allanproject.model.taxholding.PostTaxList
 import com.development.allanproject.model.taxholding.TaxData
 import com.development.allanproject.util.*
 import com.development.allanproject.util.taxListener.TaxAuthListener
+import com.development.allanproject.views.activity.ui.SignatureScreen
 import kotlinx.android.synthetic.main.activity_add_licenses.*
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import kotlinx.android.synthetic.main.activity_personal_detail.progress_bar
@@ -61,9 +63,9 @@ class TaxHoldingScreen : AppCompatActivity() ,AuthListener, TaxAuthListener, Kod
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        header.set("user_id", "22")
+        header.set("user_id", user_id!!)
         header.set(
-            "Authorization","eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAxMDM3MzY4fQ.Uh3USPQlnj1m2Mv6gQvUJHiCwftNboCvMGjZQ4ZmDds"
+            "Authorization",token!!
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")
@@ -72,6 +74,7 @@ class TaxHoldingScreen : AppCompatActivity() ,AuthListener, TaxAuthListener, Kod
             finish()
         }
        setAdapter()
+        binding.signature.setOnClickListener(this)
         binding.update.setOnClickListener(this)
     }
 
@@ -94,6 +97,7 @@ class TaxHoldingScreen : AppCompatActivity() ,AuthListener, TaxAuthListener, Kod
         if (response.success && response.status.equals("ok") && response.code == 200) {
           if(response.data.size>0){
                  taxHolding = response
+               binding.decleration.setText(response.additional.declaration)
 //              taxHolding!!.additional = response.additional
 //              taxHolding!!.data = dataList
               dataList.clear()
@@ -133,6 +137,8 @@ class TaxHoldingScreen : AppCompatActivity() ,AuthListener, TaxAuthListener, Kod
              var details =  PostTaxList(additional,dataList)
 
             viewModel.updateTax(header, details)
+        }else if(view!!.id == R.id.signature){
+            startActivity(Intent(this, SignatureScreen::class.java))
         }
     }
 }

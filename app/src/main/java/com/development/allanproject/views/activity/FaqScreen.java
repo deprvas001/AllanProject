@@ -43,11 +43,11 @@ ActivityFaqScreenBinding screenBinding;
     }
 
     private void setReyclerView(){
-        mAdapter = new FaqAdapter(faqList);
-        mLayoutManager = new LinearLayoutManager(FaqScreen.this);
-        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
-        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        screenBinding.recyclerView.setAdapter(mAdapter);
+//        mAdapter = new FaqAdapter(faqList);
+//        mLayoutManager = new LinearLayoutManager(FaqScreen.this);
+//        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        screenBinding.recyclerView.setAdapter(mAdapter);
 
         faqData();
     }

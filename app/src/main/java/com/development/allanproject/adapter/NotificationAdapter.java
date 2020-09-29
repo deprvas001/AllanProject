@@ -9,12 +9,12 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.development.allanproject.R;
-import com.development.allanproject.model.NotificationClass;
+import com.development.allanproject.model.notificationModel.NotificationItem;
 
 import java.util.List;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.MyViewHolder> {
-    private List<NotificationClass> notificationList;
+    private List<NotificationItem> notificationList;
     private Context context;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -28,7 +28,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     }
 
 
-    public NotificationAdapter(Context context,List<NotificationClass> notificationList) {
+    public NotificationAdapter(Context context,List<NotificationItem> notificationList) {
         this.context = context;
         this.notificationList = notificationList;
     }
@@ -43,8 +43,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(NotificationAdapter.MyViewHolder holder, int position) {
-        NotificationClass document = notificationList.get(position);
-        holder.name.setText(document.getName());
+        NotificationItem document = notificationList.get(position);
+        holder.name.setText(document.getTitle());
 
     }
 

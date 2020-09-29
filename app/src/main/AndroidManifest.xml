@@ -2,8 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.development.allanproject">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".MyApplication"
@@ -15,21 +21,37 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.editProfile.EditProfileScreen"
+        <activity android:name=".views.activity.ui.SignatureScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:windowSoftInputMode="stateHidden" ></activity>
+        <activity
+            android:name=".views.activity.ui.notificationsettings.NotificationSetttings"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.profilesetting.ProfileSettings"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.notificationscreen.NotificationActivity"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.myprofile.MyProfileScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.faq.FaqActivity"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.editProfile.EditProfileScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.research.ResearchScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.language.LanguageScreen"
             android:theme="@style/AppTheme1"
@@ -37,7 +59,7 @@
         <activity
             android:name=".views.activity.ui.awards.AwardScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.backgroundinformation.BackgroundInformationScreen"
             android:theme="@style/AppTheme1"
@@ -45,7 +67,9 @@
         <activity
             android:name=".views.activity.ui.i9form.I9FormScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden" >
+
+        </activity>
         <activity
             android:name=".views.activity.ui.changepassword.ChangePasswordScreen"
             android:theme="@style/AppTheme1"
@@ -53,7 +77,9 @@
         <activity
             android:name=".views.activity.ui.taxholding.TaxHoldingScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -160,7 +186,14 @@
         <activity
             android:name=".views.activity.ui.login.LoginActivity"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo"
             android:theme="@style/AppTheme1"

@@ -165,7 +165,7 @@ public class TaxHoldingAdapter extends
         alertDialog.setMessage(info);
 
         alertDialog.setPositiveButton(
-                "Delete",
+                "Close",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Do the stuff..

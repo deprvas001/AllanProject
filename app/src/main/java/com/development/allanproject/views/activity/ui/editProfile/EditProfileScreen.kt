@@ -54,10 +54,9 @@ class EditProfileScreen : AppCompatActivity(), EditListener, KodeinAware,
         var token = user[SessionManager.KEY_TOKEN]
 
 
-        header.set("user_id", "22")
+        header.set("user_id", user_id!!)
         header.set(
-            "Authorization",
-            "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAxMzA5MjM2fQ.F8hL12fMrqOqnaiREMcJoNepI_lOwbwSF-Y2HgqKtdg"
+            "Authorization",token!!
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")
