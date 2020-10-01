@@ -18,6 +18,7 @@ import com.development.allanproject.views.activity.ui.editProfile.EditProfileVie
 import com.development.allanproject.views.activity.ui.education.viewmodel.EducationViewModelFactory
 import com.development.allanproject.views.activity.ui.ehrs.EHRSViewModelFactory
 import com.development.allanproject.views.activity.ui.faq.FaqViewModelFactory
+import com.development.allanproject.views.activity.ui.forgotpassword.ForgotPasswordViewModelFactory
 import com.development.allanproject.views.activity.ui.healthdocument.HealthDocViewModelFactory
 import com.development.allanproject.views.activity.ui.i9form.I9FormViewModelFactory
 import com.development.allanproject.views.activity.ui.language.LanguageViewModelFactory
@@ -27,6 +28,7 @@ import com.development.allanproject.views.activity.ui.myprofile.MyProfileViewMod
 import com.development.allanproject.views.activity.ui.notificationscreen.NotificationViewModelFactory
 import com.development.allanproject.views.activity.ui.notificationsettings.NotificationSettingsViewModelfactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
+import com.development.allanproject.views.activity.ui.prefrencescreen.PreferenceViewModelFactory
 import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumViewModelFactory
 import com.development.allanproject.views.activity.ui.profilesetting.ProfileSettingViewModelFactory
 import com.development.allanproject.views.activity.ui.reference.ReferenceViewModelFactory
@@ -91,6 +93,8 @@ class MyApplication :  Application(), KodeinAware {
 
         bind() from provider { NotificationSettingsViewModelfactory(instance()) }
         bind() from provider { I9FormViewModelFactory(instance()) }
+        bind() from provider { PreferenceViewModelFactory(instance())}
+        bind() from provider { ForgotPasswordViewModelFactory(instance())}
 
     }
 }

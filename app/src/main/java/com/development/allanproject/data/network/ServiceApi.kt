@@ -39,6 +39,7 @@ import com.development.allanproject.model.notificationModel.PostNotificationSett
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
+import com.development.allanproject.model.preferenceModel.GetPreferenceList
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.profilesettings.GetMyProfileNotification
 import com.development.allanproject.model.reference.ReferenceList
@@ -151,6 +152,18 @@ interface ServiceApi {
         @Body hashMap: HashMap<String, Any>
     ): Response<SignResponse>
 
+    @POST("update-user")
+    suspend fun updatePreference(
+        @HeaderMap header: HashMap<String, String>,
+        @Body hashMap: HashMap<String, Any>
+    ): Response<SignResponse>
+
+    @POST("forgot_password")
+    suspend fun forgotPassword(
+        @HeaderMap header: HashMap<String, String>,
+        @Body hashMap: HashMap<String, Any>
+    ): Response<SignResponse>
+
     @POST("change_password")
     suspend fun changePassword(
         @HeaderMap header: HashMap<String, String>,
@@ -211,6 +224,12 @@ interface ServiceApi {
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<GetAward>
+
+    @GET("nurse_details")
+    suspend fun getPreferenceList(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("step_no")type:String
+    ): Response<GetPreferenceList>
 
     @GET("nurse_details")
     suspend fun getMyProife(

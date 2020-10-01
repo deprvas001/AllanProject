@@ -2,10 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:id="@+id/root_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -111,211 +107,186 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Select Facility Type"
-                    android:textColor="#555555" />
-
-                <com.development.allanproject.listener.MultiSelectionSpinner
-                    android:id="@+id/facility_type"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:paddingLeft="-5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:singleLine="true" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Select Facilities Name(multi select)"
-                    android:textColor="#555555" />
-
-                <com.development.allanproject.listener.MultiSelectionNameSpinner
-                    android:id="@+id/facility_name"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:paddingLeft="-5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:singleLine="true" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Select City (Multi Select)"
-                    android:textColor="#555555" />
-
-                <com.development.allanproject.listener.MulitSelectionCitySpinner
-                    android:id="@+id/city_spinner"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:paddingLeft="-5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:singleLine="true" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Select Address"
-                    android:textColor="#555555" />
-
-                <com.development.allanproject.listener.MultiSelectionAddressSpinner
-                    android:id="@+id/spinner_address"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:paddingLeft="-5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:singleLine="true" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Select Shift Type"
-                    android:textColor="#555555" />
-
-                <com.development.allanproject.listener.MultiSelectionShiftSpinner
-                    android:id="@+id/shift_spinner"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:paddingLeft="-5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:singleLine="true" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Select Day"
-                    android:textColor="#555555" />
-
-                <com.development.allanproject.listener.MutliSelectionDaySpinner
-                    android:id="@+id/day_spinner"
-                    style="@style/Widget.AppCompat.Spinner.Underlined"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:paddingLeft="-5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:singleLine="true" />
-
-
-            <androidx.cardview.widget.CardView
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="10dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:text="Facility Type"
                     android:textColor="#555555" />
 
-
-                <View
+                <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#C0C0C0"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_height="50dp"
+                    android:paddingLeft="-5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:singleLine="true" />
 
 
-                 <LinearLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_marginTop="20dp"
-                     android:orientation="horizontal">
-
-                     <LinearLayout
-                         android:layout_width="0dp"
-                         android:layout_height="wrap_content"
-                         android:gravity="center"
-                         android:layout_weight="1"
-                         android:orientation="vertical">
-
-                         <TextView
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="From"
-                             android:textColor="#C0C0C0"/>
-
-                         <TextView
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="00:00"
-                             android:textColor="@color/colorPrimary"/>
-
-
-                     </LinearLayout>
-
-                     <View
-                         android:layout_width="1dp"
-                         android:layout_height="50dp"
-                         android:layout_margin="10dp"
-                         android:background="#C0C0C0"/>
-
-                     <LinearLayout
-                         android:layout_width="0dp"
-                         android:layout_height="wrap_content"
-                         android:layout_weight="1"
-                         android:gravity="center"
-                         android:orientation="vertical">
-
-                         <TextView
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="To"
-                             android:textColor="#C0C0C0"/>
-
-                         <TextView
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:text="23:00"
-                             android:textColor="@color/colorPrimary"/>
-
-
-                     </LinearLayout>
-                 </LinearLayout>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="All Day"
                     android:layout_marginTop="10dp"
-                    android:layout_gravity="center"
-                    android:textColor="#555555"/>
+                    android:text="Facilities Name(multi select)"
+                    android:textColor="#555555" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="-5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="City (Multi Select)"
+                    android:textColor="#555555" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="-5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Address"
+                    android:textColor="#555555" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="-5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Shift Type"
+                    android:textColor="#555555" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:paddingLeft="-5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:singleLine="true" />
 
 
-            </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_margin="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Facility Type"
+                            android:textColor="#555555" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#C0C0C0"
+                            android:layout_marginBottom="10dp" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="From"
+                                    android:textColor="#C0C0C0"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="00:00"
+                                    android:textColor="@color/colorPrimary"/>
+
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="10dp"
+                                android:background="#C0C0C0"/>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="To"
+                                    android:textColor="#C0C0C0"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="23:00"
+                                    android:textColor="@color/colorPrimary"/>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="All Day"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:textColor="#555555"/>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/save"
                     android:layout_width="fill_parent"
                     android:layout_height="55dp"
                     android:layout_marginTop="20dp"
@@ -334,12 +305,5 @@
         </ScrollView>
     </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="invisible" />
 
-    </RelativeLayout>
 </layout>

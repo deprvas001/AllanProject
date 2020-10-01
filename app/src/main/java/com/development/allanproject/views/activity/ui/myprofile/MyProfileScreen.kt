@@ -17,6 +17,7 @@ import com.development.allanproject.util.*
 import com.development.allanproject.util.myprofileListener.MyProfileListener
 import com.development.allanproject.views.activity.Settings
 import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalInfo
+import com.development.allanproject.views.activity.ui.prefrencescreen.PreferenceScreen
 import com.development.allanproject.views.activity.ui.profilesetting.ProfileSettings
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import org.kodein.di.KodeinAware
@@ -69,6 +70,10 @@ class MyProfileScreen : AppCompatActivity(), MyProfileListener, KodeinAware {
 
         binding.edit.setOnClickListener{
             startActivity(Intent(this, EditPersonalInfo::class.java))
+        }
+
+        binding.preferenceScreenLayout.setOnClickListener{
+            startActivity(Intent(this, PreferenceScreen::class.java))
         }
     }
 

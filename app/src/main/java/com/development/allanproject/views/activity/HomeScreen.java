@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.development.allanproject.R;
 import com.development.allanproject.databinding.ActivityHomeScreenBinding;
 import com.development.allanproject.views.activity.ui.myprofile.MyProfileScreen;
+import com.development.allanproject.views.activity.ui.notificationscreen.NotificationActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.navigation.NavController;
@@ -41,7 +42,7 @@ ActivityHomeScreenBinding screenBinding;
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.notification:
-                startActivity(new Intent(HomeScreen.this, NotificationScreen.class));
+                startActivity(new Intent(HomeScreen.this, NotificationActivity.class));
                 break;
 
             case R.id.profile_image:

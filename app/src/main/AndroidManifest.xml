@@ -21,9 +21,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.SignatureScreen"
+        <activity android:name=".views.activity.ui.forgotpassword.ForgotPasswordScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" ></activity>
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.prefrencescreen.PreferenceScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.SignatureScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.notificationsettings.NotificationSetttings"
             android:theme="@style/AppTheme1"
@@ -67,9 +79,7 @@
         <activity
             android:name=".views.activity.ui.i9form.I9FormScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" >
-
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.changepassword.ChangePasswordScreen"
             android:theme="@style/AppTheme1"
@@ -77,9 +87,7 @@
         <activity
             android:name=".views.activity.ui.taxholding.TaxHoldingScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -186,13 +194,14 @@
         <activity
             android:name=".views.activity.ui.login.LoginActivity"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:windowSoftInputMode="stateHidden">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
 
+
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity
             android:name=".views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo"

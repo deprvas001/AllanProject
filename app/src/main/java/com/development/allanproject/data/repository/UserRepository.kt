@@ -40,6 +40,7 @@ import com.development.allanproject.model.notificationModel.PostNotificationSett
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
+import com.development.allanproject.model.preferenceModel.GetPreferenceList
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.profilesettings.GetMyProfileNotification
 import com.development.allanproject.model.reference.ReferenceList
@@ -93,6 +94,12 @@ class UserRepository (
         }
     }
 
+    suspend fun getPreference( header: HashMap<String, String>,step: String) : GetPreferenceList {
+        return apiRequest {
+            api.getPreferenceList(header,step)
+        }
+    }
+
     suspend fun getFaq( header: HashMap<String, String>) : GetFaqList {
         return apiRequest {
             api.getFaq(header)
@@ -104,6 +111,7 @@ class UserRepository (
             api.getMyProife(header,step)
         }
     }
+
 
     suspend fun getNotificationProfile( header: HashMap<String, String>,step: String) : GetMyProfileNotification{
         return apiRequest {
@@ -128,6 +136,19 @@ class UserRepository (
             api.updateMyProfileNotification(header,detail)
         }
     }
+
+    suspend fun forgotPassword( header: HashMap<String, String>,detail: HashMap<String, Any>) : SignResponse{
+        return apiRequest {
+            api.forgotPassword(header,detail)
+        }
+    }
+
+    suspend fun updatePreference( header: HashMap<String, String>,detail: HashMap<String, Any>) : SignResponse{
+        return apiRequest {
+            api.updatePreference(header,detail)
+        }
+    }
+
 
     suspend fun getNotification( header: HashMap<String, String>) : GetNotificationList{
         return apiRequest {

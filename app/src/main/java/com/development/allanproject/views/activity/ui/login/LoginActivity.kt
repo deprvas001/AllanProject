@@ -15,6 +15,7 @@ import com.development.allanproject.views.activity.SignUpComplete
 import com.development.allanproject.views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo
 import com.development.allanproject.views.activity.ui.addexperience.addWorkExperience.AddExperience
 import com.development.allanproject.views.activity.ui.addlicenese.AddLicenses
+import com.development.allanproject.views.activity.ui.forgotpassword.ForgotPasswordScreen
 import com.development.allanproject.views.activity.ui.locationPreference.AddLocationPreference
 import com.development.allanproject.views.activity.ui.personal.PersonalDetail
 import com.development.allanproject.views.activity.ui.setPreference.SetPreferenceScreen
@@ -46,6 +47,9 @@ class LoginActivity : AppCompatActivity() , AuthListener, KodeinAware, View.OnCl
         viewModel.authListener = this
 
         binding.signup.setOnClickListener(this)
+        binding.forgotPassword.setOnClickListener{
+            startActivity(Intent(this, ForgotPasswordScreen::class.java))
+        }
 
         session = SessionManager(applicationContext)
 
