@@ -17,6 +17,7 @@ import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPerso
 import com.development.allanproject.views.activity.ui.editProfile.EditProfileViewModelFactory
 import com.development.allanproject.views.activity.ui.education.viewmodel.EducationViewModelFactory
 import com.development.allanproject.views.activity.ui.ehrs.EHRSViewModelFactory
+import com.development.allanproject.views.activity.ui.facilityprofile.FacilityProfileViewModelFactory
 import com.development.allanproject.views.activity.ui.faq.FaqViewModelFactory
 import com.development.allanproject.views.activity.ui.forgotpassword.ForgotPasswordViewModelFactory
 import com.development.allanproject.views.activity.ui.healthdocument.HealthDocViewModelFactory
@@ -95,6 +96,7 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider { I9FormViewModelFactory(instance()) }
         bind() from provider { PreferenceViewModelFactory(instance())}
         bind() from provider { ForgotPasswordViewModelFactory(instance())}
+        bind() from provider { FacilityProfileViewModelFactory(instance())}
 
     }
 }

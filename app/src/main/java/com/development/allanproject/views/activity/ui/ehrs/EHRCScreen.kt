@@ -116,7 +116,6 @@ class EHRCScreen : AppCompatActivity(), EHRSAuthListener, AuthListener, KodeinAw
 
     override fun onStarted() {
         progress_bar.show()
-        toast("Login Started")
     }
 
     override fun onSuccess(response: EHRSList) {

@@ -20,6 +20,7 @@ import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.experience.UpdateExperiencePost
+import com.development.allanproject.model.facilityprofileModel.GetFacilityProfile
 import com.development.allanproject.model.faq.GetFaqList
 import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.form.UploadForm
@@ -288,6 +289,12 @@ interface ServiceApi {
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<EHRSList>
+
+    @GET("facility/{id}")
+    suspend fun getFacilityProfile(
+        @HeaderMap header: HashMap<String, String>,
+        @Path(value="id")type:String
+    ): Response<GetFacilityProfile>
 
     @GET("nurse_details")
     suspend fun getPdf(

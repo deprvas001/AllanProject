@@ -21,6 +21,7 @@ import com.development.allanproject.model.experience.AddExperiencePost
 import com.development.allanproject.model.experience.DeleteExperience
 import com.development.allanproject.model.experience.GetExperience
 import com.development.allanproject.model.experience.UpdateExperiencePost
+import com.development.allanproject.model.facilityprofileModel.GetFacilityProfile
 import com.development.allanproject.model.faq.GetFaqList
 import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.form.UploadForm
@@ -365,6 +366,12 @@ class UserRepository (
     suspend fun  getEHRS( header: HashMap<String, String>,step: String) : EHRSList {
         return apiRequest {
             api.getEHRS(header,step)
+        }
+    }
+
+    suspend fun  getFacilityProfile( header: HashMap<String, String>,id: String) : GetFacilityProfile {
+        return apiRequest {
+            api.getFacilityProfile(header,id)
         }
     }
 
