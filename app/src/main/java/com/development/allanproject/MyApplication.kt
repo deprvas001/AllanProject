@@ -28,17 +28,20 @@ import com.development.allanproject.views.activity.ui.login.LoginViewModelFactor
 import com.development.allanproject.views.activity.ui.myprofile.MyProfileViewModelFactory
 import com.development.allanproject.views.activity.ui.notificationscreen.NotificationViewModelFactory
 import com.development.allanproject.views.activity.ui.notificationsettings.NotificationSettingsViewModelfactory
+import com.development.allanproject.views.activity.ui.openShift.ViewOpenShiftModelFactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
 import com.development.allanproject.views.activity.ui.prefrencescreen.PreferenceViewModelFactory
 import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumViewModelFactory
 import com.development.allanproject.views.activity.ui.profilesetting.ProfileSettingViewModelFactory
 import com.development.allanproject.views.activity.ui.reference.ReferenceViewModelFactory
-import com.development.allanproject.views.activity.ui.research.ResearchViewModel
+import com.development.allanproject.views.activity.ui.requestShift.RequestShiftViewModelFactory
 import com.development.allanproject.views.activity.ui.research.ResearchViewModelFactory
 import com.development.allanproject.views.activity.ui.socialsecurity.SocialSecurityFactory
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
 import com.development.allanproject.views.activity.ui.taxholding.TaxHoldingViewModelFactory
 import com.development.allanproject.views.activity.ui.training.TrainingViewModelFactory
+import com.development.allanproject.views.fragment.myshift.MyShiftViewModelFactory
+import com.development.allanproject.views.fragment.openshift.OpenShiftViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -97,6 +100,10 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider { PreferenceViewModelFactory(instance())}
         bind() from provider { ForgotPasswordViewModelFactory(instance())}
         bind() from provider { FacilityProfileViewModelFactory(instance())}
+        bind() from provider { ViewOpenShiftModelFactory(instance()) }
+        bind() from provider { OpenShiftViewModelFactory(instance()) }
+        bind() from provider {MyShiftViewModelFactory(instance()) }
+        bind() from provider {RequestShiftViewModelFactory(instance()) }
 
     }
 }

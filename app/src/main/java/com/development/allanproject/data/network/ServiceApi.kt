@@ -34,9 +34,11 @@ import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
 import com.development.allanproject.model.myprofile.GetMyProfile
+import com.development.allanproject.model.myshift.GetMyShift
 import com.development.allanproject.model.notificationModel.GetNotificationList
 import com.development.allanproject.model.notificationModel.GetNotificationSettings
 import com.development.allanproject.model.notificationModel.PostNotificationSettings
+import com.development.allanproject.model.openshiftModel.*
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
@@ -109,6 +111,12 @@ interface ServiceApi {
     suspend fun addPerference(
         @HeaderMap header: HashMap<String, String>,
         @Body details: SetPreferencePost
+    ): Response<SignResponse>
+
+    @POST("facility/marked_favorite")
+    suspend fun postBookmark(
+        @HeaderMap header: HashMap<String, String>,
+        @Body post: PostBookmark
     ): Response<SignResponse>
 
     @POST("update-user")
@@ -302,11 +310,48 @@ interface ServiceApi {
         @Query("step_no")type:String
     ): Response<GetTrainingPdf>
 
+    @GET("shift/list")
+    suspend fun getOpenShift(
+        @HeaderMap header: HashMap<String, String>
+    ): Response<GetOpenShift>
+
+    @GET("shift/mylist")
+    suspend fun getMyShift(
+        @HeaderMap header: HashMap<String, String>,
+        @Query("type")type:String
+    ): Response<GetMyShift>
+
+    @GET("shift/{id}")
+    suspend fun getOpenShiftDetail(
+        @HeaderMap header: HashMap<String, String>,
+        @Path(value="id")type:String
+    ): Response<GetOpenShiftDetail>
+
+    @GET("shift/requested")
+    suspend fun getRequestedShift(
+        @HeaderMap header: HashMap<String, String>
+    ): Response<GetOpenShift>
+
+    @POST("shift/save")
+    suspend fun saveShift(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: SaveShiftPost
+    ): Response<SignResponse>
+
+    @POST("shift/apply")
+    suspend fun applyShift(
+        @HeaderMap header: HashMap<String, String>,
+        @Body details: ApplyShiftPost
+    ): Response<SignResponse>
+
+
     @GET("nurse_details")
     suspend fun getTaxHolding(
         @HeaderMap header: HashMap<String, String>,
         @Query("step_no")type:String
     ): Response<GetTaxHolding>
+
+
 
     @GET("nurse_details")
     suspend fun getI9Form(

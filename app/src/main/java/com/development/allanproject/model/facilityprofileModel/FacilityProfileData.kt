@@ -25,5 +25,10 @@ data class FacilityProfileData(
     val scrub_color: String,
     val social: List<Social>,
     val status: Boolean,
-    val updated_at: String
+    val updated_at: String,
+    val facebook: String,
+    val twitter:String,
+    val linkedin:String,
+    val instagram: String
+
 )

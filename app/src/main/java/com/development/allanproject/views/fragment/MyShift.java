@@ -19,8 +19,7 @@ import com.development.allanproject.views.activity.ViewMyShift;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyShift extends Fragment implements View.OnClickListener {
-FragmentMyShiftBinding shiftBinding;
+public class MyShift extends Fragment  {
     public MyShift() {
         // Required empty public constructor
     }
@@ -30,26 +29,13 @@ FragmentMyShiftBinding shiftBinding;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        shiftBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_my_shift, container, false);
-        return shiftBinding.getRoot();
+         return getView().getRootView();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setClickListener();
     }
 
-    private void setClickListener(){
-        shiftBinding.cardView.setOnClickListener(this);
-    }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.cardView:
-                  startActivity(new Intent(getContext(),ViewMyShift.class));
-                break;
-        }
-    }
 }

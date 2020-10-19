@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/action_cancel"
+        android:orderInCategory="100"
+        android:title="My Canceled Shifts"/>
+    <item
+        android:id="@+id/action_applied"
+        android:title="Applied Shifts"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_offered"
+        android:title="Offered Shifts"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_saved"
+        android:title="Saved Shifts"
+        app:showAsAction="never"/>
+</menu>

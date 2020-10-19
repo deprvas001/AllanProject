@@ -29,8 +29,20 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Home"
+            android:layout_marginLeft="36dp"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/filter"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            android:padding="7dp"
+            android:visibility="invisible"
+            android:tint="@android:color/white"
+            android:src="@drawable/filter" />
 
         <ImageView
             android:id="@+id/notification"

@@ -21,25 +21,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.facilityprofile.FacilityProfileScreen"
+        <activity android:name=".views.activity.ui.requestShift.RequestShiftActivity"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity
+            android:name=".views.activity.ui.openShift.ViewOpenShift"
+            android:label="@string/title_activity_home_screen"
+            android:theme="@style/AppTheme1"></activity>
+        <activity
+            android:name=".views.activity.ui.openShift.OpenShiftScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.facilityprofile.FacilityProfileScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.forgotpassword.ForgotPasswordScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.prefrencescreen.PreferenceScreen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.activity.ui.SignatureScreen"
             android:theme="@style/AppTheme1"
@@ -203,11 +207,11 @@
             android:name=".views.activity.ui.login.LoginActivity"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
-          <!--  <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
         <activity
             android:name=".views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo"
@@ -297,7 +301,7 @@
             android:name=".views.activity.HomeScreen"
             android:label="@string/title_activity_home_screen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity
             android:name=".views.activity.EditProfile"
             android:theme="@style/AppTheme1"

@@ -35,9 +35,11 @@ import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
 import com.development.allanproject.model.myprofile.GetMyProfile
+import com.development.allanproject.model.myshift.GetMyShift
 import com.development.allanproject.model.notificationModel.GetNotificationList
 import com.development.allanproject.model.notificationModel.GetNotificationSettings
 import com.development.allanproject.model.notificationModel.PostNotificationSettings
+import com.development.allanproject.model.openshiftModel.*
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
@@ -357,6 +359,12 @@ class UserRepository (
         }
     }
 
+    suspend fun  postBookmark( header: HashMap<String, String>,post: PostBookmark) : SignResponse {
+        return apiRequest {
+            api.postBookmark(header,post)
+        }
+    }
+
     suspend fun  getSpeciality( header: HashMap<String, String>,step: String) : GetSpeciality {
         return apiRequest {
             api.getSpecaility(header,step)
@@ -372,6 +380,41 @@ class UserRepository (
     suspend fun  getFacilityProfile( header: HashMap<String, String>,id: String) : GetFacilityProfile {
         return apiRequest {
             api.getFacilityProfile(header,id)
+        }
+    }
+
+    suspend fun  getOpenShift( header: HashMap<String, String>) : GetOpenShift {
+        return apiRequest {
+            api.getOpenShift(header)
+        }
+    }
+    suspend fun  getMyShift( header: HashMap<String, String>, type:String) : GetMyShift {
+        return apiRequest {
+            api.getMyShift(header,type)
+        }
+    }
+
+    suspend fun  getOpenShiftDetail( header: HashMap<String, String>,id:String) : GetOpenShiftDetail {
+        return apiRequest {
+            api.getOpenShiftDetail(header,id)
+        }
+    }
+
+    suspend fun  getRequestShift( header: HashMap<String, String>,type:String) :GetOpenShift {
+        return apiRequest {
+            api.getRequestedShift(header)
+        }
+    }
+
+    suspend fun  saveShift( header: HashMap<String, String>, details: SaveShiftPost) : SignResponse {
+        return apiRequest {
+            api.saveShift(header,details)
+        }
+    }
+
+    suspend fun  applyShift( header: HashMap<String, String>, details: ApplyShiftPost) : SignResponse {
+        return apiRequest {
+            api.applyShift(header,details)
         }
     }
 
