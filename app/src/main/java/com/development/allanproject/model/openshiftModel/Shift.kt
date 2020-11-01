@@ -1,5 +1,9 @@
 package com.development.allanproject.model.openshiftModel
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Shift(
     val address: String,
     val end_date: String,
@@ -9,6 +13,7 @@ data class Shift(
     val icon: String,
     var facility_id:Int,
     val is_urgent: Boolean,
+    val is_saved: Boolean,
     val lat: Double,
     val long: Double,
     val minimum_hours: String,
@@ -21,4 +26,4 @@ data class Shift(
     val type: String,
     val type_icon: String,
     var category: String
-)
+): Parcelable

@@ -10,5 +10,9 @@ data class DateShiftData(
     val start_date: String,
     val time: String,
     val type: String,
-    val type_icon: String
+    val type_icon: String,
+    val button_type:String
 )
+{
+
+}

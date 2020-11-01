@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
     app:cardCornerRadius="5dp"
     app:cardElevation="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -23,8 +22,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/dumy_image"/>
+                android:layout_margin="10dp" />
 
             <LinearLayout
                 android:id="@+id/layout_name"
@@ -45,12 +43,12 @@
                     android:text="Facility Name"/>
 
 
-
                 <ImageView
+                    android:id="@+id/bookmark"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:textColor="@color/colorPrimary"
-                    android:src="@drawable/favourite_cion"/>
+                    android:src="@drawable/favourite_cion"
+                    android:tint="@color/text_color_hint" />
             </LinearLayout>
 
             <LinearLayout
@@ -64,20 +62,19 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/date"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="12sp"
                     android:textColor="#959595"
                     android:drawablePadding="10dp"
-                    android:drawableLeft="@drawable/calendar_icon"
-                    android:text="14/03/2020"/>
-
+                    android:drawableLeft="@drawable/calendar_icon" />
 
             </LinearLayout>
 
-
             <TextView
+                android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,8 +84,7 @@
                 android:layout_toRightOf="@id/imageView"
                 android:drawablePadding="10dp"
                 android:layout_margin="10dp"
-                android:drawableLeft="@drawable/location"
-                android:text="San Francisco, CA, USA"/>
+                android:drawableLeft="@drawable/location" />
 
 
         </RelativeLayout>
@@ -107,14 +103,14 @@
                 android:layout_weight="1"
                 android:textColor="#2C3135"
                 android:textSize="14sp"
-                android:text="Total Earning "/>
+                android:text="Shift Hours "/>
 
             <TextView
+                android:id="@+id/total_hrs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#959595"
-                android:textSize="14sp"
-                android:text="7 Hr/Day "/>
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -140,11 +136,11 @@
                 android:text="Price "/>
 
             <TextView
+                android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#959595"
-                android:textSize="14sp"
-                android:text="$80.00 "/>
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -155,13 +151,69 @@
             android:layout_margin="10dp"
             android:background="#DEDEDE"/>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/emoji1" />
+
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/emoji2" />
+
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/emoji3" />
+
+                <ImageView
+                    android:id="@+id/image4"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/emoji4" />
+
+                <ImageView
+                    android:id="@+id/image5"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/emoji5" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/comment_box"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_margin="10dp"
+            android:padding="10dp"
+            android:gravity="top"
             android:background="@drawable/form_button_unselect"/>
         
         <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/rate_anomy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -169,6 +221,7 @@
             android:text="Rate Annonymusly"/>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rate_facility"
             android:layout_width="fill_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"

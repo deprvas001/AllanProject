@@ -195,6 +195,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum
     <string name="signature">Signature</string>
     <string name="clear_pad">Clear</string>
     <string name="save_signature">Save</string>
+    <string name="rate_facility"><u>Rate Facility</u></string>
+    <string name="settings">Settings</string>
+    <string name="permission_denied_explanation">Need Your Current Location For Clock In</string>
+    <string name="permission_rationale">"Permission "</string>
+    <string name="take_break"><u>Take Break</u></string>
+    <string name="prefered_facility">Prefered Facility</string>
+    <string name="missed_shift">Missed Shift</string>
 
     <string-array name="license_id">
         <item>License Id 1</item>

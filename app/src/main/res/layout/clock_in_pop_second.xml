@@ -14,15 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
-            android:layout_margin="10dp"
             app:cardElevation="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-
 
                 <TextView
                     android:id="@+id/name"
@@ -48,24 +45,23 @@
                     android:gravity="center"
                     android:text="Clocked In At:"/>
 
-                <TextView
+                <TimePicker
+                    android:id="@+id/time_picker"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:textColor="#626262"
                     android:padding="15dp"
                     android:textSize="16sp"
-                    android:gravity="center"
-                    android:text="14:50:56 PM"/>
+                    android:gravity="center" />
 
-                <view
+                <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#626262"/>
 
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_login"
+                    android:id="@+id/submit"
                     android:layout_width="fill_parent"
                     android:layout_height="55dp"
                     android:layout_marginLeft="30dp"

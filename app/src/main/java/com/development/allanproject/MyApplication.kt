@@ -13,6 +13,8 @@ import com.development.allanproject.views.activity.ui.awards.AwardViewModelFacto
 import com.development.allanproject.views.activity.ui.backgroundinformation.BackInformationViewModelFactory
 import com.development.allanproject.views.activity.ui.bankinfo.BankViewModelFactory
 import com.development.allanproject.views.activity.ui.changepassword.ChangePassViewModelFactory
+import com.development.allanproject.views.activity.ui.clockInShift.ClockShiftViewModelFactory
+import com.development.allanproject.views.activity.ui.clockoutDetail.ClockOutViewModelFactory
 import com.development.allanproject.views.activity.ui.editPersonalInfo.EditPersonalViewModelFactory
 import com.development.allanproject.views.activity.ui.editProfile.EditProfileViewModelFactory
 import com.development.allanproject.views.activity.ui.education.viewmodel.EducationViewModelFactory
@@ -21,15 +23,18 @@ import com.development.allanproject.views.activity.ui.facilityprofile.FacilityPr
 import com.development.allanproject.views.activity.ui.faq.FaqViewModelFactory
 import com.development.allanproject.views.activity.ui.forgotpassword.ForgotPasswordViewModelFactory
 import com.development.allanproject.views.activity.ui.healthdocument.HealthDocViewModelFactory
+import com.development.allanproject.views.activity.ui.hiddenjob.HiddenViewModelFactory
 import com.development.allanproject.views.activity.ui.i9form.I9FormViewModelFactory
 import com.development.allanproject.views.activity.ui.language.LanguageViewModelFactory
 import com.development.allanproject.views.activity.ui.locationPreference.LocationPreferenceModelFactory
 import com.development.allanproject.views.activity.ui.login.LoginViewModelFactory
+import com.development.allanproject.views.activity.ui.missedShift.MissedShiftViewModelFactory
 import com.development.allanproject.views.activity.ui.myprofile.MyProfileViewModelFactory
 import com.development.allanproject.views.activity.ui.notificationscreen.NotificationViewModelFactory
 import com.development.allanproject.views.activity.ui.notificationsettings.NotificationSettingsViewModelfactory
 import com.development.allanproject.views.activity.ui.openShift.ViewOpenShiftModelFactory
 import com.development.allanproject.views.activity.ui.personal.PersonalDetailViewModelFactory
+import com.development.allanproject.views.activity.ui.preferedFacility.PreferedFacilityViewModelFactory
 import com.development.allanproject.views.activity.ui.prefrencescreen.PreferenceViewModelFactory
 import com.development.allanproject.views.activity.ui.profileSummary.ProfileSumViewModelFactory
 import com.development.allanproject.views.activity.ui.profilesetting.ProfileSettingViewModelFactory
@@ -40,6 +45,8 @@ import com.development.allanproject.views.activity.ui.socialsecurity.SocialSecur
 import com.development.allanproject.views.activity.ui.speciality.AddSpecialityViewModelFactory
 import com.development.allanproject.views.activity.ui.taxholding.TaxHoldingViewModelFactory
 import com.development.allanproject.views.activity.ui.training.TrainingViewModelFactory
+import com.development.allanproject.views.activity.ui.viewPastShift.PastShiftViewModelFactory
+import com.development.allanproject.views.fragment.dashboard.DashboardViewModelFactory
 import com.development.allanproject.views.fragment.myshift.MyShiftViewModelFactory
 import com.development.allanproject.views.fragment.openshift.OpenShiftViewModelFactory
 import org.kodein.di.Kodein
@@ -105,5 +112,13 @@ class MyApplication :  Application(), KodeinAware {
         bind() from provider {MyShiftViewModelFactory(instance()) }
         bind() from provider {RequestShiftViewModelFactory(instance()) }
 
+        bind() from provider {PastShiftViewModelFactory(instance()) }
+        bind() from provider {ClockShiftViewModelFactory(instance()) }
+        bind() from provider {ClockOutViewModelFactory(instance()) }
+        bind() from provider {HiddenViewModelFactory(instance()) }
+
+        bind() from provider {PreferedFacilityViewModelFactory(instance()) }
+        bind() from provider {MissedShiftViewModelFactory(instance()) }
+        bind() from provider {DashboardViewModelFactory(instance()) }
     }
 }

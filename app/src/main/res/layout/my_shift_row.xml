@@ -60,8 +60,8 @@
 
                     <ImageView
                         android:id="@+id/type_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:textColor="#D1439D"
                         android:layout_marginRight="5dp"
                         />

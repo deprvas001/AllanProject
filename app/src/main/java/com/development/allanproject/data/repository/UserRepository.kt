@@ -12,7 +12,14 @@ import com.development.allanproject.model.backinformation.GetBackgroundData
 import com.development.allanproject.model.backinformation.PostBackgroundInformation
 import com.development.allanproject.model.bankinfo.BankInfoResponse
 import com.development.allanproject.model.bankinfo.PostBankInfo
+import com.development.allanproject.model.cancelShiftModel.CancelShiftPost
 import com.development.allanproject.model.certificate.CertificateList
+import com.development.allanproject.model.clockShiftModel.ClockInShiftPost
+import com.development.allanproject.model.clockoutModel.BreakTimePost
+import com.development.allanproject.model.clockoutModel.ClockInOutPost
+import com.development.allanproject.model.clockoutModel.GetClockOutDetail
+import com.development.allanproject.model.clockoutModel.PostClockOutDetail
+import com.development.allanproject.model.dashboardModel.GetDashboard
 import com.development.allanproject.model.editProfile.GetEditProfile
 import com.development.allanproject.model.education.AddEductionModel
 import com.development.allanproject.model.education.EducationListApiResonse
@@ -27,6 +34,7 @@ import com.development.allanproject.model.form.GetFormList
 import com.development.allanproject.model.form.UploadForm
 import com.development.allanproject.model.healthDocument.HealthDocPost
 import com.development.allanproject.model.healthDocument.HealthDocumentList
+import com.development.allanproject.model.hiddenjobs.GetHiddenJobs
 import com.development.allanproject.model.i9form.GetI9Form
 import com.development.allanproject.model.i9form.PostI9Form
 import com.development.allanproject.model.lanugage.GetLanugage
@@ -34,15 +42,20 @@ import com.development.allanproject.model.license.LicenseUpdate
 import com.development.allanproject.model.license.ShowLicensesList
 import com.development.allanproject.model.locationPost.LocationPreferencePost
 import com.development.allanproject.model.login.LoginPost
+import com.development.allanproject.model.missedShift.GetMissedShift
 import com.development.allanproject.model.myprofile.GetMyProfile
 import com.development.allanproject.model.myshift.GetMyShift
 import com.development.allanproject.model.notificationModel.GetNotificationList
 import com.development.allanproject.model.notificationModel.GetNotificationSettings
 import com.development.allanproject.model.notificationModel.PostNotificationSettings
 import com.development.allanproject.model.openshiftModel.*
+import com.development.allanproject.model.pastShiftModel.MyPastShift
+import com.development.allanproject.model.pastShiftModel.RateFacilityModel
+import com.development.allanproject.model.pastShiftModel.RequestPayModel
 import com.development.allanproject.model.personalDetail.GetPersonalDetail
 import com.development.allanproject.model.personalDetail.PersonalDetailPostParam
 import com.development.allanproject.model.personalDetail.PersonalInfromationUpdate
+import com.development.allanproject.model.preferedfacility.GetPreferedFacility
 import com.development.allanproject.model.preferenceModel.GetPreferenceList
 import com.development.allanproject.model.profileSummary.ProfileSummaryGet
 import com.development.allanproject.model.profilesettings.GetMyProfileNotification
@@ -365,6 +378,31 @@ class UserRepository (
         }
     }
 
+    suspend fun  postClockIn( header: HashMap<String, String>,post: ClockInShiftPost) : SignResponse {
+        return apiRequest {
+            api.postClockIn(header,post)
+
+        }
+    }
+
+    suspend fun  postTimeUpdate( header: HashMap<String, String>,post: ClockInOutPost) : SignResponse {
+        return apiRequest {
+            api.postTimeUpdate(header,post)
+        }
+    }
+
+    suspend fun  postBreakTime( header: HashMap<String, String>,post: BreakTimePost) : SignResponse {
+        return apiRequest {
+            api.postBreakTime(header,post)
+        }
+    }
+
+    suspend fun  postClockOut( header: HashMap<String, String>,post: PostClockOutDetail) : SignResponse {
+        return apiRequest {
+            api.postClockOut(header,post)
+        }
+    }
+
     suspend fun  getSpeciality( header: HashMap<String, String>,step: String) : GetSpeciality {
         return apiRequest {
             api.getSpecaility(header,step)
@@ -394,9 +432,56 @@ class UserRepository (
         }
     }
 
+    suspend fun  getMyShiftHistory( header: HashMap<String, String>, type:String,filter:String) : GetMyShift {
+        return apiRequest {
+            api.getShiftHistory(header,type,filter)
+        }
+    }
+
+    suspend fun  getFutureShift( header: HashMap<String, String>,id:String,filter:String) : GetOpenShift{
+        return apiRequest {
+            api.getFutureShiftHistory(header,id,filter)
+        }
+    }
+
+    suspend fun  getDashboard( header: HashMap<String, String>) : GetDashboard{
+        return apiRequest {
+            api.getDashboard(header)
+        }
+    }
+
     suspend fun  getOpenShiftDetail( header: HashMap<String, String>,id:String) : GetOpenShiftDetail {
         return apiRequest {
             api.getOpenShiftDetail(header,id)
+        }
+    }
+
+    suspend fun  getClockOutDetail( header: HashMap<String, String>,id:String) : GetClockOutDetail {
+        return apiRequest {
+            api.getClockOutDetail(header,id)
+        }
+    }
+
+    suspend fun  getPastShiftDetail( header: HashMap<String, String>,id:String) : MyPastShift{
+        return apiRequest {
+            api.getPastShiftDetail(header,id)
+        }
+    }
+
+    suspend fun  getHiddenJob( header: HashMap<String, String>) : GetHiddenJobs{
+        return apiRequest {
+            api.getHiddenJob(header)
+        }
+    }
+
+    suspend fun  getPreferedFacility( header: HashMap<String, String>) : GetPreferedFacility{
+        return apiRequest {
+            api.getPreferedFacility(header)
+        }
+    }
+    suspend fun  getMissedShift( header: HashMap<String, String>) : GetMissedShift{
+        return apiRequest {
+            api.getMissedShift(header)
         }
     }
 
@@ -412,9 +497,34 @@ class UserRepository (
         }
     }
 
+    suspend fun  requestPay( header: HashMap<String, String>, details: RequestPayModel) : SignResponse {
+        return apiRequest {
+            api.requestPay(header,details)
+        }
+    }
+
+    suspend fun  rateFacility( header: HashMap<String, String>, details: RateFacilityModel) : SignResponse {
+        return apiRequest {
+            api.rateFacility(header,details)
+        }
+    }
+
+
+    suspend fun  cancelShift( header: HashMap<String, String>, details: CancelShiftPost) : SignResponse {
+        return apiRequest {
+            api.cancelShift(header,details)
+        }
+    }
+
     suspend fun  applyShift( header: HashMap<String, String>, details: ApplyShiftPost) : SignResponse {
         return apiRequest {
             api.applyShift(header,details)
+        }
+    }
+
+    suspend fun  applyDown( header: HashMap<String, String>, details: ApplyShiftPost) : SignResponse {
+        return apiRequest {
+            api.applyDown(header,details)
         }
     }
 

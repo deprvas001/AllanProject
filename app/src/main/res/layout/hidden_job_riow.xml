@@ -14,8 +14,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             app:cardElevation="5dp"
             app:cardCornerRadius="5dp"
@@ -60,10 +60,9 @@
 
                     <ImageView
                         android:id="@+id/type_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:textColor="#D1439D"
-                        android:src="@drawable/time_icon"
                         android:layout_marginRight="5dp"
                      />
 

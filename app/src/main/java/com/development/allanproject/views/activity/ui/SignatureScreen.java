@@ -32,6 +32,7 @@ import java.io.OutputStreamWriter;
 public class SignatureScreen extends AppCompatActivity {
     private ActivitySignatureScreenBinding  binding;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private Uri signature;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,9 @@ public class SignatureScreen extends AppCompatActivity {
                 Bitmap signatureBitmap = binding.signaturePad.getSignatureBitmap();
                 if (addJpgSignatureToGallery(signatureBitmap)) {
                     Toast.makeText(SignatureScreen.this, "Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("result",signature);
+                    setResult(Activity.RESULT_OK,returnIntent);
                     finish();
                 } else {
                     Toast.makeText(SignatureScreen.this, "Unable to store the signature", Toast.LENGTH_SHORT).show();
@@ -140,6 +144,7 @@ public class SignatureScreen extends AppCompatActivity {
     private void scanMediaFile(File photo) {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         Uri contentUri = Uri.fromFile(photo);
+        signature = contentUri;
         mediaScanIntent.setData(contentUri);
         sendBroadcast(mediaScanIntent);
     }

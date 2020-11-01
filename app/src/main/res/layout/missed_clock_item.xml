@@ -21,7 +21,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/dumy_image"/>
+                />
 
             <LinearLayout
                 android:id="@+id/layout_name"
@@ -37,21 +37,23 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="@color/colorPrimary"
-                    android:text="Facility Name"/>
+                   />
 
                 <TextView
+                    android:id="@+id/type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimary"
                     android:layout_marginRight="10dp"
-                    android:text="Day Shift"/>
+                    />
 
 
                 <ImageView
+                    android:id="@+id/type_image"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:textColor="@color/colorPrimary"
-                    android:src="@drawable/day_icon"/>
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -71,14 +73,15 @@
                     android:textColor="#959595"
                     android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/calendar_icon"
-                    android:text="Time to From"/>
+                    android:text="Date"/>
 
                 <TextView
+                    android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#959595"
                     android:layout_marginRight="10dp"
-                    android:text=" 10:00 AM"/>
+                    />
 
             </LinearLayout>
 
@@ -100,14 +103,15 @@
                     android:textColor="#959595"
                     android:drawablePadding="10dp"
                     android:drawableLeft="@drawable/calendar_icon"
-                    android:text="Date"/>
+                    android:text="Time to Form"/>
 
                 <TextView
+                    android:id="@+id/time_from"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#959595"
                     android:layout_marginRight="10dp"
-                    android:text="20/03/2020"/>
+                    />
 
             </LinearLayout>
 
@@ -133,11 +137,12 @@
                     android:text="Check In: "/>
 
                 <TextView
+                    android:id="@+id/check_in"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#959595"
                     android:layout_marginRight="10dp"
-                    android:text=" 10:00 AM"/>
+                   />
 
             </LinearLayout>
 
@@ -161,11 +166,12 @@
                     android:text="Check Out: "/>
 
                 <TextView
+                    android:id="@+id/check_out"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#959595"
                     android:layout_marginRight="10dp"
-                    android:text=" 10:00 AM"/>
+                    />
 
             </LinearLayout>
 
@@ -173,6 +179,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/update"
             android:layout_width="fill_parent"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"

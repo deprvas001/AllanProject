@@ -20,6 +20,7 @@ import com.development.allanproject.model.signupModel.SignResponse
 import com.development.allanproject.util.*
 import com.development.allanproject.util.openshiftListener.OpenShiftDetailListener
 import com.development.allanproject.views.activity.FacilityProfile
+import com.development.allanproject.views.activity.ui.clockInShift.ClockInShift
 import com.development.allanproject.views.activity.ui.facilityprofile.FacilityProfileScreen
 import kotlinx.android.synthetic.main.activity_personal_detail.*
 import org.kodein.di.Kodein
@@ -55,9 +56,9 @@ class ViewOpenShift : AppCompatActivity(), AuthListener,OpenShiftDetailListener,
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        header.set("user_id", user_id!!)
+        header.set("user_id", "22")
         header.set(
-            "Authorization", token!!
+            "Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjA0MDM5NjgyfQ.e2dEGlcD7rFljlpyI2IJYVG5FwWMDyZE9FeyQwV6N7s"
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")
@@ -76,6 +77,12 @@ class ViewOpenShift : AppCompatActivity(), AuthListener,OpenShiftDetailListener,
         binding.saveShift.setOnClickListener(this)
         binding.apply.setOnClickListener(this)
         binding.request.setOnClickListener(this)
+
+        binding.clockIn.setOnClickListener {
+            val intent = Intent(this,ClockInShift::class.java)
+            intent.putExtra("shift_id", id)
+            startActivity(intent)
+        }
     }
 
     override fun onStarted() {
@@ -85,19 +92,18 @@ class ViewOpenShift : AppCompatActivity(), AuthListener,OpenShiftDetailListener,
     override fun onSuccess(response: SignResponse) {
         binding.progressBar.hide()
 
-        if(response.success && response.code.toInt() == 200){
-           if(isApply == 0){
-               toast("Shift Successfully Saved")
-           }else if(isApply == 1){
-               toast("Shift Successfully Apply")
-           }else if(isApply == 2){
-               toast("Shift Successfully Request")
-           }
-
-        }else{
-            toast(response.msg)
+        if(response.success && response.code.toInt() == 200) {
+            if (isApply == 0) {
+                toast("Shift Successfully Saved")
+            }else {
+                var intent = Intent(this, ApplyShiftScreenView::class.java)
+                intent.putExtra("shift_detail", dataItem!!)
+                intent.putExtra("shift_id", response.shift_id)
+                intent.putExtra("shift_msg",response.msg)
+                intent.putExtra("shift_not_msg", response.msg_noti)
+                startActivity(intent)
+            }
         }
-
     }
 
     override fun onSuccess(response: GetOpenShiftDetail) {
@@ -138,6 +144,12 @@ class ViewOpenShift : AppCompatActivity(), AuthListener,OpenShiftDetailListener,
                 binding.apply.visibility = View.VISIBLE
             }
 
+            if(response.shift.is_saved){
+                binding.saveShift.setText("Remove From Save")
+            }else{
+                binding.saveShift.setText("Save Shift")
+            }
+
         }
     }
 
@@ -150,7 +162,12 @@ class ViewOpenShift : AppCompatActivity(), AuthListener,OpenShiftDetailListener,
     override fun onClick(view: View?) {
         if(view!!.id == R.id.save_shift){
             isApply = 0
-            viewModel.saveShift(header, SaveShiftPost(id!!, true))
+            if(dataItem!!.shift.is_saved){
+                viewModel.saveShift(header, SaveShiftPost(id!!, false))
+            }else{
+                viewModel.saveShift(header, SaveShiftPost(id!!, true))
+            }
+
         }else if(view!!.id == R.id.apply){
             isApply = 1
             viewModel.applyShift(header, ApplyShiftPost(id!!, "apply"))

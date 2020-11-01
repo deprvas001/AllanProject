@@ -13,16 +13,42 @@ class MyShiftViewModel (
 ): ViewModel() {
 
     var myShiftListener: MyShiftListener? = null
+    var openListener: OpenShiftListener? = null
+
+    fun getFutureShift(
+        header: HashMap<String, String>,
+        type:String,
+        filter:String
+    ){
+        openListener?.onStarted()
+
+        Coroutines.main {
+            try{
+                val authResponse = repository.getFutureShift(header,type,filter)
+                authResponse?.let {
+                    openListener?.onSuccess(it)
+                    //repository.saveUser(it)
+                    return@main
+                }
+                openListener?.onFailure(authResponse.success.toString())
+            }catch (e: ApiException){
+                openListener?.onFailure(e.message!!)
+            }catch (e: NoInternetException){
+                openListener?.onFailure(e.message!!)
+            }
+        }
+    }
 
     fun getShift(
         header: HashMap<String, String>,
-        type:String
+        type:String,
+        filter:String
     ){
         myShiftListener?.onStarted()
 
         Coroutines.main {
             try{
-                val authResponse = repository.getMyShift(header,type)
+                val authResponse = repository.getMyShiftHistory(header,type,filter)
                 authResponse?.let {
                     myShiftListener?.onSuccess(it)
                     //repository.saveUser(it)

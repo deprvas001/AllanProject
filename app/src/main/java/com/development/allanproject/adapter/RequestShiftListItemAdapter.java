@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.development.allanproject.R;
+import com.development.allanproject.model.healthDocument.HealthDocumentData;
 import com.development.allanproject.model.openshiftModel.DateShiftData;
 import com.development.allanproject.util.Util;
 import com.development.allanproject.views.activity.ui.openShift.ViewOpenShift;
@@ -20,6 +22,12 @@ import java.util.ArrayList;
 
 public class RequestShiftListItemAdapter extends RecyclerView.Adapter<RequestShiftListItemAdapter.MyViewHolder> {
 
+    RequestShiftListItemAdapter.RequestShiftCallBack callBack;
+    public static String button_type;
+
+    public interface RequestShiftCallBack{
+        void listenerMethod(DateShiftData data);
+    }
 
     private ArrayList<DateShiftData> shiftList;
     private Context context;
@@ -28,6 +36,7 @@ public class RequestShiftListItemAdapter extends RecyclerView.Adapter<RequestShi
         public TextView name,date,address,price,time,type,mile;
         public CardView cardView;
         public ImageView imageView,type_image;
+        public Button accept,down;
 
         public MyViewHolder(View view) {
             super(view);
@@ -40,13 +49,17 @@ public class RequestShiftListItemAdapter extends RecyclerView.Adapter<RequestShi
             type_image = (ImageView)view.findViewById(R.id.type_image);
             imageView = (ImageView)view.findViewById(R.id.imageView);
             cardView = (CardView)view.findViewById(R.id.cardView);
+            accept = (Button)view.findViewById(R.id.accept);
+            down = (Button)view.findViewById(R.id.down);
+
         }
     }
 
 
-    public RequestShiftListItemAdapter(Context context,ArrayList<DateShiftData> shiftList) {
+    public RequestShiftListItemAdapter(Context context, ArrayList<DateShiftData> shiftList, RequestShiftCallBack callBack) {
         this.context = context;
         this.shiftList = shiftList;
+        this.callBack = callBack;
     }
 
     @Override
@@ -88,6 +101,21 @@ public class RequestShiftListItemAdapter extends RecyclerView.Adapter<RequestShi
             }
         });
 
+        holder.accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button_type ="accept";
+                callBack.listenerMethod(data);
+            }
+        });
+
+        holder.down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button_type = "turn_down";
+                callBack.listenerMethod(data);
+            }
+        });
     }
 
     @Override

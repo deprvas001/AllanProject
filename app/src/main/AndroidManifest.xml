@@ -21,13 +21,52 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.activity.ui.requestShift.RequestShiftActivity"
+        <activity android:name=".views.activity.ui.missedShift.MissedShiftScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".views.activity.ui.preferedFacility.PreferedFacilityScreen"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity
+            android:name=".views.activity.ui.hiddenjob.HiddenJobScreen"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity
+            android:name=".views.activity.ui.clockoutDetail.ClockOutDetail"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.clockInDetail.ClockInDetail"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.clockInShift.ClockInShift"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.viewFutureShift.ViewMyFutureShift"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.viewPastShift.ViewPastShift"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.openShift.ApplyShiftScreenView"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".views.activity.ui.requestShift.RequestShiftActivity"
+            android:theme="@style/AppTheme1"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
             android:name=".views.activity.ui.openShift.ViewOpenShift"
             android:label="@string/title_activity_home_screen"
-            android:theme="@style/AppTheme1"></activity>
+            android:theme="@style/AppTheme1" />
         <activity
             android:name=".views.activity.ui.openShift.OpenShiftScreen"
             android:theme="@style/AppTheme1"
@@ -207,11 +246,13 @@
             android:name=".views.activity.ui.login.LoginActivity"
             android:theme="@style/AppTheme1"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".views.activity.ui.addexperience.addWorkExperience.AddExtraExperienceInfo"
@@ -301,7 +342,15 @@
             android:name=".views.activity.HomeScreen"
             android:label="@string/title_activity_home_screen"
             android:theme="@style/AppTheme1"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden">
+
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+
+
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+        </activity>
         <activity
             android:name=".views.activity.EditProfile"
             android:theme="@style/AppTheme1"

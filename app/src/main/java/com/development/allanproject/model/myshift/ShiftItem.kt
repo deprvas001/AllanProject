@@ -15,9 +15,10 @@ data class ShiftItem(
     val time: String,
     val type: String,
     val type_icon: String,
-
     var category:String,
     var name:String,
-    var date:String
+    var date:String,
+    var rating:Float,
+    var isFav:Boolean
 
 )

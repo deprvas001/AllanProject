@@ -6,7 +6,6 @@ import com.development.allanproject.model.commonapi.CityList;
 import com.development.allanproject.model.commonapi.CommonApiData;
 import com.development.allanproject.model.signupModel.SignUpPostModel;
 import com.development.allanproject.model.signupModel.TermsConditionResponse;
-import com.google.android.gms.common.internal.service.Common;
 
 import java.util.HashMap;
 import java.util.Map;

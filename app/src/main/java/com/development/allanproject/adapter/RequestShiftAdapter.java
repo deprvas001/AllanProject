@@ -20,8 +20,10 @@ public class RequestShiftAdapter extends RecyclerView.Adapter<RequestShiftAdapte
 
     private List<GetOpenShiftList> documentList;
     private Context context;
-   RequestShiftListItemAdapter adapter;
+    RequestShiftListItemAdapter adapter;
     RecyclerView.LayoutManager mLayoutManager;
+
+    RequestShiftListItemAdapter.RequestShiftCallBack callBack;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name,date,address;
@@ -36,9 +38,10 @@ public class RequestShiftAdapter extends RecyclerView.Adapter<RequestShiftAdapte
     }
 
 
-    public RequestShiftAdapter(Context context,List<GetOpenShiftList> documentList) {
+    public RequestShiftAdapter(Context context,List<GetOpenShiftList> documentList,RequestShiftListItemAdapter.RequestShiftCallBack callBack) {
         this.context = context;
         this.documentList = documentList;
+        this.callBack = callBack;
     }
 
     @Override
@@ -54,7 +57,7 @@ public class RequestShiftAdapter extends RecyclerView.Adapter<RequestShiftAdapte
         GetOpenShiftList document = documentList.get(position);
         holder.date.setText(document.getDate());
 
-        adapter = new RequestShiftListItemAdapter(context, document.getArray());
+        adapter = new RequestShiftListItemAdapter(context, document.getArray(),callBack);
         mLayoutManager = new LinearLayoutManager(context);
         holder.recyclerView.setLayoutManager(mLayoutManager);
         holder.recyclerView.setItemAnimator(new DefaultItemAnimator());

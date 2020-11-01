@@ -1,0 +1,97 @@
+package com.development.allanproject.adapter;
+
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.development.allanproject.R;
+import com.development.allanproject.model.openshiftModel.DateShiftData;
+import com.development.allanproject.util.Util;
+import com.development.allanproject.views.activity.ui.openShift.ViewOpenShift;
+import com.development.allanproject.views.activity.ui.viewFutureShift.ViewMyFutureShift;
+
+import java.util.ArrayList;
+
+public class FutureShiftListItemAdapter extends RecyclerView.Adapter< FutureShiftListItemAdapter.MyViewHolder> {
+
+    private ArrayList<DateShiftData> shiftList;
+    private Context context;
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView name,date,address,price,time,type,mile;
+        public CardView cardView;
+        public ImageView imageView,type_image;
+
+        public MyViewHolder(View view) {
+            super(view);
+            name = (TextView)view.findViewById(R.id.name);
+            price = (TextView)view.findViewById(R.id.price);
+            address = (TextView)view.findViewById(R.id.address);
+            time = (TextView)view.findViewById(R.id.time);
+            mile = (TextView)view.findViewById(R.id.mile);
+            type = (TextView)view.findViewById(R.id.type);
+            type_image = (ImageView)view.findViewById(R.id.type_image);
+            imageView = (ImageView)view.findViewById(R.id.imageView);
+            cardView = (CardView)view.findViewById(R.id.cardView);
+        }
+    }
+
+
+    public  FutureShiftListItemAdapter(Context context,ArrayList<DateShiftData> shiftList) {
+        this.context = context;
+        this.shiftList = shiftList;
+    }
+
+    @Override
+    public  FutureShiftListItemAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.hidden_job_riow, parent, false);
+
+        return new  FutureShiftListItemAdapter.MyViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder( FutureShiftListItemAdapter.MyViewHolder holder, int position) {
+        DateShiftData data = shiftList.get(position);
+        holder.name.setText(data.getFacility_name());
+        holder.address.setText(data.getAddress());
+        holder.time.setText(data.getTime());
+        holder.price.setText(data.getPrice());
+        holder.type.setText(data.getType());
+        holder.mile.setText(data.getDistance());
+        if(data.getIcon() !=null){
+            Util.loadImage(
+                    holder.imageView,data.getIcon(),
+                    Util.getCircularDrawable(context)
+            );
+        }
+        if(data.getType_icon() !=null){
+            Util.loadImage(
+                    holder.type_image,data.getType_icon(),
+                    Util.getCircularDrawable(context)
+            );
+        }
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ViewMyFutureShift.class);
+                intent.putExtra("shift_id", data.getId());
+                context.startActivity(intent);
+            }
+        });
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return shiftList.size();
+    }
+}

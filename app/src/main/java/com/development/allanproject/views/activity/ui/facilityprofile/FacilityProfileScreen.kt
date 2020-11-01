@@ -59,9 +59,9 @@ class FacilityProfileScreen : AppCompatActivity() ,AuthListener, FacilityProfile
         var user_id = user[SessionManager.KEY_USERID]
         var token = user[SessionManager.KEY_TOKEN]
 
-        header.set("user_id", user_id!!)
+        header.set("user_id", "22")
         header.set(
-            "Authorization",token!!
+            "Authorization","eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyMiwiZXhwIjoxNjAzOTUxMDA0fQ.gu5uLksY_2dCvxMHVft7o2fKKV4ciXR30-DUMEHu4dw"
         )
         header.set("device_type_id", "1")
         header.set("v_code", "7")

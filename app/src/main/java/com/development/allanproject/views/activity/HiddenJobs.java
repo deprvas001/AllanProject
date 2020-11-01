@@ -42,11 +42,11 @@ ActivityHiddenJobsBinding jobsBinding;
             job.setName("Facility Name");
             dataList.add(job);
         }
-        adapter = new HiddenJobAdapter(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-        jobsBinding.recyclerView.setLayoutManager(mLayoutManager);
-        jobsBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        jobsBinding.recyclerView.setAdapter(adapter);
+//        adapter = new HiddenJobAdapter(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        jobsBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        jobsBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        jobsBinding.recyclerView.setAdapter(adapter);
     }
 
     @Override

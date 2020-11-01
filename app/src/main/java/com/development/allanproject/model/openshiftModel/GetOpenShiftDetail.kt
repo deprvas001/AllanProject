@@ -1,5 +1,9 @@
 package com.development.allanproject.model.openshiftModel
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class GetOpenShiftDetail(
     val auth_token: String,
     val code: Int,
@@ -7,4 +11,4 @@ data class GetOpenShiftDetail(
     val status: String,
     val success: Boolean,
     val user_id: Int
-)
+):Parcelable

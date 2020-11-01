@@ -41,11 +41,11 @@ ActivityPreferredFacilityScreenBinding screenBinding;
             language.setName("Facility Name");
             dataList.add(language);
         }
-        adapter = new PreferedFacilityAdapter(this, dataList);
-        mLayoutManager = new LinearLayoutManager(this);
-        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
-        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        screenBinding.recyclerView.setAdapter(adapter);
+//        adapter = new PreferedFacilityAdapter(this, dataList);
+//        mLayoutManager = new LinearLayoutManager(this);
+//        screenBinding.recyclerView.setLayoutManager(mLayoutManager);
+//        screenBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        screenBinding.recyclerView.setAdapter(adapter);
     }
 
     @Override

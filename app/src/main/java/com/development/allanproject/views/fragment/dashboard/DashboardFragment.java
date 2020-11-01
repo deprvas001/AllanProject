@@ -1,4 +1,4 @@
-package com.development.allanproject.views.activity.ui.dashboard;
+package com.development.allanproject.views.fragment.dashboard;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,11 +17,15 @@ import com.development.allanproject.R;
 import com.development.allanproject.databinding.FragmentDashboardBinding;
 import com.development.allanproject.adapter.DashBoardAdapter;
 import com.development.allanproject.model.DashBoardClass;
+import com.development.allanproject.util.dashboardListener.DashboardListener;
+import com.development.allanproject.views.activity.ui.dashboard.DashboardViewModel;
+
+import org.kodein.di.KodeinAware;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment  {
     FragmentDashboardBinding dashboardBinding;
     private DashboardViewModel dashboardViewModel;
     DashBoardAdapter adapter;
@@ -67,11 +71,6 @@ public class DashboardFragment extends Fragment {
         dataList.add(language);
 
 
-        adapter = new DashBoardAdapter(getActivity(), dataList);
-        mLayoutManager = new GridLayoutManager(getActivity(), 2);
-        dashboardBinding.recyclerView.setLayoutManager(mLayoutManager);
-        dashboardBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        dashboardBinding.recyclerView.setAdapter(adapter);
 
         adapter = new DashBoardAdapter(getActivity(), dataList);
         mLayoutManager = new GridLayoutManager(getActivity(), 2);
